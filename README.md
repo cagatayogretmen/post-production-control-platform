@@ -4,4 +4,4 @@ This web platform is for entering the products of the factory into the system an
 
 Dashboard is developed to follow up post production organizations, controls and statistics.
 
-this website will be used at the factory
+This website will be used at the factory
