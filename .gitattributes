@@ -1,1 +1,2 @@
 *.html linguist-language=python
+*.javascript linguist-language=python
