@@ -1,0 +1,34 @@
+{% extends 'base1.html' %}
+{%load staticfiles%}
+
+
+{% block content %}
+
+      <!-- Right side column. Contains the navbar and content of the page -->
+      <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+          <h1>
+            Süreç Oluşturma Paneli
+          </h1>
+          <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Anasayfa</a></li>
+            <li><a href="#">Süreç oluştur</a></li>
+          </ol>
+        </section>
+
+      </section>
+      <section class="content">
+          <div class="row">
+            <div class="col-md-6">
+                <button class="btn btn-block btn-default btn-lg"><a href="{% url 'create-process1' %}">1.Süreç Ekle</a></button>
+                <button class="btn btn-block btn-default btn-lg"><a href="{% url 'create-process2' %}">2.Süreç Ekle</a></button>
+                <button class="btn btn-block btn-default btn-lg"><a href="{% url 'create-process3' %}">3.Süreç Ekle</a></button>
+
+            </div><!--/.col (right) -->
+          </div>   <!-- /.row -->
+        </section><!-- /.content -->
+      </div>
+
+
+{% endblock %} 

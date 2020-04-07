@@ -1,0 +1,58 @@
+{% extends 'base1.html' %}
+{%load staticfiles%}
+
+{% block content %}
+
+
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        {{title}}
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="{% url 'home' %}"><i class="fa fa-dashboard"></i> Anasayfa</a></li>
+        <li><a href="#">{{title}}</a></li>
+      </ol>
+    </section>
+
+    <section class="content">
+      <div class="row">
+        <div class="col-md-12">
+          <!-- general form elements disabled -->
+
+          <div class="box">
+              <div class="box-body">
+                <table id="example1" class="table table-bordered table-striped">
+                  <thead>
+                    <tr>
+                      <th>Ürün İsmi</th>
+                      <th>Oluşturan</th>
+                      <th>Miktar</th>
+                      <th>Üretim Sipariş Numarası</th>
+                      <th>Sipariş Pozisyon Numarası</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+
+                    {% for process in all_processes %}
+                    <tr>
+                      <td><a href="{% url 'detail-process2' process.pk %}">{{ process.product }}</a></td>
+                      <td>{{ process.created_by }}</td>
+                      <td>{{ process.slug }}</td>
+                      <td>{{ process.updated_on }}</td>
+                      <td>{{ process.created_on }}</td>
+                    </tr>
+                    {% endfor %}   
+
+                  </tbody>
+                </table>
+              </div><!-- /.box-body -->
+            </div><!-- /.box -->
+        </div><!--/.col (right) -->
+      </div>   <!-- /.row -->
+    </section><!-- /.content -->
+</div>
+    
+{% endblock %} 

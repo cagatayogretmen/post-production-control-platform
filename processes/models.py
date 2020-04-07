@@ -18,15 +18,15 @@ sorular = ['soru1','soru2','soru3','soru4','soru5']
 
 
 class Product(models.Model):
-    product_name = models.CharField(max_length=200, unique=True)
+    product_name = models.CharField(max_length=200)
     created_by = models.ForeignKey(User, on_delete= models.CASCADE,related_name='user_product')    
     status = models.IntegerField(choices=STATUS, default=0)
     slug = models.SlugField(max_length=200, unique=True)
-    production_order_no = models.CharField(max_length=200, unique=True)
-    order_position_no = models.CharField(max_length=200, unique=True)
-    reference_no = models.CharField(max_length=200, unique=True)
-    quantity = models.CharField(max_length=200, unique=True)
-    working_pressure = models.CharField(max_length=200, unique=True)
+    production_order_no = models.CharField(max_length=200)
+    order_position_no = models.CharField(max_length=200)
+    reference_no = models.CharField(max_length=200)
+    quantity = models.CharField(max_length=200)
+    working_pressure = models.CharField(max_length=200)
     updated_on = models.DateTimeField(auto_now= True)
     created_on = models.DateTimeField(auto_now_add=True)
     picture = models.ImageField(upload_to='images/', blank=True)

@@ -35,7 +35,7 @@
       
       <header class="main-header">
         <!-- Logo -->
-        <a href="index2.html" class="logo"><b>Rexroth</b>APP</a>
+        <a href="{% url 'home' %}" class="logo"><b>Rexroth</b>APP</a>
         <!-- Header Navbar: style can be found in header.less -->
         <nav class="navbar navbar-static-top" role="navigation">
           <!-- Sidebar toggle button-->
@@ -56,10 +56,6 @@
                     <!-- User image -->
                     <li class="user-header">
                       <img src="{% static 'dist/img/cagatay.jpg' %}" class="img-circle" alt="User Image" />
-                      <p>
-                
-                        <small>Member since Nov. 2012</small>
-                      </p>
                     </li>
                     <!-- Menu Body -->
                     <li class="user-body">
@@ -100,12 +96,11 @@
           <!-- Sidebar user panel -->
           <div class="user-panel">
             <div class="pull-left image">
+              {% if user.is_authenticated %}
               <img src="{% static 'dist/img/cagatay.jpg' %}" class="img-circle" alt="User Image" />
             </div>
             <div class="pull-left info">
-                {% if user.is_authenticated %}
                 <p>{{ user.username }}</p>
-               
               {% else %}
               <a href="{% url 'login' %}">Kullanıcı girişi yapılmadı</a>
               {% endif %}     
@@ -126,16 +121,16 @@
           <ul class="sidebar-menu">
             <li class="header">Ana menüler</li>
 
-              <li><a href="documentation/index.html"><i class="fa fa-shopping-cart"></i> Ürünler</a></li>
-              <li><a href="documentation/index.html"><i class="fa fa-asterisk"></i> Visual inspection süreci</a></li>
-              <li><a href="documentation/index.html"><i class="fa fa-asterisk"></i> Piping-hose-welding süreci</a></li>
-              <li><a href="documentation/index.html"><i class="fa fa-asterisk"></i> Painting süreci</a></li>
-              <li><a href="documentation/index.html"><i class="fa fa-book"></i> Raporlar</a></li>
+              <li><a href="{% url 'list-product' %}"><i class="fa fa-shopping-cart"></i> Ürünler</a></li>
+              <li><a href="{% url 'list-process1' %}"><i class="fa fa-asterisk"></i> Visual inspection süreci</a></li>
+              <li><a href="{% url 'list-process2' %}"><i class="fa fa-asterisk"></i> Piping-hose-welding süreci</a></li>
+              <li><a href="{% url 'list-process3' %}"><i class="fa fa-asterisk"></i> Painting süreci</a></li>
+              <li><a href=""><i class="fa fa-book"></i> Raporlar</a></li>
 
 
             <li class="header">Kullanıcı Ayarları</li>
-            <li><a href="documentation/index.html"><i class="fa fa-user"></i> Kullanıcı bilgilerim</a></li>
-            <li><a href="documentation/index.html"><i class="fa fa-list-ul"></i> Yetkilerim</a></li>
+            <li><a href=""><i class="fa fa-user"></i> Kullanıcı bilgilerim</a></li>
+            <li><a href=""><i class="fa fa-list-ul"></i> Yetkilerim</a></li>
         </ul>
         </section>
         <!-- /.sidebar -->
@@ -144,10 +139,7 @@
 
 
 
-
-
     {% endblock %}
-
 
       <footer class="main-footer">
         <div class="pull-right hidden-xs">
