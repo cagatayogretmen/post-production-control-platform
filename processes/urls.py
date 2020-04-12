@@ -10,6 +10,8 @@ urlpatterns = [
     path('', views.index, name='home'),
     path('create_process/', views.process_create_main, name = 'create-process-main'),
     
+    path('create_pdf/', views.pdf_create, name = 'create-pdf'),
+    
     #product urls
     path('list_product/', views.product_list, name='list-product'),
     path('create_product/', views.product_create, name = 'create-product'),
@@ -37,5 +39,36 @@ urlpatterns = [
     path('detail_process3/(?P<pk>[0-9]+)/$', views.process3_detail, name='detail-process3'),
     path('update_process3/(?P<pk>[0-9]+)/$', views.process3_update, name='update-process3'),
     path('delete_process3/(?P<pk>[0-9]+)/$', views.process3_delete, name='delete-process3'),
+
+    #process4 urls
+    path('list_process4/', views.process4_list, name='list-process4'),
+    path('create_process4/', views.process4_create, name='create-process4'),
+    path('detail_process4/(?P<pk>[0-9]+)/$', views.process4_detail, name='detail-process4'),
+    path('update_process4/(?P<pk>[0-9]+)/$', views.process4_update, name='update-process4'),
+    path('delete_process4/(?P<pk>[0-9]+)/$', views.process4_delete, name='delete-process4'),
+
+
+    #process5 urls
+    path('list_process5/', views.process5_list, name='list-process5'),
+    path('create_process5/', views.process5_create, name='create-process5'),
+    path('detail_process5/(?P<pk>[0-9]+)/$', views.process5_detail, name='detail-process5'),
+    path('update_process5/(?P<pk>[0-9]+)/$', views.process5_update, name='update-process5'),
+    path('delete_process5/(?P<pk>[0-9]+)/$', views.process5_delete, name='delete-process5'),
+
+    #process6 urls
+    path('list_process6/', views.process6_list, name='list-process6'),
+    path('create_process6/', views.process6_create, name='create-process6'),
+    path('detail_process6/(?P<pk>[0-9]+)/$', views.process6_detail, name='detail-process6'),
+    path('update_process6/(?P<pk>[0-9]+)/$', views.process6_update, name='update-process6'),
+    path('delete_process6/(?P<pk>[0-9]+)/$', views.process6_delete, name='delete-process6'),
+
+    #process7 urls
+    path('list_process7/', views.process7_list, name='list-process7'),
+    path('create_process7/', views.process7_create, name='create-process7'),
+    path('detail_process7/(?P<pk>[0-9]+)/$', views.process7_detail, name='detail-process7'),
+    path('update_process7/(?P<pk>[0-9]+)/$', views.process7_update, name='update-process7'),
+    path('delete_process7/(?P<pk>[0-9]+)/$', views.process7_delete, name='delete-process7'),
+
+
     ]
 

@@ -1,0 +1,31 @@
+{% extends 'base_accounts.html' %}
+{% load staticfiles %}
+
+{% block title %}Sisteme Giriş | RexrothAPP{% endblock %}
+
+{% block content %}
+  </head>
+  <body class="login-page">
+    <div class="login-box">
+      <div class="login-logo">
+        <a href=""><b>Rexroth</b>APP</a>
+      </div><!-- /.login-logo -->
+      <div class="login-box-body">
+        <p class="login-box-msg">Bosch Rexroth Kalite Kontrol Uygulaması</p>
+
+        <form role="form" action="{% url 'user-login' %}" method="post">
+            {% csrf_token %}
+                <!-- text input -->
+            {% for field in form %}
+            <div class="form-group">
+              <label>{{ field.label }}</label></br>
+              {{ field }}
+            </div>
+            {% endfor %}
+            <button type="submit" class="btn btn-primary btn-block btn-flat">Giriş Yap</button>
+          </form> <br>
+        <a href="{% url 'register' %}" class="text-center">Yeni üyelik oluştur</a><br>
+        <span>Şifrenizi unuttuysanız OMM ile iletişime geçiniz</span>    
+      </div><!-- /.login-box-body -->
+    </div><!-- /.login-box -->
+{% endblock %}

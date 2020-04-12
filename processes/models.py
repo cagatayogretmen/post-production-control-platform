@@ -3,6 +3,8 @@ from django.contrib.auth.models import User
 from datetime import datetime
 from django.utils.timezone import now
 
+
+
 STATUS = (
     (0,"In Process"),
     (1,"Controlled")
@@ -38,7 +40,7 @@ class Product(models.Model):
     def __str__(self):
         return self.product_name
 
-class Process_first(models.Model):
+class Process_1(models.Model):
     product = models.ForeignKey(Product, on_delete= models.CASCADE,related_name='product_process1')
     created_by = models.ForeignKey(User, on_delete= models.CASCADE,related_name='user_process1')    
     status = models.IntegerField(choices=STATUS, default=0)  
@@ -55,9 +57,7 @@ class Process_first(models.Model):
     def __str__(self):
         return self.slug
 
-
-    
-class Process_second(models.Model):
+class Process_2(models.Model):
     product = models.ForeignKey(Product, on_delete= models.CASCADE,related_name='product_process2')
     created_by = models.ForeignKey(User, on_delete= models.CASCADE,related_name='user_process2')    
     status = models.IntegerField(choices=STATUS, default=0)  
@@ -74,10 +74,77 @@ class Process_second(models.Model):
     def __str__(self):
         return self.slug
 
-
-class Process_three(models.Model):
+class Process_3(models.Model):
     product = models.ForeignKey(Product, on_delete= models.CASCADE,related_name='product_process3')
     created_by = models.ForeignKey(User, on_delete= models.CASCADE,related_name='user_process3')    
+    status = models.IntegerField(choices=STATUS, default=0)  
+    slug = models.SlugField(max_length=200, unique=True)
+    updated_on = models.DateTimeField(auto_now= True)
+    created_on = models.DateTimeField(auto_now_add=True)
+
+    for soru in sorular:
+        exec("%s = models.IntegerField(choices=RESULT, default=0)" % (soru))
+    content = models.TextField()
+
+    class Meta:
+        ordering = ['-created_on']
+    def __str__(self):
+        return self.slug
+
+class Process_4(models.Model):
+    product = models.ForeignKey(Product, on_delete= models.CASCADE,related_name='product_process4')
+    created_by = models.ForeignKey(User, on_delete= models.CASCADE,related_name='user_process4')    
+    status = models.IntegerField(choices=STATUS, default=0)  
+    slug = models.SlugField(max_length=200, unique=True)
+    updated_on = models.DateTimeField(auto_now= True)
+    created_on = models.DateTimeField(auto_now_add=True)
+
+    for soru in sorular:
+        exec("%s = models.IntegerField(choices=RESULT, default=0)" % (soru))
+    content = models.TextField()
+
+    class Meta:
+        ordering = ['-created_on']
+    def __str__(self):
+        return self.slug
+
+class Process_5(models.Model):
+    product = models.ForeignKey(Product, on_delete= models.CASCADE,related_name='product_process5')
+    created_by = models.ForeignKey(User, on_delete= models.CASCADE,related_name='user_process5')    
+    status = models.IntegerField(choices=STATUS, default=0)  
+    slug = models.SlugField(max_length=200, unique=True)
+    updated_on = models.DateTimeField(auto_now= True)
+    created_on = models.DateTimeField(auto_now_add=True)
+
+    for soru in sorular:
+        exec("%s = models.IntegerField(choices=RESULT, default=0)" % (soru))
+    content = models.TextField()
+
+    class Meta:
+        ordering = ['-created_on']
+    def __str__(self):
+        return self.slug
+
+class Process_6(models.Model):
+    product = models.ForeignKey(Product, on_delete= models.CASCADE,related_name='product_process6')
+    created_by = models.ForeignKey(User, on_delete= models.CASCADE,related_name='user_process6')    
+    status = models.IntegerField(choices=STATUS, default=0)  
+    slug = models.SlugField(max_length=200, unique=True)
+    updated_on = models.DateTimeField(auto_now= True)
+    created_on = models.DateTimeField(auto_now_add=True)
+
+    for soru in sorular:
+        exec("%s = models.IntegerField(choices=RESULT, default=0)" % (soru))
+    content = models.TextField()
+
+    class Meta:
+        ordering = ['-created_on']
+    def __str__(self):
+        return self.slug
+
+class Process_7(models.Model):
+    product = models.ForeignKey(Product, on_delete= models.CASCADE,related_name='product_process7')
+    created_by = models.ForeignKey(User, on_delete= models.CASCADE,related_name='user_process7')    
     status = models.IntegerField(choices=STATUS, default=0)  
     slug = models.SlugField(max_length=200, unique=True)
     updated_on = models.DateTimeField(auto_now= True)

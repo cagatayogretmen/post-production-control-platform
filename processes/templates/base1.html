@@ -3,7 +3,7 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>RexrothAPP</title>
+    <title>{% block title %} RexrothAPP {% endblock %}</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <!-- Bootstrap 3.3.2 -->
     <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css" />    
@@ -52,36 +52,30 @@
                   {% if user.is_authenticated %}
                   <img src="{% static 'dist/img/cagatay.jpg' %}" class="user-image" alt="User Image"/>                  
                   <span class="hidden-xs">{{ user.username }}</span>
+                </a>
                   <ul class="dropdown-menu">               
                     <!-- User image -->
                     <li class="user-header">
                       <img src="{% static 'dist/img/cagatay.jpg' %}" class="img-circle" alt="User Image" />
+                      <p>
+                        {{user.username}}
+                        <small>Member since Nov. 2012</small>
+                      </p>
                     </li>
                     <!-- Menu Body -->
-                    <li class="user-body">
-                      <div class="col-xs-4 text-center">
-                        <a href="#">Followers</a>
-                      </div>
-                      <div class="col-xs-4 text-center">
-                        <a href="#">Sales</a>
-                      </div>
-                      <div class="col-xs-4 text-center">
-                        <a href="#">Friends</a>
-                      </div>
-                    </li>
                     <!-- Menu Footer-->
                     <li class="user-footer">
                       <div class="pull-left">
                         <a href="#" class="btn btn-default btn-flat">Profile</a>
                       </div>
                       <div class="pull-right">
-                        <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                        <a href="{% url 'user-logout' %}" class="btn btn-default btn-flat">Çıkış Yap</a>
                       </div>
                     </li>
                   </ul>
                   {% else %}
                   <!--BURAYA GİRİŞ YAP BUTONU GELECEK-->
-                   <span data-url= "{% url 'login' %}" class="hidden-xs">Giriş yap</span>
+                   <span onclick="window.location.href='{% url 'user-login' %}';">Giriş Yap</span>
                   {% endif %}
                 </a>
               </li>
@@ -101,8 +95,9 @@
             </div>
             <div class="pull-left info">
                 <p>{{ user.username }}</p>
+                <a><i class="fa fa-circle text-success"></i> Online</a>
               {% else %}
-              <a href="{% url 'login' %}">Kullanıcı girişi yapılmadı</a>
+              <a>Kullanıcı girişi yapılmadı</a>
               {% endif %}     
               {% endblock %}     
             </div>
@@ -121,10 +116,14 @@
           <ul class="sidebar-menu">
             <li class="header">Ana menüler</li>
 
-              <li><a href="{% url 'list-product' %}"><i class="fa fa-shopping-cart"></i> Ürünler</a></li>
-              <li><a href="{% url 'list-process1' %}"><i class="fa fa-asterisk"></i> Visual inspection süreci</a></li>
-              <li><a href="{% url 'list-process2' %}"><i class="fa fa-asterisk"></i> Piping-hose-welding süreci</a></li>
-              <li><a href="{% url 'list-process3' %}"><i class="fa fa-asterisk"></i> Painting süreci</a></li>
+              <li><a href="{% url 'list-product'  %}"><i class="fa fa-shopping-cart"></i> Ürünler</a></li>
+              <li><a href="{% url 'list-process1' %}"><i class="fa fa-asterisk"></i> 1.Süreç</a></li>
+              <li><a href="{% url 'list-process2' %}"><i class="fa fa-asterisk"></i> 2.Süreç</a></li>
+              <li><a href="{% url 'list-process3' %}"><i class="fa fa-asterisk"></i> 3.Süreç</a></li>
+              <li><a href="{% url 'list-process4' %}"><i class="fa fa-asterisk"></i> 4.Süreç</a></li>
+              <li><a href="{% url 'list-process5' %}"><i class="fa fa-asterisk"></i> 5.Süreç</a></li>
+              <li><a href="{% url 'list-process6' %}"><i class="fa fa-asterisk"></i> 6.Süreç</a></li>
+              <li><a href="{% url 'list-process7' %}"><i class="fa fa-asterisk"></i> 7.Süreç</a></li>
               <li><a href=""><i class="fa fa-book"></i> Raporlar</a></li>
 
 
