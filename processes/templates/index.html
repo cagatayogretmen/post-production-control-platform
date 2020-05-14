@@ -22,25 +22,30 @@
         <section class="content">
           <!-- Small boxes (Stat box) -->
           <div class="row">
-            <div class="col-md-1">
-              <a class="btn btn-app" href= "{% url 'create-product' %}">
-                <i class="fa fa-plus"></i> Yeni ürün
-              </a>
-              <a class="btn btn-app" href="{% url 'create-process-main' %}">
-                <i class="fa fa-plus"></i> Yeni süreç
-              </a>
-            </div>
-    <!-- small box -->
-            <div class="col-lg-4 col-xs-6">          
+            <div class="col-lg-3 col-xs-6">          
               <div class="small-box bg-red">
                 <div class="inner">
                   <h3>{{ adet }}</h3>
-                  <p>Son 1 aydaki üretim adeti</p>
+                  <p>Toplam ürün adeti</p>
                 </div>
                 <div class="icon">
-                  <i class="ion ion-bag"></i>
+                  <a href = "{% url 'create-product'%}"><i class="ion ion-ios-cart-outline"></i></a>
                 </div>
-                <a href="{% url 'list-product'%}" class="small-box-footer">Tüm ürünlere git <i class="fa fa-arrow-circle-right"></i></a>
+                <a href="{% url 'create-product'%}" class="small-box-footer">Ürün kontrolü oluştur 
+                  <i class="fa fa-arrow-circle-right"></i></a>
+              </div>
+            </div><!-- ./col -->
+    <!-- small box -->
+            <div class="col-lg-3 col-xs-6">          
+              <div class="small-box bg-purple">
+                <div class="inner">
+                  <h3>6 </h3>
+                  <p>Kontroldeki ürün adeti</p>
+                </div>
+                <div class="icon">
+                  <a href="{% url 'create-process-main'%}"><i class="ion ion-ios-briefcase-outline"></i></a>
+                </div>
+                <a href="{% url 'create-process-main'%}" class="small-box-footer">Süreç oluştur <i class="fa fa-arrow-circle-right"></i></a>
               </div>
             </div><!-- ./col -->
             <div class="col-lg-3 col-xs-6">
@@ -51,21 +56,21 @@
                   <p>Üretim hızı</p>
                 </div>
                 <div class="icon">
-                  <i class="ion ion-stats-bars"></i>
+                  <a href=""><i class="ion ion-stats-bars"></i></a>
                 </div>
                 <a href="#" class="small-box-footer">Detaylı bilgi <i class="fa fa-arrow-circle-right"></i></a>
               </div>
             </div><!-- ./col -->
-            <div class="col-lg-4 col-xs-6">          
+            <div class="col-lg-3 col-xs-6">          
               <div class="small-box bg-yellow">
                 <div class="inner">
                   <h3>13</h3>
-                  <p>Son 1 aydaki kontrol edilmiş ürün adeti</p>
+                  <p>Kontrol edilmiş</p>
                 </div>
                 <div class="icon">
-                  <i class="ion ion-bag"></i>
+                  <a href=""><i class="ion ion-pie-graph"></i></a>
                 </div>
-                <a href="#" class="small-box-footer">Kontrolü tamamlanmış ürünlere git <i class="fa fa-arrow-circle-right"></i></a>
+                <a href="#" class="small-box-footer">Tamamlanmış ürünler <i class="fa fa-arrow-circle-right"></i></a>
               </div>
             </div><!-- ./col -->
           </div><!-- /.row -->
@@ -73,106 +78,23 @@
           <div class="row">
             <div class="col-md-12">
               <div class="box">
-                <div class="box-header with-border">
-                  <h3 class="box-title">Aylık ürün kontrol raporu</h3>
-                  <div class="box-tools pull-right">
-                    <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-                    <div class="btn-group">
-                      <button class="btn btn-box-tool dropdown-toggle" data-toggle="dropdown"><i class="fa fa-wrench"></i></button>
-                      <ul class="dropdown-menu" role="menu">
-                        <li><a href="#">Action</a></li>
-                        <li><a href="#">Another action</a></li>
-                        <li><a href="#">Something else here</a></li>
-                        <li class="divider"></li>
-                        <li><a href="#">Separated link</a></li>
-                      </ul>
-                    </div>
-                    <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                <div class="nav-tabs-custom">
+                  <!-- Tabs within a box -->
+                  <ul class="nav nav-tabs pull-right">
+                    <li class="active"><a href="#revenue-chart" data-toggle="tab">Area</a></li>
+                    <li><a href="#sales-chart" data-toggle="tab">Donut</a></li>
+                    <li class="pull-left header"><i class="fa fa-inbox"></i> Ürün Kontrol Süreci Grafiği</li>
+                  </ul>
+                  <div class="tab-content no-padding">
+                    <!-- Morris chart - Sales -->
+                    <div class="chart tab-pane active" id="revenue-chart" style="position: relative; height: 300px;"></div>
+                    <div class="chart tab-pane" id="sales-chart" style="position: relative; height: 300px;"></div>
                   </div>
-                </div><!-- /.box-header -->
-                <div class="box-body">
-                  <div class="row">
-                    <div class="col-md-8">
-                      <p class="text-center">
-                        <strong>Üretim: 1 Ocak, 2019 - 30 Temmuz, 2020</strong>
-                      </p>
-                      <div class="chart-responsive">
-                        <!-- Sales Chart Canvas -->
-                        <canvas id="salesChart" height="180"></canvas>
-                      </div><!-- /.chart-responsive -->
-                    </div><!-- /.col -->
-                    <div class="col-md-4">
-                      <p class="text-center">
-                        <strong>İstatistikler</strong>
-                      </p>
-                      <div class="progress-group">
-                        <span class="progress-text">Kontrol edilen ürün</span>
-                        <span class="progress-number"><b>13</b>/22</span>
-                        <div class="progress sm">
-                          <div class="progress-bar progress-bar-aqua" style="width: 80%"></div>
-                        </div>
-                      </div><!-- /.progress-group -->
-                      <div class="progress-group">
-                        <span class="progress-text">Visual inspection süreci biten</span>
-                        <span class="progress-number"><b>19</b>/22</span>
-                        <div class="progress sm">
-                          <div class="progress-bar progress-bar-red" style="width: 80%"></div>
-                        </div>
-                      </div><!-- /.progress-group -->
-                      <div class="progress-group">
-                        <span class="progress-text">Piping süreci biten</span>
-                        <span class="progress-number"><b>16</b>/22</span>
-                        <div class="progress sm">
-                          <div class="progress-bar progress-bar-green" style="width: 80%"></div>
-                        </div>
-                      </div><!-- /.progress-group -->
-                      <div class="progress-group">
-                        <span class="progress-text">Painting süreci biten</span>
-                        <span class="progress-number"><b>13</b>/22</span>
-                        <div class="progress sm">
-                          <div class="progress-bar progress-bar-yellow" style="width: 80%"></div>
-                        </div>
-                      </div><!-- /.progress-group -->
-                    </div><!-- /.col -->
-                  </div><!-- /.row -->
-                </div><!-- ./box-body -->
-                <div class="box-footer">
-                  <div class="row">
-                    <div class="col-sm-3 col-xs-6">
-                      <div class="description-block border-right">
-                        <span class="description-percentage text-green"><i class="fa fa-caret-up"></i> 17%</span>
-                        <h5 class="description-header">$35,210.43</h5>
-                        <span class="description-text">Deneme</span>
-                      </div><!-- /.description-block -->
-                    </div><!-- /.col -->
-                    <div class="col-sm-3 col-xs-6">
-                      <div class="description-block border-right">
-                        <span class="description-percentage text-yellow"><i class="fa fa-caret-left"></i> 0%</span>
-                        <h5 class="description-header">$10,390.90</h5>
-                        <span class="description-text">Deneme1</span>
-                      </div><!-- /.description-block -->
-                    </div><!-- /.col -->
-                    <div class="col-sm-3 col-xs-6">
-                      <div class="description-block border-right">
-                        <span class="description-percentage text-green"><i class="fa fa-caret-up"></i> 20%</span>
-                        <h5 class="description-header">$24,813.53</h5>
-                        <span class="description-text">Deneme2</span>
-                      </div><!-- /.description-block -->
-                    </div><!-- /.col -->
-                    <div class="col-sm-3 col-xs-6">
-                      <div class="description-block">
-                        <span class="description-percentage text-red"><i class="fa fa-caret-down"></i> 18%</span>
-                        <h5 class="description-header">1200</h5>
-                        <span class="description-text">Deneme3</span>
-                      </div><!-- /.description-block -->
-                    </div>
-                  </div><!-- /.row -->
-                </div><!-- /.box-footer -->
-              </div><!-- /.box -->
-            </div><!-- /.col -->
-          </div><!-- /.row -->
-        </section><!-- /.content -->
-      </div><!-- /.content-wrapper -->
-
+                </div><!-- /.nav-tabs-custom -->
+              </div><!-- ./box-body -->
+            </div>
+          </div>
+        </section>
+      </div>
 
 {% endblock %} 

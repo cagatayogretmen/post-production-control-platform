@@ -1,6 +1,9 @@
 from django.contrib import admin
 from .models import Product, Process_1, Process_2, Process_3, Process_4, Process_5, Process_6, Process_7
-
+from accounts.models import UserProfile
+from django.contrib.auth.models import User
+from django.shortcuts import render,HttpResponse,redirect,get_object_or_404,reverse, HttpResponseRedirect
+from django.contrib.auth import authenticate
 
 class Product_list(admin.ModelAdmin):
     list_display = ('product_name', 'slug', 'status','created_on','production_order_no','order_position_no','quantity')
@@ -9,19 +12,19 @@ class Product_list(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('product_name',)}
 
 class Process_list_1(admin.ModelAdmin):
-    list_display = ('product', 'slug', 'status','created_on')
+    list_display = ('product', 'slug', 'status','created_on','updated_on')
     list_filter = ("status",'created_by','created_on')
     search_fields = ['product', 'content']
     prepopulated_fields = {'slug': ('product',)}
 
 class Process_list_2(admin.ModelAdmin):
-    list_display = ('product', 'slug', 'status','created_on')
+    list_display = ('product', 'slug', 'status','created_on','updated_on')
     list_filter = ("status",'created_by','created_on')
     search_fields = ['product', 'content']
     prepopulated_fields = {'slug': ('product',)}
 
 class Process_list_3(admin.ModelAdmin):
-    list_display = ('product', 'slug', 'status','created_on')
+    list_display = ('product', 'slug', 'status','created_on','updated_on')
     list_filter = ("status",'created_by','created_on')
     search_fields = ['product', 'content']
     prepopulated_fields = {'slug': ('product',)}

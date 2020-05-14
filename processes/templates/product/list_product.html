@@ -1,6 +1,8 @@
 {% extends 'base1.html' %}
 {%load staticfiles%}
 
+{% block title %} {{ name}} {% endblock %}
+
 {% block content %}
 
       <!-- Right side column. Contains the navbar and content of the page -->
@@ -8,11 +10,11 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1>
-            {{title}}
+            {{name}}
           </h1>
           <ol class="breadcrumb">
             <li><a href="{% url 'home' %}"><i class="fa fa-dashboard"></i> Anasayfa</a></li>
-            <li><a href="{% url 'list-product' %}">{{title}}</a></li>
+            <li><a href="{% url 'list-product' %}">{{name}}</a></li>
           </ol>
         </section>
 

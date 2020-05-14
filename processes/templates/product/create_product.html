@@ -9,60 +9,43 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1>
-            Yeni ürün oluştur
+            Yeni ürün kontrolü başlat
           </h1>
           <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Anasayfa</a></li>
-            <li><a href="#">Ürün oluştur</a></li>
+            <li><a href="#">asdasd</a></li>
           </ol>
         </section>
-        <section class="content">
-            <div class="row">
-              <div class="col-md-12">
-                <!-- general form elements disabled -->
-                <div class="box box-warning">
-                  <div class="box-body">
-                    <form role="form" method="post">
 
-                      {% csrf_token %}
-
-                      <label for="id_product_name">Product name:</label> 
-                      <input type="text" name="product_name" maxlength="200" required id="id_product_name" class="form-control"></p>
-                      <label for="id_created_by">Created by:</label> 
-                      <select class="form-control" name="created_by" required id="id_created_by">   
-                      <option value="" selected>---------</option>    
-                      <option value="1">cag</option> 
-                      <option value="2">DENEME</option> 
-                      <option value="3">fk</option>
-                      </select class="form-control"><br>
-                      <label for="id_status">Status:</label> 
-                      <select name="status" id="id_status" class="form-control"> 
-                      <option value="0" selected>In Process</option> 
-                      <option value="1">Controlled</option>
-                      </select><br>
-                      <label for="id_slug">Slug:</label> 
-                      <input type="text" name="slug" maxlength="200" required id="id_slug" class="form-control"></p> <p>
-                      <label for="id_production_order_no">Production order no:</label> 
-                      <input type="text" name="production_order_no" maxlength="200" required id="id_production_order_no" class="form-control"></p> <p>
-                      <label for="id_order_position_no">Order position no:</label> 
-                      <input type="text" name="order_position_no" maxlength="200" required id="id_order_position_no" class="form-control"></p> <p>
-                      <label for="id_reference_no">Reference no:</label> <input type="text" name="reference_no" maxlength="200" required id="id_reference_no" class="form-control"></p> <p>
-                      <label for="id_quantity">Quantity:</label> <input type="text" name="quantity" maxlength="200" required id="id_quantity" class="form-control"></p> <p>
-                      <label for="id_working_pressure">Working pressure:</label> 
-                      <input type="text" name="working_pressure" maxlength="200" required id="id_working_pressure" class="form-control"></p> <p>
-                      <label for="id_picture">Picture:</label> 
-                      <input type="file" name="picture" accept="image/*" id="id_picture" class="form-control"></p> <p>
-                      <label for="id_content">Content:</label> 
-                      <textarea name="content" cols="40" rows="10" required id="id_content" class="form-control"> </textarea></p>
-
-
-                      <button class="btn btn-block btn-danger btn-lg">Ürünü oluştur</button>  
-                    </form>
-                  </div><!-- /.box-body -->
-                </div><!-- /.box -->
-              </div><!--/.col (right) -->
-            </div>   <!-- /.row -->
-          </section><!-- /.content -->
+      </section>
+      <section class="content">
+          <div class="row">
+            <div class="col-md-12">
+              <!-- general form elements disabled -->
+              <div class="box box-warning">
+                <div class="box-body">
+                  <form role="form" method="post">
+                    {% csrf_token %}
+                    <!-- text input -->
+                {% for field in form %}
+                <div class="form-group">
+                  <label>{{ field.label }}</label></br>
+                  {{ field }}
+                  {% if field.errors %}
+                    {% for error in field.errors %}
+                  <span class='text-danger'><b>{{error}}</b></span>
+                    {% endfor %}
+                  {% endif %}
+                </div>
+                {% endfor %}
+                        <button class="btn btn-block btn-danger btn-lg">Ürünü oluştur
+                    </button>  
+                  </form>
+                </div><!-- /.box-body -->
+              </div><!-- /.box -->
+            </div><!--/.col (right) -->
+          </div>   <!-- /.row -->
+        </section><!-- /.content -->
       </div>
     
   {% endblock %} 

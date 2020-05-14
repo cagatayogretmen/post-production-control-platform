@@ -3,7 +3,6 @@
 
 {% block content %}
 
-
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -15,60 +14,185 @@
         <li><a href="#">Ürün oluştur</a></li>
       </ol>
     </section>
-
     <section class="content">
         <div class="row">
-          <div class="col-md-4">
-            {% if deger_1 == 1 %}
-              <button class="btn btn-block btn-default btn-lg"><a href="{% url 'detail-process1' process1.pk %}">Ön Montaj Kontrol Raporuna Bak</a></button>
-            {% else %}
-              <button class="btn btn-block btn-default btn-lg"><a href="{% url 'create-process1' %}">Ön Montaj Kontrol Raporu Oluştur</a></button>
-            {% endif %}
-
-            {% if deger_2 == 1 %}
-              <button class="btn btn-block btn-default btn-lg"><a href="{% url 'detail-process2' process2.pk %}">Borulama Raporl</a></button>
-            {% else %}
-              <button class="btn btn-block btn-default btn-lg"><a href="{% url 'create-process2' %}">2.Süreci Oluştur</a></button>
-            {% endif %}
-
-            {% if deger_3 == 1 %}
-              <button class="btn btn-block btn-default btn-lg"><a href="{% url 'detail-process3' process3.pk %}">3.süreç</a></button>
-            {% else %}
-              <button class="btn btn-block btn-default btn-lg"><a href="{% url 'create-process3' %}">3.Süreci Oluştur</a></button>
-            {% endif %}        
-            
-            <br>
-            <br>
-
-
-            <button class="btn btn-block btn-default btn-lg"><a href="{% url 'update-product' product.pk %}">Güncelle</a></button>
-            <button class="btn btn-block btn-default btn-lg"><a href="{% url 'delete-product' product.pk %}">Sil</a></button>
-
-
+          <div class="col-lg-3 col-xs-6">          
+            <div class="card" style="width: 18rem;">
+              <!-- width="100" height="100" -->
+              <img class="card-img-top"  width="140" height="110" src="{% static 'dist/img/1.png' %}" alt="Card image cap">
+              <div class="card-body">
+                {% if deger_1 == 1 %}
+                <h5 class="card-title"><strong>Giriş Kontrol</strong></h5>
+                <p class="card-text">Süreç başladı<br>Oluşturulma Tarihi:</p>                
+                <a href="" class="btn btn-primary" style="width: 49%" disabled>Başlat</a> 
+                <a href="" class="btn btn-warning" style="width: 49%" >Güncelle</a> <br>
+                <a href="{% url 'update-process1' process1.pk %}" class="btn btn-primary" style="width: 49%" >Tamamla</a> 
+                <a href="{% url 'detail-process1' process1.pk %}" style="width: 49%" class="btn btn-danger">Sil</a>
+                <!-- süreç yok ise -->
+                {% else %}
+                <h5 class="card-title"><strong>Giriş Kontrol</strong></h5>
+                <p class="card-text">Süreç başlamadı <br>Oluşturulma Tarihi:</p>                
+                <a href="{% url 'create-process1' %}" class="btn btn-primary" style="width: 49%" >Başlat</a> 
+                <a href="" class="btn btn-warning" style="width: 49%" disabled>Güncelle</a> <br>
+                <a href="" class="btn btn-primary" style="width: 49%" disabled>Tamamla</a> 
+                <a href="" style="width: 49%" class="btn btn-danger" disabled>Sil</a>
+                {% endif %}
+              </div>
+            </div>
           </div>
-
-          <div class="col-md-3">
-            <div class="box-body">
-              <dl>
-                <dt>Oluşturan Kişi</dt>
-                <dd>{{ product.created_by }}</dd>
-                <dt>Ürün Durumu</dt>
-                <dd>{{ product.status }}</dd>
-                <dt>Sipariş Poziyon Numarası</dd>
-                <dd>{{ product.order_position_no }}</dt>
-                <dt>Miktar</dd>
-                <dd>{{ product.quantity }}</dt>
-                <dt>Oluşturan Kişi</dt>
-                <dd>{{ product.created_by }}</dd>
-                <dt>Ürün Durumu</dt>
-                <dd>{{ product.status }}</dd>
-                <dt>Sipariş Poziyon Numarası</dd>
-                <dd>{{ product.order_position_no }}</dt>
-                <dt>Miktar</dd>
-                <dd>{{ product.quantity }}</dt>                  
-              </dl>
-            </div><!-- /.box-body -->
+          <div class="col-lg-3 col-xs-6">          
+            <div class="card" style="width: 18rem;">
+              <img class="card-img-top" width="140" height="110" src="{% static 'dist/img/2.png' %}" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title"><strong>Ön Montaj</strong></h5>
+                <p class="card-text">Ürün Durumu: <br>Oluşturulma Tarihi:</p>
+                <!-- süreç var ise -->
+                {% if deger_2 == 1 %} 
+                <a href="" class="btn btn-primary" style="width: 49%" disabled>Başlat</a> 
+                <a href="" class="btn btn-warning" style="width: 49%" >Güncelle</a> <br>
+                <a href="{% url 'update-process2' process2.pk %}" class="btn btn-primary" style="width: 49%" >Tamamla</a> 
+                <a href="{% url 'detail-process2' process2.pk %}" style="width: 49%" class="btn btn-danger">Sil</a>
+                <!-- süreç yok ise -->
+                {% else %}
+                <a href="{% url 'create-process2' %}" class="btn btn-primary" style="width: 49%" >Başlat</a> 
+                <a href="" class="btn btn-warning" style="width: 49%" disabled>Güncelle</a> <br>
+                <a href="" class="btn btn-primary" style="width: 49%" disabled>Tamamla</a> 
+                <a href="" style="width: 49%" class="btn btn-danger" disabled>Sil</a>
+                {% endif %}
+              </div>
+            </div>
           </div>
+          <div class="col-lg-3 col-xs-6">          
+            <div class="card" style="width: 18rem;">
+              <img class="card-img-top" width="140" height="110" src="{% static 'dist/img/3.png' %}" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title"><strong>Borulama</strong></h5>
+                <p class="card-text">Ürün Durumu: <br>Oluşturulma Tarihi:</p>
+                {% if deger_3 == 1 %}
+                <a href="" class="btn btn-primary" style="width: 49%" disabled>Başlat</a> 
+                <a href="" class="btn btn-warning" style="width: 49%" >Güncelle</a> <br>
+                <a href="{% url 'update-process3' process3.pk %}" class="btn btn-primary" style="width: 49%" >Tamamla</a> 
+                <a href="{% url 'detail-process3' process3.pk %}" style="width: 49%" class="btn btn-danger">Sil</a>
+                <!-- süreç yok ise -->
+                {% else %}
+                <a href="{% url 'create-process3' %}" class="btn btn-primary" style="width: 49%" >Başlat</a> 
+                <a href="" class="btn btn-warning" style="width: 49%" disabled>Güncelle</a> <br>
+                <a href="" class="btn btn-primary" style="width: 49%" disabled>Tamamla</a> 
+                <a href="" style="width: 49%" class="btn btn-danger" disabled>Sil</a>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-xs-6">          
+            <div class="card" style="width: 18rem;">
+              <img class="card-img-top" width="140" height="110" src="{% static 'dist/img/4.png' %}" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title"><strong>Kaynak</strong></h5>
+                <p class="card-text">Ürün Durumu: <br>Oluşturulma Tarihi:</p>
+                {% if deger_4 == 1 %}
+                <a href="" class="btn btn-primary" style="width: 49%" disabled>Başlat</a> 
+                <a href="" class="btn btn-warning" style="width: 49%" >Güncelle</a> <br>
+                <a href="{% url 'update-process4' process4.pk %}" class="btn btn-primary" style="width: 49%" >Tamamla</a> 
+                <a href="{% url 'detail-process4' process4.pk %}" style="width: 49%" class="btn btn-danger">Sil</a>
+                <!-- süreç yok ise -->
+                {% else %}
+                <a href="" class="btn btn-primary" style="width: 49%" >Başlat</a> 
+                <a href="" class="btn btn-warning" style="width: 49%" disabled>Güncelle</a> <br>
+                <a href="" class="btn btn-primary" style="width: 49%" disabled>Tamamla</a> 
+                <a href="" style="width: 49%" class="btn btn-danger" disabled>Sil</a>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-lg-3 col-xs-6">          
+            <div class="card" style="width: 18rem;">
+              <img class="card-img-top" width="140" height="110" src="{% static 'dist/img/5.png' %}" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title"><strong>Boya</strong></h5>
+                <p class="card-text">Ürün Durumu: <br>Oluşturulma Tarihi:</p>
+                {% if deger_5 == 1 %}
+                <a href="" class="btn btn-primary" style="width: 49%" disabled>Başlat</a> 
+                <a href="" class="btn btn-warning" style="width: 49%" >Güncelle</a> <br>
+                <a href="{% url 'update-process5' process5.pk %}" class="btn btn-primary" style="width: 49%" >Tamamla</a> 
+                <a href="{% url 'detail-process5' process5.pk %}" style="width: 49%" class="btn btn-danger">Sil</a>
+                <!-- süreç yok ise -->
+                {% else %}
+                <a href="" class="btn btn-primary" style="width: 49%" >Başlat</a> 
+                <a href="" class="btn btn-warning" style="width: 49%" disabled>Güncelle</a> <br>
+                <a href="" class="btn btn-primary" style="width: 49%" disabled>Tamamla</a> 
+                <a href="" style="width: 49%" class="btn btn-danger" disabled>Sil</a>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-xs-6">          
+            <div class="card" style="width: 18rem;">
+              <img class="card-img-top" width="140" height="110" src="{% static 'dist/img/6.png' %}" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title"><strong>Son Montaj</strong></h5>
+                <p class="card-text">Ürün Durumu: <br>Oluşturulma Tarihi:</p>
+                {% if deger_6 == 1 %}
+                <a href="" class="btn btn-primary" style="width: 49%" disabled>Başlat</a> 
+                <a href="" class="btn btn-warning" style="width: 49%" >Güncelle</a> <br>
+                <a href="{% url 'update-process6' process6.pk %}" class="btn btn-primary" style="width: 49%" >Tamamla</a> 
+                <a href="{% url 'detail-process6' process6.pk %}" style="width: 49%" class="btn btn-danger">Sil</a>
+                <!-- süreç yok ise -->
+                {% else %}
+                <a href="" class="btn btn-primary" style="width: 49%" >Başlat</a> 
+                <a href="" class="btn btn-warning" style="width: 49%" disabled>Güncelle</a> <br>
+                <a href="" class="btn btn-primary" style="width: 49%" disabled>Tamamla</a> 
+                <a href="" style="width: 49%" class="btn btn-danger" disabled>Sil</a>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-xs-6">          
+            <div class="card" style="width: 18rem;">
+              <img class="card-img-top" width="140" height="110" src="{% static 'dist/img/7.png' %}" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title"><strong>Unite Test Raporu</strong></h5>
+                <p class="card-text">Ürün Durumu: <br>Oluşturulma Tarihi:</p>
+                {% if deger_7 == 1 %}
+                <a href="" class="btn btn-primary" style="width: 49%" disabled>Başlat</a> 
+                <a href="" class="btn btn-warning" style="width: 49%" >Güncelle</a> <br>
+                <a href="{% url 'update-process7' process7.pk %}" class="btn btn-primary" style="width: 49%" >Tamamla</a> 
+                <a href="{% url 'detail-process7' process7.pk %}" style="width: 49%" class="btn btn-danger">Sil</a>
+                <!-- süreç yok ise -->
+                {% else %}
+                <a href="" class="btn btn-primary" style="width: 49%" >Başlat</a> 
+                <a href="" class="btn btn-warning" style="width: 49%" disabled>Güncelle</a> <br>
+                <a href="" class="btn btn-primary" style="width: 49%" disabled>Tamamla</a> 
+                <a href="" style="width: 49%" class="btn btn-danger" disabled>Sil</a>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-xs-6">          
+            <div class="card" style="width: 18rem;">
+              <img class="card-img-top" width="140" height="110" src="{% static 'dist/img/8.png' %}" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title"><strong>Son Kontrol</strong></h5>
+                <p class="card-text">Ürün Durumu: <br>Oluşturulma Tarihi:</p>
+                {% if deger_8 == 1 %}
+                <a href="" class="btn btn-primary" style="width: 49%" disabled>Başlat</a> 
+                <a href="" class="btn btn-warning" style="width: 49%" >Güncelle</a> <br>
+                <a href="{% url 'update-process8' process8.pk %}" class="btn btn-primary" style="width: 49%" >Tamamla</a> 
+                <a href="{% url 'detail-process8' process8.pk %}" style="width: 49%" class="btn btn-danger">Sil</a>
+                <!-- süreç yok ise -->
+                {% else %}
+                <a href="" class="btn btn-primary" style="width: 49%" >Başlat</a> 
+                <a href="" class="btn btn-warning" style="width: 49%" disabled>Güncelle</a> <br>
+                <a href="" class="btn btn-primary" style="width: 49%" disabled>Tamamla</a> 
+                <a href="" style="width: 49%" class="btn btn-danger" disabled>Sil</a>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        </div>
+
 
     </section>
 </div>

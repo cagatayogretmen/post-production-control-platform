@@ -1,4 +1,5 @@
-{%load staticfiles%}
+{% load staticfiles %}
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -49,24 +50,53 @@
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                 {% block inside %}
 
+                
+                  <!-- Kullanıcı isim,soyad varsa döndür yoksa kullanıcı adı döndür-->
                   {% if user.is_authenticated %}
-                  <img src="{% static 'dist/img/cagatay.jpg' %}" class="user-image" alt="User Image"/>                  
-                  <span class="hidden-xs">{{ user.username }}</span>
+
+
+                  {% if user.userprofile.profile_photo.url is not None %}
+                  <img src="{{ user.userprofile.profile_photo.url }}" class="user-image" alt="User Image"/>       
+                  {% else %}
+                  <img src="{% static 'dist/img/default.png' %}" class="user-image" alt="User Image"/>    
+                  {% endif %}   
+                  {% if user.get_full_name == '' %}
+                  <span class="hidden-xs">{{ request.user.username}}</span>
+                  {% else %}
+                  <span class="hidden-xs">{{ user.get_full_name }}</span>
+                  {% endif %}
                 </a>
                   <ul class="dropdown-menu">               
                     <!-- User image -->
                     <li class="user-header">
-                      <img src="{% static 'dist/img/cagatay.jpg' %}" class="img-circle" alt="User Image" />
+                      {% if user.userprofile.profile_photo.url is not None %}
+                      <img src="{{ user.userprofile.profile_photo.url }}" class="img-circle" alt="User Image" />
+                      {% else %}
+                      <img src="{% static 'default.png' %}" class="img-circle" alt="User Image" />
+                      {% endif %}
+                  <!-- Kullanıcı isim,soyad varsa döndür yoksa kullanıcı adı döndür(detay görünümü)-->
+                      {% if user.get_full_name == '' %}
                       <p>
-                        {{user.username}}
-                        <small>Member since Nov. 2012</small>
+                      {{ request.user.username}}
+                      {% else %}
+                      <p>
+                        {{ user.get_full_name }}
+                      {% endif %}
+
+                      <!-- departman bilgisi için koşul -->
+                      {% if request.user.userprofile.dep == '' %}
+                        <small>Departman yok</small>
+                      {% else %}
+                        <small>{{ request.user.userprofile.dep }}</small>
+                      {% endif %}
+
                       </p>
                     </li>
                     <!-- Menu Body -->
                     <!-- Menu Footer-->
                     <li class="user-footer">
                       <div class="pull-left">
-                        <a href="#" class="btn btn-default btn-flat">Profile</a>
+                        <a href="{% url 'user-profile'%}" class="btn btn-default btn-flat">Profile</a>
                       </div>
                       <div class="pull-right">
                         <a href="{% url 'user-logout' %}" class="btn btn-default btn-flat">Çıkış Yap</a>
@@ -91,11 +121,25 @@
           <div class="user-panel">
             <div class="pull-left image">
               {% if user.is_authenticated %}
-              <img src="{% static 'dist/img/cagatay.jpg' %}" class="img-circle" alt="User Image" />
+              {% if user.userprofile.profile_photo.url is not None %}
+              <img src="{{ user.userprofile.profile_photo.url }}" class="img-circle" alt="User Image" />
+              {% else %}
+              <img src="{% static 'dist/img/default.png' %}" class="img-circle" alt="User Image" />
+              {% endif %}
             </div>
             <div class="pull-left info">
-                <p>{{ user.username }}</p>
-                <a><i class="fa fa-circle text-success"></i> Online</a>
+                {% if user.get_full_name == '' %}
+                <p>{{ request.user.username}}</p>
+                {% else %}
+                <p>{{ user.get_full_name }}</p>
+                {% endif %}
+
+                {% if request.user.userprofile.dep == '' %}
+                  <a>Bosch Rexroth</a>
+                {% else %}
+                  <a>{{ request.user.userprofile.dep }}</a>
+                {% endif %}
+
               {% else %}
               <a>Kullanıcı girişi yapılmadı</a>
               {% endif %}     
@@ -114,22 +158,25 @@
           <!-- /.search form -->
           <!-- sidebar menu: : style can be found in sidebar.less -->
           <ul class="sidebar-menu">
-            <li class="header">Ana menüler</li>
+            <li class="header">Ürünler</li>
 
-              <li><a href="{% url 'list-product'  %}"><i class="fa fa-shopping-cart"></i> Ürünler</a></li>
-              <li><a href="{% url 'list-process1' %}"><i class="fa fa-asterisk"></i> 1.Süreç</a></li>
-              <li><a href="{% url 'list-process2' %}"><i class="fa fa-asterisk"></i> 2.Süreç</a></li>
-              <li><a href="{% url 'list-process3' %}"><i class="fa fa-asterisk"></i> 3.Süreç</a></li>
-              <li><a href="{% url 'list-process4' %}"><i class="fa fa-asterisk"></i> 4.Süreç</a></li>
-              <li><a href="{% url 'list-process5' %}"><i class="fa fa-asterisk"></i> 5.Süreç</a></li>
-              <li><a href="{% url 'list-process6' %}"><i class="fa fa-asterisk"></i> 6.Süreç</a></li>
-              <li><a href="{% url 'list-process7' %}"><i class="fa fa-asterisk"></i> 7.Süreç</a></li>
+            <li><a href="{% url 'list-product'  %}"><i class="fa fa-shopping-cart"></i> Ürün Listesi</a></li>
+            
+            <li class="header">Süreçler</li>
+
+              <li><a href="{% url 'list-process1' %}"><i class="fa fa-asterisk"></i> Giriş Kontrol</a></li>
+              <li><a href="{% url 'list-process2' %}"><i class="fa fa-asterisk"></i> Ön Montaj</a></li>
+              <li><a href="{% url 'list-process3' %}"><i class="fa fa-asterisk"></i> Borulama</a></li>
+              <li><a href="{% url 'list-process4' %}"><i class="fa fa-asterisk"></i> Kaynak</a></li>
+              <li><a href="{% url 'list-process5' %}"><i class="fa fa-asterisk"></i> Boya</a></li>
+              <li><a href="{% url 'list-process6' %}"><i class="fa fa-asterisk"></i> Boya Sonrası Montaj</a></li>
+              <li><a href="{% url 'list-process7' %}"><i class="fa fa-asterisk"></i> Test</a></li>
+              <li><a href="{% url 'list-process8' %}"><i class="fa fa-asterisk"></i> Son Kontrol</a></li>
               <li><a href=""><i class="fa fa-book"></i> Raporlar</a></li>
 
 
             <li class="header">Kullanıcı Ayarları</li>
-            <li><a href=""><i class="fa fa-user"></i> Kullanıcı bilgilerim</a></li>
-            <li><a href=""><i class="fa fa-list-ul"></i> Yetkilerim</a></li>
+            <li><a href="{% url 'user-profile'%}"><i class="fa fa-user"></i> Kullanıcı Bilgilerim</a></li>
         </ul>
         </section>
         <!-- /.sidebar -->

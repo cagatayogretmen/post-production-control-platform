@@ -1,0 +1,103 @@
+{% extends 'base1.html' %}
+{%load staticfiles%}
+
+{% block content %}
+
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        {{ product.product_name }} Ürünü
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Anasayfa</a></li>
+        <li><a href="#">Ürün oluştur</a></li>
+      </ol>
+    </section>
+
+    <section class="content">
+        <div class="row">
+          <div class="col-md-4">
+            
+            {% if deger_1 == 1 %}
+              <button class="btn btn-block btn-default btn-lg"><a href="{% url 'detail-process1' process1.pk %}">Giriş kontrol raporunu tamamla</a></button>
+            {% else %}
+              <button class="btn btn-block btn-default btn-lg"><a href="{% url 'create-process1' %}">Giriş kontrol raporunu oluştur</a></button>
+            {% endif %}
+
+            {% if deger_2 == 1 %}
+              <button class="btn btn-block btn-default btn-lg"><a href="{% url 'detail-process2' process2.pk %}">Ön montaj raporunu tamamla</a></button>
+            {% else %}
+              <button class="btn btn-block btn-default btn-lg"><a href="{% url 'create-process2' %}">Ön montaj raporunu oluştur</a></button>
+            {% endif %}
+
+            {% if deger_3 == 1 %}
+              <button class="btn btn-block btn-default btn-lg"><a href="{% url 'detail-process3' process3.pk %}">Borulama raporunu tamamla</a></button>
+            {% else %}
+              <button class="btn btn-block btn-default btn-lg"><a href="{% url 'create-process3' %}">Borulama raporunu oluştur</a></button>
+            {% endif %}
+
+            {% if deger_4 == 1 %}
+              <button class="btn btn-block btn-default btn-lg"><a href="{% url 'detail-process4' process4.pk %}">Kaynak raporu tamamla</a></button>
+            {% else %}
+              <button class="btn btn-block btn-default btn-lg"><a href="{% url 'create-process4' %}">Kaynak raporunu oluştur</a></button>
+            {% endif %}
+
+            {% if deger_5 == 1 %}
+              <button class="btn btn-block btn-default btn-lg"><a href="{% url 'detail-process5' process5.pk %}">Boya raporunu tamamla</a></button>
+            {% else %}
+              <button class="btn btn-block btn-default btn-lg"><a href="{% url 'create-process5' %}">Boya raporunu oluştur</a></button>
+            {% endif %}
+
+            {% if deger_6 == 1 %}
+              <button class="btn btn-block btn-default btn-lg"><a href="{% url 'detail-process6' process6.pk %}">Boya sonrası montaj raporunu tamamla</a></button>
+            {% else %}
+              <button class="btn btn-block btn-default btn-lg"><a href="{% url 'create-process6' %}">Boya sonrası montaj raporunu oluştur</a></button>
+            {% endif %}
+
+            {% if deger_7 == 1 %}
+              <button class="btn btn-block btn-default btn-lg"><a href="{% url 'detail-process7' process7.pk %}">Test raporunu tamamla</a></button>
+            {% else %}
+              <button class="btn btn-block btn-default btn-lg"><a href="{% url 'create-process7' %}">Test raporunu oluştur</a></button>
+            {% endif %}    
+
+            {% if deger_8 == 1 %}
+              <button class="btn btn-block btn-default btn-lg"><a href="{% url 'detail-process8' process8.pk %}">Son kontrol raporunu tamamla</a></button>
+            {% else %}
+              <button class="btn btn-block btn-default btn-lg"><a href="{% url 'create-process8' %}">Son kontrol raporunu oluştur</a></button>
+            {% endif %}              
+
+            
+            <br>
+            <br>
+
+            <button class="btn btn-block btn-default btn-lg"><a href="{% url 'update-product' product.pk %}">Güncelle</a></button>
+            <button class="btn btn-block btn-default btn-lg"><a href="{% url 'delete-product' product.pk %}">Sil</a></button>
+          </div>
+
+          <div class="col-md-3">
+            <div class="box-body">
+              <dl>
+                <dt>Oluşturan Kişi</dt>
+                <dd>{{ product.created_by }}</dd>
+                <dt>Ürün Durumu</dt>
+                <dd>{{ product.status }}</dd>
+                <dt>Sipariş Poziyon Numarası</dd>
+                <dd>{{ product.order_position_no }}</dt>
+                <dt>Miktar</dd>
+                <dd>{{ product.quantity }}</dt>
+                <dt>Oluşturan Kişi</dt>
+                <dd>{{ product.created_by }}</dd>
+                <dt>Ürün Durumu</dt>
+                <dd>{{ product.status }}</dd>
+                <dt>Sipariş Poziyon Numarası</dd>
+                <dd>{{ product.order_position_no }}</dt>
+                <dt>Miktar</dd>
+                <dd>{{ product.quantity }}</dt>                  
+              </dl>
+            </div><!-- /.box-body -->
+          </div>
+    </section>
+</div>
+    
+{% endblock %} 

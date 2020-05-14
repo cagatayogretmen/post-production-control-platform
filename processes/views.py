@@ -1,5 +1,5 @@
-from .models import Product, Process_1, Process_2, Process_3, Process_4, Process_5, Process_6, Process_7
-from .forms import ProductForm, Process1Form, Process2Form, Process3Form, Process4Form, Process5Form, Process6Form, Process7Form
+from .models import Product, Process_1, Process_2, Process_3, Process_4, Process_5, Process_6, Process_7, Process_8
+from .forms import ProductForm, Process1Form, Process1Form_2, Process2Form, Process2Form_2, Process3Form, Process4Form, Process5Form, Process6Form, Process7Form, Process8Form
 from django.shortcuts import render,HttpResponse,redirect,get_object_or_404,reverse, HttpResponseRedirect
 from django.contrib.auth import authenticate
 from django.contrib.auth.decorators import login_required
@@ -7,9 +7,41 @@ from django.urls import reverse_lazy
 import io
 from django.http import FileResponse
 from reportlab.pdfgen import canvas
+from accounts.models import UserProfile
+from django.contrib.auth.models import User
+#başlangıç
+from django.views.generic import View
+from django.template.loader import get_template
+from .utils import render_to_pdf
+from django import template
+from django.contrib.auth.models import Group
 
 
 
+
+
+class GeneratePDF(View):
+    def get(self, request, *args, **kwargs):
+        template = get_template('report.html')
+        context = {
+            "invoice_id": 123,
+            "customer_name": "John Cooper",
+            "amount": 1399.99,
+            "today": "Today",
+        }
+        html = template.render(context)
+        pdf = render_to_pdf('report.html', context)
+        if pdf:
+            response = HttpResponse(pdf, content_type='application/pdf')
+            filename = "Invoice_%s.pdf" %("12341231")
+            content = "inline; filename='%s'" %(filename)
+            download = request.GET.get("download")
+            if download:
+                content = "attachment; filename='%s'" %(filename)
+            response['Content-Disposition'] = content
+            return response
+        return HttpResponse("Not found")
+#bitiş
 
 def pdf_create(request):
     # Create a file-like buffer to receive PDF data.
@@ -32,40 +64,52 @@ def pdf_create(request):
     return FileResponse(buffer, as_attachment=True, filename='hello.pdf')
 
 
-@login_required
-def index(request):
-    
-    '''
-    Diğer yöntem:
+'''
+    login required için diğer yöntem
 
     if not request.user.is_authenticated:
         return HttpResponseRedirect(reverse('user-login'))
-    '''
+'''
 
+
+@login_required
+def index(request):
+
+    #ürün adeti hesaplama fonksiyonu
     adet = 0 
     for i in Product.objects.all():
         adet = adet+1
 
     context = {
-
         "adet": adet,
     }
 
     return render(request, 'index.html', context=context)
 
+
+
+@login_required
+def user_profile(request):
+
+    return render(request, 'profil.html', context = {})
+
+
+@login_required
 def process_create_main(request):
     context = {
     }
 
     return render(request, 'product/create_process_main.html', context = context)
 
+
+
 #------ Product ------# 
 
 @login_required
 def product_list(request):
     context = {
-        "title" : 'Ürün Listesi',
         "all_products" : Product.objects.all(),
+        "name" : 'Ürün Listesi',
     }
 
     return render(request, 'product/list_product.html', context=context)
@@ -76,8 +120,7 @@ def product_create(request):
 
     if request.method == 'POST':
         form = ProductForm(data = request.POST)
-        if form.is_valid():
-            print(request.POST)
+        if form.is_valid():            
             form.save()
             return HttpResponseRedirect(reverse('list-product'))
 
@@ -86,7 +129,7 @@ def product_create(request):
 @login_required
 def product_detail(request, pk):
     product = get_object_or_404(Product, pk=pk)
-
+    
     #1.süreç
     if Process_1.objects.filter(product__product_name = product.product_name):
         process1 = Process_1.objects.get(product__product_name = product.product_name)
@@ -109,8 +152,47 @@ def product_detail(request, pk):
         deger_3 = 1
     else:
         process3 = ''
-        deger_3 = 0      
+        deger_3 = 0
 
+    #4.süreç
+    if Process_4.objects.filter(product__product_name = product.product_name):
+        process4 = Process_4.objects.get(product__product_name = product.product_name)
+        deger_4 = 1
+    else:
+        process4 = ''
+        deger_4 = 0 
+
+    #5.süreç
+    if Process_5.objects.filter(product__product_name = product.product_name):
+        process5 = Process_5.objects.get(product__product_name = product.product_name)
+        deger_5 = 1
+    else:
+        process5 = ''
+        deger_5 = 0  
+
+    #6.süreç
+    if Process_6.objects.filter(product__product_name = product.product_name):
+        process6 = Process_6.objects.get(product__product_name = product.product_name)
+        deger_6 = 1
+    else:
+        process6 = ''
+        deger_6 = 0
+
+    #7.süreç
+    if Process_7.objects.filter(product__product_name = product.product_name):
+        process7 = Process_7.objects.get(product__product_name = product.product_name)
+        deger_7 = 1
+    else:
+        process7 = ''
+        deger_7 = 0 
+
+    #7.süreç
+    if Process_8.objects.filter(product__product_name = product.product_name):
+        process8 = Process_8.objects.get(product__product_name = product.product_name)
+        deger_8 = 1
+    else:
+        process8 = ''
+        deger_8 = 0 
 
 
     context = {
@@ -118,10 +200,19 @@ def product_detail(request, pk):
         'process1' : process1,
         'process2' : process2,
         'process3' : process3,
+        'process4' : process4,
+        'process5' : process5,
+        'process6' : process6,
+        'process7' : process7,
+        'process8' : process8,
         'deger_1' : deger_1,
         'deger_2' : deger_2,  
-        'deger_3' : deger_3,     
-
+        'deger_3' : deger_3,   
+        'deger_4' : deger_4,
+        'deger_5' : deger_5,  
+        'deger_6' : deger_6, 
+        'deger_7' : deger_7, 
+        'deger_8' : deger_8,
     }
 
     return render(request, 'product/detail_product.html', context = context )
@@ -149,9 +240,14 @@ def product_delete(request, pk):
     product = get_object_or_404(Product, pk=pk)
     product.delete()
     return HttpResponseRedirect(reverse('list-product'))
+    
 
 
 #------ Process1 ------# 
+
+create_1 = 'Ön Montaj Süreci Oluştur'
+create_2 = ''
+create_3 = ''
 
 @login_required
 def process1_create(request):
@@ -163,7 +259,16 @@ def process1_create(request):
             form.save()
             return HttpResponseRedirect(reverse('list-process1'))
 
-    return render(request, 'process1/create_process.html', context = {'form':form})
+    return render(request, 'process1/create_process.html', context = {'form':form, 'text':'create_1'})
+
+def process1_create_2(request):
+    form = Process1Form_2()
+    if request.method == 'POST':
+        form = Process1Form_2(data = request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('list-process1'))
+    return render(request, 'process1/create_2.html', context ={'form':form, 'text':'deneme'} )
 
 @login_required
 def process1_detail(request, pk):
@@ -184,7 +289,7 @@ def process1_detail(request, pk):
 @login_required
 def process1_update(request, pk):
     process = get_object_or_404(Process_1, pk=pk)
-    form = Process1Form(instance=process, data=request.POST or None)
+    form = Process1Form_2(instance=process, data=request.POST or None)
 
     if form.is_valid():
         form.save()
@@ -229,6 +334,15 @@ def process2_create(request):
             return HttpResponseRedirect(reverse('list-process2'))
 
     return render(request, 'process2/create_process.html', context = {'form':form})
+
+def process2_create_2(request):
+    form = Process2Form_2()
+    if request.method == 'POST':
+        form = Process2Form_2(data = request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('list-process1'))
+    return render(request, 'process2/create_2.html', context ={'form':form, 'text':'deneme'} )    
 
 @login_required
 def process2_detail(request, pk):
@@ -586,3 +700,71 @@ def process7_list(request):
     }
 
     return render(request, 'process7/list_process.html', context=context)
+
+
+
+
+
+#------ Process8 ------# 
+
+@login_required
+def process8_create(request):
+    form = Process8Form()
+
+    if request.method == 'POST':
+        form = Process8Form(data = request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('list-process8'))
+
+    return render(request, 'process8/create_process.html', context = {'form':form})
+
+@login_required
+def process8_detail(request, pk):
+    process = get_object_or_404(Process_8, pk=pk)
+    product = Product.objects.get(product_name = process.product)
+
+    context = {
+        'process' : process,
+        'product' : product,
+
+    }
+
+    return render(request, 'process8/detail_process.html', context = context )
+
+@login_required
+def process8_update(request, pk):
+    process = get_object_or_404(Process_8, pk=pk)
+    form = Process8Form(instance=process, data=request.POST or None)
+
+    if form.is_valid():
+        form.save()
+        return HttpResponseRedirect(reverse('list-process8'))
+
+
+    context = {
+        'process' : process,
+        'form' : form,
+    }
+
+    return render(request, 'process8/update_process.html', context=context)
+
+@login_required
+def process8_delete(request, pk):
+    process = get_object_or_404(Process_8, pk=pk)
+    process.delete()
+    return HttpResponseRedirect(reverse('list-process8'))
+
+@login_required
+def process8_list(request):
+    context = {
+        'title' : 'Süreç Listesi',
+        "all_processes" : Process_8.objects.all(),
+
+    }
+
+    return render(request, 'process8/list_process.html', context=context)
+
+
+
+    

@@ -1,15 +1,19 @@
 from django.contrib import admin
 from django.urls import path, include
 from . import views
-
+from django.conf import settings
+from django.conf.urls.static import static
+from .views import GeneratePDF
 
 urlpatterns = [
 
     #main urls
+
     path('admin/', admin.site.urls),
     path('', views.index, name='home'),
     path('create_process/', views.process_create_main, name = 'create-process-main'),
-    
+    path('user_profile/', views.user_profile, name = 'user-profile'),
+    path('pdf/', GeneratePDF.as_view()),
     path('create_pdf/', views.pdf_create, name = 'create-pdf'),
     
     #product urls
@@ -22,6 +26,7 @@ urlpatterns = [
     #process1 urls
     path('list_process1/', views.process1_list, name='list-process1'),
     path('create_process1/', views.process1_create, name='create-process1'),
+    path('create_process1_2/', views.process1_create_2, name='create-process1_2'),
     path('detail_process1/(?P<pk>[0-9]+)/$', views.process1_detail, name='detail-process1'),
     path('update_process1/(?P<pk>[0-9]+)/$', views.process1_update, name='update-process1'),
     path('delete_process1/(?P<pk>[0-9]+)/$', views.process1_delete, name='delete-process1'),
@@ -29,6 +34,7 @@ urlpatterns = [
     #process2 urls
     path('list_process2/', views.process2_list, name='list-process2'),
     path('create_process2/', views.process2_create, name='create-process2'),
+    path('create_process2_2/', views.process2_create_2, name='create-process2_2'),
     path('detail_process2/(?P<pk>[0-9]+)/$', views.process2_detail, name='detail-process2'),
     path('update_process2/(?P<pk>[0-9]+)/$', views.process2_update, name='update-process2'),
     path('delete_process2/(?P<pk>[0-9]+)/$', views.process2_delete, name='delete-process2'),
@@ -69,6 +75,14 @@ urlpatterns = [
     path('update_process7/(?P<pk>[0-9]+)/$', views.process7_update, name='update-process7'),
     path('delete_process7/(?P<pk>[0-9]+)/$', views.process7_delete, name='delete-process7'),
 
-
+    #process8 urls
+    path('list_process8/', views.process8_list, name='list-process8'),
+    path('create_process8/', views.process8_create, name='create-process8'),
+    path('detail_process8/(?P<pk>[0-9]+)/$', views.process8_detail, name='detail-process8'),
+    path('update_process8/(?P<pk>[0-9]+)/$', views.process8_update, name='update-process8'),
+    path('delete_process8/(?P<pk>[0-9]+)/$', views.process8_delete, name='delete-process8'),
     ]
 
+# if settings.DEBUG: 
+#         urlpatterns += static(settings.MEDIA_URL, 
+#                               document_root=settings.MEDIA_ROOT)

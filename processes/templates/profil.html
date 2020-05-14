@@ -1,0 +1,108 @@
+{% extends 'base1.html' %}
+{%load staticfiles%}
+
+
+{% block content %}
+
+      <!-- Right side column. Contains the navbar and content of the page -->
+      <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+          <h1>
+            Kullanıcı Profili 
+            
+          </h1>
+          <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Anasayfa</a></li>
+            <li><a href="#">Kullanıcı Profili</a></li>
+          </ol>
+        </section>
+
+        <section class="content">
+            <br>
+        <div class="row">
+                <div class="col-md-4">
+                    <div class="box-header">
+                        {% if user.userprofile.profile_photo.url is not None %}
+                        <img class="img-circle img-responsive" src="{{ user.userprofile.profile_photo.url }}" alt="" width="200px">
+                        {% else %}
+                        <img class="img-circle img-responsive" src="{% static 'default.png' %}" alt="" width="200px">
+                        {% endif %}
+                        <br>
+                        
+                        <h4><b>Ad,soyad:</b> {{ user.get_full_name }}</h4>
+                        <h4><b>Departman:</b>  {{ request.user.userprofile.dep }}</h4>
+                        <!--buraya ünvan gelecek(ilk modelde oluşturulacak) -->
+                        <h4><b>Ünvan:</b> buraya ünvan</h4>
+                        <!-- epostaya view'da if condition'u verilecek-->
+                        <h4><b>E-posta:</b>  {{ request.user.email }}</h4>
+                    </div>
+                </div>
+
+            
+                <div class="col-md-8">
+                    <div class="box">
+                        <div class="box-body">
+                        <table id="example1" class="table table-bordered table-striped">
+                            <H4>Ürünlerim</H4>
+                            <thead>
+                            <tr>
+                                <th>Ürün İsmi</th>
+                                <th>Oluşturan</th>
+                                <th>Miktar</th>
+                                <th>Üretim Sipariş Numarası</th>
+                                <th>Sipariş Pozisyon Numarası</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+
+                            <tr>
+                                <td>DENEME</td>
+                                <td>DENEME</td>
+                                <td>DENEME</td>
+                                <td>DENEME</td>
+                                <td>DENEME</td>
+                            </tr>
+                            <tr>
+                                <td>DENEME</td>
+                                <td>DENEME</td>
+                                <td>DENEME</td>
+                                <td>DENEME</td>
+                                <td>DENEME</td>
+                            </tr>
+                            <tr>
+                                <td>DENEME</td>
+                                <td>DENEME</td>
+                                <td>DENEME</td>
+                                <td>DENEME</td>
+                                <td>DENEME</td>
+                            </tr>
+                            <tr>
+                                <td>DENEME</td>
+                                <td>DENEME</td>
+                                <td>DENEME</td>
+                                <td>DENEME</td>
+                                <td>DENEME</td>
+                            </tr>
+                            <tr>
+                                <td>DENEME</td>
+                                <td>DENEME</td>
+                                <td>DENEME</td>
+                                <td>DENEME</td>
+                                <td>DENEME</td>
+                            </tr>                        
+                        
+                        
+                        </tbody>
+                        </table>
+                        </div><!-- /.box-body -->
+                    </div><!-- /.box -->
+                </div>
+            </div>
+        </section>
+
+      </div>
+
+
+{% endblock %} 

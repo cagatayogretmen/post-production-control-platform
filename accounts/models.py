@@ -1,23 +1,15 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.shortcuts import reverse
+
 
 class UserProfile(models.Model):
-    user = models.OneToOneField(User, )
-    profile_photo = models.ImageField(null=True, blank = True, verbose_name = 'Profil verbose')
-
+    user = models.OneToOneField(User, on_delete = models.CASCADE)
+    profile_photo = models.ImageField(null=True, blank = True, upload_to='user_pictures', default='default.png')
+    dep = models.CharField(max_length=20)
 
     class Meta:
-        verbose_name_plural = 'Kullanıcı'
+        verbose_name_plural = 'User Profile'
     
-    def get_screen_name(self):
-        user = self.user
-        if user.get_fu
-
-    def get_userprofile_photo(self):
-        if self.profile_photo:
-            return self.profile_photo.url
-        return "static/dist/img/avatar.png"
-
-
     def __str__(self):
-        return self.user_name
+        return self.user.username

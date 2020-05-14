@@ -14,7 +14,7 @@ SECRET_KEY = 'ci6jkw%-664-&44+)v#+c_su=uib(g+@*d1$vy8xbt#f(t#kd7'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['192.168.1.6', 'localhost', '127.0.0.1']
 
 
 # Application definition
@@ -43,6 +43,7 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'rexroth_v1.urls'
 
+AUTH_PROFILE_MODULE = 'accounts.UserProfile'
 
 
 TEMPLATES = [
@@ -60,6 +61,10 @@ TEMPLATES = [
         },
     },
 ]
+
+
+
+
 
 WSGI_APPLICATION = 'rexroth_v1.wsgi.application'
 
@@ -117,11 +122,8 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'statics'),
 ]
 
-
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'rexroth_v1/media')
 
 LOGIN_URL = reverse_lazy('user-login')
 
-'''
-LOGIN_REDIRECT_URL = 'processes/home'
-LOGOUT_REDIRECT_URL = 'accounts/login'
-'''
