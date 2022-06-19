@@ -18,7 +18,7 @@ def user_login(request):
         if user:
             if user.is_active:
                 login(request, user)
-                msg = '<b>Merhaba</b>'
+                msg = '<b>Hi</b>'
                 return HttpResponseRedirect(reverse('home'))
 
     return render(request, 'login.html', context = {'form':form})
@@ -26,4 +26,3 @@ def user_login(request):
 def user_logout(request):
     logout(request)
     return HttpResponseRedirect(reverse('user-login'))
- 

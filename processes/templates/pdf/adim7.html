@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+
+<body>
+    <div class="content" style="border=1">
+        <font size="2" face="Ariel">
+            <h1>
+                Hidrolik Test Raporu <br> HPU Test Report(QG4)
+                <img src="..\rexroth_v1\media\rexothlogo.png"  width="150px" height="50px" align="right">
+            </h1>
+            <hr />
+            <table border=1 style="font-size:4">
+                <tr>
+                    <td style="padding: 2px; background-color: rgb(102, 99, 99); color: rgb(247, 243, 236);">Sip.Tarihi / Order Date </td>
+                    <td ><center><b>{{sip|date:"d.m.Y"}}</b></center></td>
+                    <td style="padding: 2px; background-color: rgb(102, 99, 99); color: rgb(247, 243, 236); ">Hacim / Volume</td>
+                    <td ><center><b>{{volume}}</b></center></td>
+                </tr>
+
+                <tr>
+                    <td style="padding: 2px; background-color: rgb(102, 99, 99); color: rgb(247, 243, 236);">Siparis No / Order No</td>
+                    <td><center><b>{{siparis}}</b></center></td>
+                    <td style="padding: 2px; background-color: rgb(102, 99, 99); color: rgb(247, 243, 236);">Sis. Bas/Sys.Pressur</td>
+                    <td><center><b>{{pressur}}</b></center></td>
+                </tr>
+
+                <tr>
+                    <td style="padding: 2px; background-color: rgb(102, 99, 99); color: rgb(247, 243, 236);">Ident No</td>
+                    <td><center><b>{{ident}}</b></center></td>
+                    <td style="padding: 2px; background-color: rgb(102, 99, 99); color: rgb(247, 243, 236);">Test Bsnc./Test Press</td>
+                    <td><center><b>{{press}}</b></center></td>
+                </tr>
+
+                <tr>
+                    <td style="padding: 2px; background-color: rgb(102, 99, 99); color: rgb(247, 243, 236);">Devre sema No/Hyd.Circuit No</td>
+                    <td><center><b>{{circuit}}</b></center></td>
+                    <td style="padding: 2px; background-color: rgb(102, 99, 99); color: rgb(247, 243, 236);">Adet / Qty </td>
+                    <td><center><b>{{adet}}</b></center></td>
+                </tr>
+            </table>
+            <br>
+            <table border=1 style="font-size:3">
+                <tr>
+                    <td style="padding: 2px; background-color: rgb(102, 99, 99); color: rgb(247, 243, 236); width:25%">Montaj Kontrol / Assemb. Cont. </td>
+                    <td style="width:25%"><center><b>{{montaj}}</b></center></td>
+                     <td rowspan="5" style="text-align: center;"><img
+                            src= "../media/{{resim1}}"
+                            width="250px" height="130px" alt=""></td>
+                    <td rowspan="5" style="text-align: center;"><img
+                            src="..\media\{{resim2}}"
+                            width="250px" height="130px" alt=""></td>
+                </tr>
+
+                <tr>
+                    <td style="padding: 2px; background-color: rgb(102, 99, 99); color: rgb(247, 243, 236);">Elek.mot.Dön.Yön./ Elec.Mot.Return Dir. <br> Kontrol Edildi / Checked
+                    </td>
+                    <td><center><b>{{elek}}</b></center></td>
+                </tr>
+
+                <tr>
+                    <td style="padding: 2px; background-color: rgb(102, 99, 99); color: rgb(247, 243, 236);">Hortum Kntrl./ Hose Cont.</td>
+                    <td><center><b>{{hortum}}</b></center></td>
+                </tr>
+
+                <tr>
+                    <td style="padding: 2px; background-color: rgb(102, 99, 99); color: rgb(247, 243, 236);">Fittings Kntrl. / Cont.</td>
+                    <td><center><b>{{fitting}}</b></center></td>
+                </tr>
+
+                <tr>
+                    <td style="padding: 2px; background-color: rgb(102, 99, 99); color: rgb(247, 243, 236);">Dön.Filt.Kntrl. /Rtrn.Filt Cont.</td>
+                    <td><center><b>{{don}}</b></center></td>
+                </tr>
+
+                <tr>
+                    <td style="padding: 2px; background-color: rgb(102, 99, 99); color: rgb(247, 243, 236);">Func. Test / Fonk. Test</td>
+                    <td><center><b>{{func}}</b></center></td>
+                     <td rowspan="4" style="text-align: center;"><img
+                            src= "../media/{{resim3}}"
+                            width="250px" height="130px" alt=""></td>
+                    <td rowspan="4" style="text-align: center;"><img
+                            src="..\media\{{resim4}}"
+                            width="250px" height="130px" alt=""></td>
+                </tr>
+
+                <tr>
+                    <td style="padding: 2px; background-color: rgb(102, 99, 99); color: rgb(247, 243, 236);">Oil Leakage / Yag Kaçagi</td>
+                    <td><center><b>{{oil}}</b></center></td>
+                </tr>
+
+                <tr>
+                    <td style="padding: 2px; background-color: rgb(102, 99, 99); color: rgb(247, 243, 236);">Missing Parts / Komponentler</td>
+                    <td><center><b>{{missing}}</b></center></td>
+                </tr>
+
+                <tr>
+                    <td style="padding: 2px; background-color: rgb(102, 99, 99); color: rgb(247, 243, 236);">Oil reservoir has been checked from inside after test <br> Yag tankinin içi testten sonra kontrol edildi.</td>
+                    <td><center><b>{{oilreservoir}}</b></center></td>
+                </tr>
+            </table>
+            <br>
+
+            <table border=1 style="font-size=3">
+                <tr>
+                    <td style="padding: 2px; background-color: rgb(102, 99, 99); color: rgb(247, 243, 236); font-size:3;" ><b> Remarks</b></td>
+                </tr>
+                <tr>
+                <td style="padding: 2px; height:60;">{{aciklama|linebreaks}}&nbsp;</td>
+                </tr>
+            </table>
+
+            <br>          
+
+            <table border=1 style="font-size=3">
+                <tr>
+                    <td style="padding: 2px; background-color: rgb(102, 99, 99); color: rgb(247, 243, 236); font-size:3;" rowspan="3"><center>Boya Özellikleri <br> Paint requirements </center></td>
+
+                    <td></td>
+                    <td style="padding: 2px; "><center>1.Kat Astar Boya <br> Primer Coat</center></td>
+                    <td style="padding: 2px; "><center>2.Kat Boya <br> Second.Coat </center></td>
+                </tr>
+
+                <tr>
+                    <td style="padding: 2px; ">Ral Code </td>
+                    <td><center><b>{{ral1}}</b></center></td>
+                    <td><center><b>{{ral2}}</b></center></td>
+                </tr>
+
+                <tr>
+                    <td style="padding: 2px; ">Kalinlik (Thickness)</td>
+                    <td style="padding: 2px; "><center><b> {{kal1}} µ </center></td>
+                    <td style="padding: 2px; "> <center><b>{{kal2}} µ </center></td>
+                </tr>
+            </table>
+            <br>
+
+            <table border=1 style="font-size:2;">
+                <tr>
+                    <td style="padding: 2px; width:25%; background-color: rgb(102, 99, 99); color: rgb(247, 243, 236); font-size:3;" rowspan="4"><center> Valfler istenilen degere ayarlandi <br>These valves are setted <br>as requested value </center></td>
+                    <td style="padding: 2px; ">Pz.No: {{1pz}} <br> Bar: {{1bar}} </td>
+                    <td style="padding: 2px; ">Pz.No: {{2pz}} <br> Bar: {{2bar}} </td>
+                    <td style="padding: 2px; ">Pz.No: {{3pz}} <br> Bar: {{3bar}} </td>
+                    <td style="padding: 2px; ">Pz.No: {{4pz}} <br> Bar: {{4bar}} </td>
+                </tr>
+
+                <tr>
+                    <td style="padding: 2px; ">Pz.No: {{5pz}} <br> Bar: {{5bar}} </td>
+                    <td style="padding: 2px; ">Pz.No: {{6pz}} <br> Bar: {{6bar}} </td>
+                    <td style="padding: 2px; ">Pz.No: {{7pz}} <br> Bar: {{7bar}} </td>
+                    <td style="padding: 2px; ">Pz.No: {{8pz}} <br> Bar: {{8bar}} </td>
+                </tr>
+
+                <tr>
+                    <td style="padding: 2px; ">Pz.No: {{9pz}} <br> Bar: {{9bar}} </td>
+                    <td style="padding: 2px; ">Pz.No: {{10pz}} <br> Bar: {{10bar}} </td>
+                    <td style="padding: 2px; ">Pz.No: {{11pz}} <br> Bar: {{11bar}} </td>
+                    <td style="padding: 2px; ">Pz.No: {{12pz}} <br> Bar: {{12bar}} </td>
+                </tr>
+
+                <tr>
+                    <td style="padding: 2px; ">Pz.No: {{13pz}} <br> Bar: {{13bar}} </td>
+                    <td style="padding: 2px; ">Pz.No: {{14pz}} <br> Bar: {{14bar}} </td>
+                    <td style="padding: 2px; ">Pz.No: {{15pz}} <br> Bar: {{15bar}} </td>
+                    <td style="padding: 2px; ">Pz.No: {{16pz}} <br> Bar: {{16bar}} </td>
+                </tr>
+            </table>
+
+            <br>
+            <table border=1 style="font-size=3">
+                <tr>
+                    <td style="padding: 2px; background-color: rgb(102, 99, 99); color: rgb(247, 243, 236); font-size:3;" ><b> Remarks</b></td>
+                </tr>
+                <tr>
+                <td style="padding: 2px; height:60;">{{aciklama2|linebreaks}}&nbsp;</td>
+                </tr>
+            </table>
+            <br><br><br>
+
+
+
+
+            <table style="width:100%;" , cellspacing=0>
+
+                <tr>
+                    <td>Test Date <br> Test Tarihi</td>
+                    <td><center><b>{{testdate|date:"d.m.Y"}}</b></center></td>
+                    <td>Tested by/ Testi Yapan <br> Signature/Imza</td>
+                    <td><center><b>{{testedby}} <br> ..........</b></center></td>
+                    <td>Control/Kontrol <br> Signature/Imza</td>
+                    <td><center><b>{{control}} <br> ..........</b></center></td>
+                </tr>
+
+
+
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>Müsteri/Customer</td>
+                    <td><center><b>{{musteri}}</b></center></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>Signature/Imza</td>
+                    <td><center><b></b></center></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+
+
+            <table style="width:100%" , cellspacing=0>
+                
+                <tr>
+                    <td>Bosch Rexroth DCTR/Geb</td>
+                    <td></td>
+                    <td>Revizyon:1 </td>
+                    <td>Tarih: {{tarih}} </td>
+                </tr>
+
+                <tr>
+                    <td colspan="2">TOSB 1. Cad. 14.Sok. No:10 Çayirove Kocaeli / Turkiye </td>
+                    <td>Yayinlayan: DCTR/EPU </td>
+                    <td><b>FR-77142-010</b></td>
+                    <td style= "text-align:right;">Sayfa 1/1</td>
+
+                </tr>
+            </table>
+    </div>
+</body>
+
+</html>

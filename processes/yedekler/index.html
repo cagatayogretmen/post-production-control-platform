@@ -1,0 +1,96 @@
+{% extends 'base1.html' %}
+
+{%load static%}
+
+
+{% block content %}
+
+      <!-- Right side column. Contains the navbar and content of the page -->
+      <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+          <h1>
+            Kontrol paneli
+            <small>Gebze Lokasyonu</small>
+          </h1>
+        </section>
+        <!-- Main content -->
+        <section class="content">
+          <!-- Small boxes (Stat box) -->
+          <div class="row">
+            <div class="col-lg-3 col-xs-6">          
+              <div class="small-box bg-red">
+                <div class="inner">
+                  <h3>{{ adet }}</h3>
+                  <p>Toplam ürün adeti</p>
+                </div>
+                <div class="icon">
+                  <a href = "{% url 'create-product'%}"><i class="ion ion-ios-cart-outline"></i></a>
+                </div>
+                <a href="{% url 'create-product'%}" class="small-box-footer">Ürün kontrolü oluştur 
+                  <i class="fa fa-arrow-circle-right"></i></a>
+              </div>
+            </div><!-- ./col -->
+    <!-- small box -->
+            <div class="col-lg-3 col-xs-6">          
+              <div class="small-box bg-purple">
+                <div class="inner">
+                  <h3>6 </h3>
+                  <p>Kontroldeki ürün adeti</p>
+                </div>
+                <div class="icon">
+                  <a href="{% url 'create-process-main'%}"><i class="ion ion-ios-briefcase-outline"></i></a>
+                </div>
+                <a href="{% url 'create-process-main'%}" class="small-box-footer">Süreç oluştur <i class="fa fa-arrow-circle-right"></i></a>
+              </div>
+            </div><!-- ./col -->
+            <div class="col-lg-3 col-xs-6">
+              <!-- small box -->
+              <div class="small-box bg-green">
+                <div class="inner">
+                  <h3>6<sup style="font-size: 20px">%</sup></h3>
+                  <p>Üretim hızı</p>
+                </div>
+                <div class="icon">
+                  <a href=""><i class="ion ion-stats-bars"></i></a>
+                </div>
+                <a href="#" class="small-box-footer">Detaylı bilgi <i class="fa fa-arrow-circle-right"></i></a>
+              </div>
+            </div><!-- ./col -->
+            <div class="col-lg-3 col-xs-6">          
+              <div class="small-box bg-yellow">
+                <div class="inner">
+                  <h3>13</h3>
+                  <p>Kontrol edilmiş</p>
+                </div>
+                <div class="icon">
+                  <a href=""><i class="ion ion-pie-graph"></i></a>
+                </div>
+                <a href="#" class="small-box-footer">Tamamlanmış ürünler <i class="fa fa-arrow-circle-right"></i></a>
+              </div>
+            </div><!-- ./col -->
+          </div><!-- /.row -->
+          <!-- Main row -->
+          <div class="row">
+            <div class="col-md-12">
+              <div class="box">
+                <div class="nav-tabs-custom">
+                  <!-- Tabs within a box -->
+                  <ul class="nav nav-tabs pull-right">
+                    <li class="active"><a href="#revenue-chart" data-toggle="tab">Area</a></li>
+                    <li><a href="#sales-chart" data-toggle="tab">Donut</a></li>
+                    <li class="pull-left header"><i class="fa fa-inbox"></i> Ürün Kontrol Süreci Grafiği</li>
+                  </ul>
+                  <div class="tab-content no-padding">
+                    <!-- Morris chart - Sales -->
+                    <div class="chart tab-pane active" id="revenue-chart" style="position: relative; height: 300px;"></div>
+                    <div class="chart tab-pane" id="sales-chart" style="position: relative; height: 300px;"></div>
+                  </div>
+                </div><!-- /.nav-tabs-custom -->
+              </div><!-- ./box-body -->
+            </div>
+          </div>
+        </section>
+      </div>
+
+{% endblock %} 

@@ -1,0 +1,56 @@
+{% extends 'base1.html' %}
+{% load static %}
+{% block content %}
+
+
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        {{title}}
+      </h1>
+    </section>
+
+    <section class="content">
+      <div class="row">
+        <div class="col-md-12">
+          <!-- general form elements disabled -->
+
+          <div class="box">
+            <div style="background:url('/static/rexroth_images/1.png'); background-size: contain;background-color: rgba(255,255,255,0.8); background-blend-mode: lighten;">
+
+              <div class="box-body">
+                <table id="example1" class="table table-bordered table-striped">
+                  <thead>
+                    <tr>
+                      <th>Ürün İsmi</th>
+                      <th>Oluşturan</th>
+                      <th>Miktar</th>
+                      <th>Üretim Sipariş Numarası</th>
+                      <th>Sipariş Pozisyon Numarası</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+
+                    {% for process in all_processes %}
+                    <tr>
+                      <td><a href="{% url 'detail-process1' process.pk %}">{{ process.product }}</a></td>
+                      <td>{{ process.created_by }}</td>
+                      <td>{{ process.slug }}</td>
+                      <td>{{ process.updated_on }}</td>
+                      <td>{{ process.created_on }}</td>
+                    </tr>
+                    {% endfor %}   
+
+                  </tbody>
+                </table>
+              </div><!-- /.box-body -->
+              </div>
+            </div><!-- /.box -->
+        </div><!--/.col (right) -->
+      </div>   <!-- /.row -->
+    </section><!-- /.content -->
+</div>
+    
+{% endblock %} 

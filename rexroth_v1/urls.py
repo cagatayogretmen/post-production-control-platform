@@ -3,18 +3,20 @@ from django.contrib import admin
 from django.urls import path, include
 from django.views.generic.base import TemplateView
 from . import views
-from .views import GeneratePDF
 
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('processes.urls')),
     path('accounts/', include('accounts.urls')),
-    path('', TemplateView.as_view(template_name='home.html'), name='home'),
-    path('pdf/', GeneratePDF.as_view()),
 
     ]
+if settings.DEBUG:
+        urlpatterns += static(settings.MEDIA_URL,
+                              document_root=settings.MEDIA_ROOT)
 
-admin.site.site_header = "Rexroth Kalite Kontrol Uygulaması "
-admin.site.site_title = "Rexroth Kalite Kontrol Uygulaması"
-admin.site.index_title = "Anasayfa"
+admin.site.site_header = "Rexroth App"
+admin.site.site_title = "Rexroth App"
+admin.site.index_title = "Admin Panel"

@@ -1,6 +1,5 @@
 {% extends 'base1.html' %}
-{%load staticfiles%}
-
+{% load static %}
 {% block content %}
 
 <div class="content-wrapper">
@@ -9,10 +8,6 @@
       <h1>
         {{ product.product_name }} Ürünü
       </h1>
-      <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Anasayfa</a></li>
-        <li><a href="#">Ürün Güncelle</a></li>
-      </ol>
     </section>
     <section class="content">
         <div class="row">
@@ -29,7 +24,7 @@
                     {{ field }}
                   </div>
                   {% endfor %}
-                  <button class="btn btn-block btn-danger btn-lg">Ürünü Güncelle</button>  
+                  <button class="btn btn-block btn-danger btn-lg">Update Process</button>  
                 </form>
               </div><!-- /.box-body -->
             </div><!-- /.box -->

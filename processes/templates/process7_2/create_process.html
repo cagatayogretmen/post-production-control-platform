@@ -1,0 +1,184 @@
+{% extends 'base1.html' %}
+{% load static %}
+
+{% block content %}
+
+      <!-- Right side column. Contains the navbar and content of the page -->
+      <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+          <h1>
+          Finish Test(QG4) 
+          </h1>
+        </section>
+
+      </section>
+      <section class="content">
+          <div class="row">
+            <div class="col-md-12">
+              <!-- general form elements disabled -->
+              <div class="box box-warning">
+                <div style="background:url('/static/rexroth_images/7.JPG'); background-size: contain;background-color: rgba(255,255,255,0.8); background-blend-mode: lighten;">
+
+                <div class="box-body">
+                  <form role="form" method="post">
+                    {% csrf_token %}
+
+                <div class="form-group">
+                  <label>{{form.product.label}}</label><br>
+                  {{form.product}}<br><br>
+
+                  <label>{{form.q7.label}}</label><br>
+                  <label>{{form.q7}}</label><br><br>
+                  <label>{{form.q6.label}}</label><br>
+                  {{form.q6}}<br><br>
+                  <label>{{form.q8.label}}</label><br>
+                  {{form.q8}}<br><br>
+                  <label>{{form.q9.label}}</label><br>
+                  {{form.q9}}<br><br>
+                  <label>{{form.q10.label}}</label><br>
+                  {{form.q10}}<br><br>
+                  <label>{{form.q11.label}}</label><br>
+                  {{form.q11}}<br><br>
+                  <label>{{form.q12.label}}</label><br>
+                  {{form.q12}}<br><br>
+                  <label>{{form.q13.label}}</label><br>
+                  {{form.q13}}<br><br>
+                  <label>{{form.q14.label}}</label><br>
+                  {{form.q14}}<br><br>
+                  <label>{{form.q15.label}}</label><br>
+                  {{form.q15}}<br><br>
+
+                  <table>
+                    <label>{{form.q16.label}}</label>
+                    <div style="overflow-x:auto;">
+                      <table border=1>
+                        <tr>
+                          <td></td>
+                          <td style="padding: 2px; ">
+                            <center><label>Primer Coat</label></center>
+                          </td>
+
+                        </tr>
+
+                        <tr>
+                          <td style="padding: 2px; "><label>Ral Code </label></td>
+                          <td>
+                            <center><b>{{form.q16}}</b></center>
+                          </td>
+
+
+                        </tr>
+
+                        <tr>
+                          <td style="padding: 2px; "><label>Kalinlik (Thickness)</label></td>
+                          <td style="padding: 2px; ">
+                            <center><b> {{form.q18}} </center>
+                          </td>
+
+
+                        </tr>
+
+                        <tr>
+                          <td></td>
+                          
+                          <td style="padding: 2px; ">
+                            <center><label>Second Coat </label></center>
+                          </td>
+                        </tr>
+
+                        <tr>
+                          <td style="padding: 2px; "><label>Ral Code </label></td>
+                          <td>
+                            <center><b>{{form.q17}}</b></center>
+                          </td>
+                        </tr>
+
+                        <tr>
+                          <td style="padding: 2px; "><label>Kalinlik (Thickness)</label></td>
+                          <td style="padding: 2px; ">
+                            <center><b>{{form.q19}} </center>
+                          </td>
+                        </tr>
+                      </table>
+                    </div>
+
+                    <br>
+                    <label>These valves are setted as requested value</label>
+                    <div style="overflow-x:auto;">
+                      <table border=1 style="font-size:2;">
+                        <tr>
+                          <td style="padding: 2px; text-align: right;"><label>Pz.No:</label> {{form.q21}} <br>
+                            <label>Bar:</label> {{form.q37}} </td>
+                          <td style="padding: 2px; text-align: right;"><label>Pz.No:</label> {{form.q22}} <br>
+                            <label>Bar:</label> {{form.q38}} </td>
+                        </tr>
+
+                        <tr>
+                          <td style="padding: 2px; text-align: right;"><label>Pz.No:</label> {{form.q23}} <br>
+                            <label>Bar:</label> {{form.q39}} </td>
+                          <td style="padding: 2px; text-align: right;"><label>Pz.No:</label> {{form.q24}} <br>
+                            <label>Bar:</label> {{form.q40}} </td>
+                        </tr>
+
+                        <tr>
+                          <td style="padding: 2px; text-align: right;"><label>Pz.No:</label> {{form.q25}} <br>
+                            <label>Bar:</label> {{form.q41}} </td>
+                          <td style="padding: 2px; text-align: right;"><label>Pz.No:</label> {{form.q26}} <br>
+                            <label>Bar:</label> {{form.q42}} </td>
+                        </tr>
+
+                        <tr>
+                          <td style="padding: 2px; text-align: right;"><label>Pz.No:</label> {{form.q27}} <br>
+                            <label>Bar:</label> {{form.q43}} </td>
+                          <td style="padding: 2px; text-align: right;"><label>Pz.No:</label> {{form.q28}} <br>
+                            <label>Bar:</label> {{form.q44}} </td>
+                        </tr>
+
+                        <tr>
+                          <td style="padding: 2px; text-align: right;"><label>Pz.No:</label> {{form.q29}} <br>
+                            <label>Bar:</label> {{form.q45}} </td>
+                          <td style="padding: 2px; text-align: right;"><label>Pz.No:</label> {{form.q30}} <br>
+                            <label>Bar:</label> {{form.q46}} </td>
+                        </tr>
+
+                        <tr>
+                          <td style="padding: 2px; text-align: right;"><label>Pz.No:</label> {{form.q31}} <br>
+                            <label>Bar:</label> {{form.q47}} </td>
+                          <td style="padding: 2px; text-align: right;"><label>Pz.No:</label> {{form.q32}} <br>
+                            <label>Bar:</label> {{form.q48}} </td>
+                        </tr>
+
+                        <tr>
+                          <td style="padding: 2px; text-align: right;"><label>Pz.No:</label> {{form.q33}} <br>
+                            <label>Bar:</label> {{form.q49}} </td>
+                          <td style="padding: 2px; text-align: right;"><label>Pz.No:</label> {{form.q34}} <br>
+                            <label>Bar:</label> {{form.q50}} </td>
+                        </tr>
+
+                        <tr>
+                          <td style="padding: 2px; text-align: right;"><label>Pz.No:</label> {{form.q35}} <br>
+                            <label>Bar:</label> {{form.q51}} </td>
+                          <td style="padding: 2px; text-align: right;"><label>Pz.No:</label> {{form.q36}} <br>
+                            <label>Bar:</label> {{form.q52}} </td>
+                        </tr>
+                      </table><br>
+                    </div>
+                    <label>{{form.q20.label}}</label><br>{{form.q20}}<br><br>
+                    
+                    <label>{{form.q1.label}}</label><br>{{form.q1}}<br><br>
+                    <label>{{form.q2.label}}</label><br>{{form.q2}}<br><br>
+
+                </div>
+                    <button class="btn btn-block btn-danger btn-lg">Complete Process</button>  
+                  </form>
+                  </div>
+                </div><!-- /.box-body -->
+              </div><!-- /.box -->
+            </div><!--/.col (right) -->
+          </div>   <!-- /.row -->
+        </section><!-- /.content -->
+      </div>
+
+
+{% endblock %} 

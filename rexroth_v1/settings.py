@@ -29,7 +29,11 @@ INSTALLED_APPS = [
     'accounts.apps.AccountsConfig',
     'processes.apps.ProcessesConfig',
     'crispy_forms',
+    'wkhtmltopdf',
 ]
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'  # During development only
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -102,10 +106,10 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'tr'
 
-TIME_ZONE = 'UTC'
-
+TIME_ZONE = 'Europe/Istanbul'
+DATETIME_FORMAT = '%d-%m-%Y'
 USE_I18N = True
 
 USE_L10N = True
@@ -123,7 +127,7 @@ STATICFILES_DIRS = [
 ]
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'rexroth_v1/media')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 LOGIN_URL = reverse_lazy('user-login')
 

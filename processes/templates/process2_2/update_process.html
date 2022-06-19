@@ -1,0 +1,40 @@
+{% extends 'base1.html' %}
+{% load static %}
+{% block content %}
+
+
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <h1>
+      {{ process.product }} Ürünü
+    </h1>
+  </section>
+  <section class="content">
+      <div class="row">
+        <div class="col-md-12">
+          <!-- general form elements disabled -->
+          <div class="box ">
+            <div style="background:url('/static/rexroth_images/2.JPG'); background-size: contain;background-color: rgba(255,255,255,0.8); background-blend-mode: lighten;">
+
+            <div class="box-body">
+              <form action="{% url 'update-process2' process.pk %}" method="post">
+                  {% csrf_token %}
+                    <!-- text input -->
+                {% for field in form %}
+                <div class="form-group">
+                  <label>{{ field.label }}</label></br>
+                  {{ field }}
+                </div>
+                {% endfor %}
+                <button class="btn btn-block btn-danger btn-lg">Update Process</button>  
+              </form>
+              </div>
+            </div><!-- /.box-body -->
+          </div><!-- /.box -->
+        </div><!--/.col (right) -->
+      </div>   <!-- /.row -->
+    </section><!-- /.content -->
+
+    
+{% endblock %} 

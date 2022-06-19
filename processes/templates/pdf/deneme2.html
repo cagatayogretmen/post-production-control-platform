@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        {
+            box-sizing: border-box;
+        }
+
+        .content {
+            width: 800px;
+            margin: auto;
+            border-style: ridge;
+        }
+
+        .column {
+            float: left;
+            width: 50%;
+            padding: 10px;
+            height: 300px;
+        }
+
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        td {
+            width: 25%;
+        }
+
+        .topcorner {
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+
+        deneme {
+            top: 0 px
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="content" style="border=1">
+
+        <h2 style="display:inline-block">Hidrolik Ünite Test Raporu / </h2>
+        <h2 style="display:inline-block">HPU Test Report(QG4)</h2>
+        <div class="deneme">
+            <img class="topcorner" style="display:inline-block" src="test2.png" alt="5" width="100" , height="100">
+        </div>
+
+        <hr>
+
+        <table style="width:100%" , cellspacing=0, border=1>
+
+            <tr>
+                <td colspan="2">Sip.Tarihi / Order Date </td>
+                <td></td>
+                <td colspan="2">Hacim / Volume</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <td colspan="2">Sipariş No / Order No</td>
+                <td></td>
+                <td colspan="2">Sis. Bas/Sys.Pressur</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <td colspan="2">İdent No</td>
+                <td></td>
+                <td colspan="2">Test Bsnc./Test Press</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <td colspan="2">Devre Şema No/Hyd.Circuit No</td>
+                <td></td>
+                <td colspan="2">Adet / Qty </td>
+                <td colspan="1"></td>
+            </tr>
+
+            <tr>
+                <td colspan="2">Montaj Kontrol / Assemb. Cont. </td>
+
+                <td colspan="2">
+                    <input type="radio">
+                    <label>Yapıldı(done)</label>
+                </td>
+
+                <td colspan="2">
+                    <input type="radio">
+                    <label>Yapılmadı (not done)</label>
+                <td>
+            </tr>
+
+            <tr>
+                <td colspan="2">Elek.mot.Dön.Yön./ <br> Elec.Mot.Return Dir. </td>
+                <td colspan="4">
+                
+                <input type="radio" value="1">
+                <label >1</label>
+                <input type="radio" value="2">
+                <label >2</label>
+                <input type="radio" value="3">
+                <label >3</label>
+                <input type="radio" value="4">
+                <label >4</label>
+                <input type="radio" value="5">
+                <label >5</label>
+                <input type="radio" value="6">
+                <label >6</label>
+                <input type="radio" value="7">
+                <label >7</label>
+                <input type="radio" value="8">
+                <label >8</label>
+                <input type="radio" value="9">
+                <label >9</label>
+                <input type="radio" value="10">
+                <label >10</label>
+                <input type="radio" value="11">
+                <label >11</label>
+                <input type="radio" value="12">
+                <label >12</label>
+                <input type="radio" value="13">
+                <label >13</label>
+                <input type="radio" value="14">
+                <label >14</label>
+             
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="2">Elek.mot.Dön.Yön./ <br> Elec.Mot.Return Dir. </td>
+                <td colspan="4"> </td>
+            </tr>
+
+            <tr>
+                <td colspan="2">Hortum Kntrl./ Hose Cont.</td>
+
+                <td colspan="2">
+                    <input type="radio">
+                    <label>Yapıldı(done)</label>
+                </td>
+
+                <td colspan="2">
+                    <input type="radio">
+                    <label>Yapılmadı (not done)</label>
+                <td>
+            </tr>
+
+            <tr>
+                <td colspan="2">Fittings Kntrl. / Cont.</td>
+
+                <td colspan="2">
+                    <input type="radio">
+                    <label>Yapıldı(done)</label>
+                </td>
+
+                <td colspan="2">
+                    <input type="radio">
+                    <label>Yapılmadı (not done)</label>
+                <td>
+            </tr>
+
+            <tr>
+                <td colspan="2">Dön.Filt.Kntrl. /Rtrn.Filt Cont.</td>
+
+                <td colspan="2">
+                    <input type="radio">
+                    <label>Yapıldı(done)</label>
+                </td>
+
+                <td colspan="2">
+                    <input type="radio">
+                    <label>Yapılmadı (not done)</label>
+                <td>
+            </tr>
+
+
+            <tr>
+                <td colspan="2">Func. Test / Fonk. Test</td>
+
+                <td colspan="2">
+                    <input type="radio">
+                    <label>Yapıldı(done)</label>
+                </td>
+
+                <td colspan="2">
+                    <input type="radio">
+                    <label>Yapılmadı (not done)</label>
+                <td>
+            </tr>
+
+
+            <tr>
+                <td colspan="2">Oil Leakage / Yağ Kaçağı</td>
+
+                <td colspan="2">
+                    <input type="radio">
+                    <label>Yok(none)</label>
+                </td>
+
+                <td colspan="2">
+                    <input type="radio">
+                    <label>Var (detected)</label>
+                <td>
+            </tr>
+
+
+            <tr>
+                <td colspan="2">Missing Parts / Komponentler</td>
+
+                <td colspan="2">
+                    <input type="radio">
+                    <label>Eksik Komponent</label>
+                </td>
+
+                <td colspan="2">
+                    <input type="radio">
+                    <label>Yapılmadı (not done)</label>
+                <td>
+            </tr>
+
+
+
+            <tr>
+                <td colspan="4">Oil reservoir has been checked from inside after test <br> Yağ tankının içi
+                    testten sonra kontrol edildi.</td>
+
+                <td colspan="1">
+                    <input type="radio">
+                    <label>Yapıldı(done)</label>
+                </td>
+
+                <td colspan="1">
+                    <input type="radio">
+                    <label>Yapılmadı (not done)</label>
+                <td>
+            </tr>
+        </table>
+        <br>
+        <a>Açıklamalar/ Remarks </a>
+        <br>
+        <textarea rows="10" cols="105"></textarea>
+
+        <table style="width:100%" , cellspacing=0, border=1>
+            <br>
+            <br>
+            <tr>
+                <caption> Boya Özellikleri / Paint requirements </caption>
+            </tr>
+            <tr>
+                <td></td>
+                <td>1.Kat Astar Boya <br> Primer Coat</td>
+                <td>2.Kat Boya <br> Second.Coat.</td>
+            </tr>
+
+            <tr>
+                <td>Ral <br> Code </td>
+                <td></td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <td>Kalınlık <br> Thickness</td>
+                <td> µ</td>
+                <td> µ</td>
+            </tr>
+            </tr>
+
+        </table>
+
+        <table style="width:100%" , cellspacing=0, border=1>
+            <br>
+            <tr>
+                <caption> Aşağıdaki valfler istenilen değere ayarlandı/These valves are setted as requested
+                    value </caption>
+            </tr>
+
+            <tr>
+                <td>Pz.No: <br> Bar: </td>
+                <td>Pz.No: <br> Bar: </td>
+                <td>Pz.No: <br> Bar: </td>
+                <td>Pz.No: <br> Bar: </td>
+            </tr>
+
+            <tr>
+                <td>Pz.No: <br> Bar: </td>
+                <td>Pz.No: <br> Bar: </td>
+                <td>Pz.No: <br> Bar: </td>
+                <td>Pz.No: <br> Bar: </td>
+
+            </tr>
+
+            <tr>
+                <td>Pz.No: <br> Bar: </td>
+                <td>Pz.No: <br> Bar: </td>
+                <td>Pz.No: <br> Bar: </td>
+                <td>Pz.No: <br> Bar: </td>
+
+            </tr>
+
+            <tr>
+                <td>Pz.No: <br> Bar: </td>
+                <td>Pz.No: <br> Bar: </td>
+                <td>Pz.No: <br> Bar: </td>
+                <td>Pz.No: <br> Bar: </td>
+
+            </tr>
+
+        </table>
+
+        <br>
+        <a>Açıklamalar/ Remarks </a>
+        <br>
+        <textarea rows="10" cols="105"></textarea>
+        <br>
+        <hr>
+
+        <table style="width:100%" , cellspacing=0>
+
+            <tr>
+                <td>Test Date <br> Test Tarihi</td>
+                <td></td>
+                <td>Tested by/ Testi Yapan</td>
+                <td></td>
+                <td>Control/Kontrol</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <td></td>
+                <td></td>
+                <td>Signature/İmza</td>
+                <td></td>
+                <td>Signature/İmza</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <td></td>
+                <td></td>
+                <td>Müşteri/Customer</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <td></td>
+                <td></td>
+                <td>Signature/İmza</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+
+
+        <table style="width:100%" , cellspacing=0>
+            <hr>
+            <br>
+
+            <tr>
+                <td>Bosch Rexroth</td>
+                <td>DCTR/Geb</td>
+                <td>Revizyon: </td>
+                <td>Tarih: </td>
+            </tr>
+
+            <tr>
+                <td colspan="2">TOSB 1. Cad. 14.Sok. No:10 Çayırove Kocaeli / Turkiye </td>
+                <td>Yayınlayan: </td>
+                <td>FR-77142-010</td>
+            </tr>
+        </table>
+
+
+    </div>
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+{% extends 'base1.html' %}
+{% load static %}
+
+{% block content %}
+
+      <!-- Right side column. Contains the navbar and content of the page -->
+      <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+          <h1>
+            Finish Pre Assembly
+          </h1>
+        </section>
+
+      </section>
+      <section class="content">
+          <div class="row">
+            <div class="col-md-12">
+              <!-- general form elements disabled -->
+              <div class="box ">
+                <div style="background:url('/static/rexroth_images/2.JPG'); background-size: contain;background-color: rgba(255,255,255,0.8); background-blend-mode: lighten;">
+
+                <div class="box-body">
+                  <form role="form" method="post">
+                    {% csrf_token %}
+                        <!-- text input -->
+                    {% for field in form %}
+                    <div class="form-group">
+                      <label>{{ field.label }}</label></br>
+                      {{ field }}
+                    </div>
+                    {% endfor %}
+                    <button class="btn btn-block btn-danger btn-lg">Complete Process</button>  
+                  </form>
+                </div><!-- /.box-body -->
+                </div>
+              </div><!-- /.box -->
+            </div><!--/.col (right) -->
+          </div>   <!-- /.row -->
+        </section><!-- /.content -->
+      </div>
+
+
+{% endblock %} 

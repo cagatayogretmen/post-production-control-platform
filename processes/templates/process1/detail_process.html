@@ -1,53 +1,30 @@
 {% extends 'base1.html' %}
-{%load staticfiles%}
-
+{% load static %}
 {% block content %}
 
 
 <div class="content-wrapper">
+                  <div style="background:url('/static/rexroth_images/1.png'); background-size: contain;background-color: rgba(255,255,255,0.8); background-blend-mode: lighten;">
+
   <!-- Content Header (Page header) -->
   <section class="content-header">
     <h1>
-      {{ process.product }} ürünün 1.süreci
+      Delete Incoming Inspection of {{ process.product }} 
     </h1>
-    <ol class="breadcrumb">
-      <li><a href="#"><i class="fa fa-dashboard"></i> Anasayfa</a></li>
-      <li><a href="#">Ürün oluştur</a></li>
-    </ol>
   </section>
 
   <section class="content">
-      <div class="row">
-        <div class="col-md-3">
-          <button class="btn btn-block btn-default btn-lg"><a href="{% url 'update-process1' process.pk %}">Raporu tamamla</a></button>
-          <button class="btn btn-block btn-default btn-lg"><a href="{% url 'delete-process1' process.pk %}">Kontrolü Sil</a></button><br>
-          <button class="btn btn-block btn-default btn-lg"><a href="{% url 'detail-product' product.pk %}">Ürün Sayfasına Dön</a></button>
 
-        </div>
-        <div class="col-md-3">
-          <div class="box-body">
-            <dl>
-              <dt>Oluşturan Kişi</dt>
-              <dd>{{ process.created_by }}</dd>
-              <dt>Ürün Durumu</dt>
-              <dd>{{ process.status }}</dd>
-              <dt>Sipariş Poziyon Numarası</dd>
-              <dd>{{ process.order_position_no }}</dt>
-              <dt>Miktar</dd>
-              <dd>{{ process.quantity }}</dt>
-              <dt>Oluşturan Kişi</dt>
-              <dd>{{ process.created_by }}</dd>
-              <dt>Ürün Durumu</dt>
-              <dd>{{ process.status }}</dd>
-              <dt>Sipariş Poziyon Numarası</dd>
-              <dd>{{ process.order_position_no }}</dt>
-              <dt>Miktar</dd>
-              <dd>{{ process.quantity }}</dt>                  
-            </dl>
-          </div><!-- /.box-body -->
-        </div>
+    <div class="row">
+      <div class="col-md-3">
+        <button class="btn btn-block btn-default btn-lg"><a href="{% url 'update-process1' process.pk %}">Update Process</a></button>
+        <button class="btn btn-block btn-default btn-lg"><a href="{% url 'delete-process1' process.pk %}">Delete Process</a></button>
+        <button class="btn btn-block btn-default btn-lg"><a href="{% url 'detail-product' product.pk %}">Return to Process Page</a></button>
+  </div>
+  </div>
+      </div>
+</section>
 
-  </section>
 </div>
     
 {% endblock %} 

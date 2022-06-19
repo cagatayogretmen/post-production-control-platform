@@ -1,200 +1,377 @@
 {% extends 'base1.html' %}
-{%load staticfiles%}
-
+{%load static%}
 {% block content %}
 
 <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-      <h1>
-        {{ product.product_name }} Ürünü
-      </h1>
-      <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Anasayfa</a></li>
-        <li><a href="#">Ürün oluştur</a></li>
-      </ol>
-    </section>
-    <section class="content">
-        <div class="row">
-          <div class="col-lg-3 col-xs-6">          
-            <div class="card" style="width: 18rem;">
-              <!-- width="100" height="100" -->
-              <img class="card-img-top"  width="140" height="110" src="{% static 'dist/img/1.png' %}" alt="Card image cap">
-              <div class="card-body">
-                {% if deger_1 == 1 %}
-                <h5 class="card-title"><strong>Giriş Kontrol</strong></h5>
-                <p class="card-text">Süreç başladı<br>Oluşturulma Tarihi:</p>                
-                <a href="" class="btn btn-primary" style="width: 49%" disabled>Başlat</a> 
-                <a href="" class="btn btn-warning" style="width: 49%" >Güncelle</a> <br>
-                <a href="{% url 'update-process1' process1.pk %}" class="btn btn-primary" style="width: 49%" >Tamamla</a> 
-                <a href="{% url 'detail-process1' process1.pk %}" style="width: 49%" class="btn btn-danger">Sil</a>
-                <!-- süreç yok ise -->
-                {% else %}
-                <h5 class="card-title"><strong>Giriş Kontrol</strong></h5>
-                <p class="card-text">Süreç başlamadı <br>Oluşturulma Tarihi:</p>                
-                <a href="{% url 'create-process1' %}" class="btn btn-primary" style="width: 49%" >Başlat</a> 
-                <a href="" class="btn btn-warning" style="width: 49%" disabled>Güncelle</a> <br>
-                <a href="" class="btn btn-primary" style="width: 49%" disabled>Tamamla</a> 
-                <a href="" style="width: 49%" class="btn btn-danger" disabled>Sil</a>
-                {% endif %}
-              </div>
+  <!-- Content Header (Page header) -->
+  <section class="content" style="position:relative">
+    <h1>
+      <center><bold>Hydraulic Power Unit Production Control Application</bold></center>
+    </h1>
+
+    <div class="row">
+      <!--1.process  -->
+      <div class="col-lg-3 col-xs-6 " style="margin-top:3%">
+        <div class="card" style="width: %20;">
+          <!-- süreç var ise -->
+          <center><img class="img-thumbnail" width="210px" height="140px" style="width:100%; height:auto" src="{% static 'dist/img/11.png' %}"
+              alt="Card image cap"></center>
+          <center>
+            <div class="card-body">
+
+              <!-- süreç yok ise -->
+              {% if deger_1 == 0 %} <!-- Start yapılmamış -->
+              <h5 class="card-title"><strong>Incoming Inspection </strong><a><i class="fa fa-info-circle"></i></a></h5>
+              <a href="{% url 'create-process1' %}" class="btn btn-success" style="width: 40%">Start</a>
+              <a href="" class="btn btn-warning" style="width: 40%" disabled>Update</a> <br>
+              <a href="{% url 'create-process1_2' %}" class="btn btn-primary" style="width: 40%" disabled>Finish</a>
+              <a href="" style="width: 40%" class="btn btn-danger" disabled>Delete</a>
+
+              {% elif deger_1 == 1 and p1 != 1 %} <!-- Start yapılmış -->
+              <h5 class="card-title"><strong>Incoming Inspection </strong><a><i class="fa fa-info-circle"></i></a></h5>
+              <a href="{% url 'create-process1' %}" class="btn btn-success" style="width: 40%" disabled>Start</a>
+              <a href="{% url 'update-process1' process1.pk %}" class="btn btn-warning" style="width: 40%">Update</a>
+              <br>
+              <a href="{% url 'create-process1_2' %}" class="btn btn-primary" style="width: 40%" >Finish</a>
+              <a href="{% url 'detail-process1' process1.pk %}" style="width: 40%" class="btn btn-danger">Delete</a>
+              <br>
+
+              {% elif deger_1 == 1 and p1 == 1 %} <!-- Start yapılmış -->
+              <h5 class="card-title"><strong>Incoming Inspection </strong><a><i class="fa fa-info-circle"></i></a></h5>
+              <a href="{% url 'create-process1' %}" class="btn btn-success" style="width: 40%" disabled>Start</a>
+              <a href="{% url 'update-process1' process1.pk %}" class="btn btn-warning" style="width: 40%">Update</a>
+              <br>
+              <a href="{% url 'create-process1_2' %}" class="btn btn-primary" style="width: 40%" disabled>Finish</a>
+              <a href="{% url 'detail-process1' process1.pk %}" style="width: 40%" class="btn btn-danger">Delete</a>
+              <br>
+
+              {% else %} <!-- Start ve Finish yapılmış -->
+              <h5 class="card-title"><strong>Incoming Inspection </strong><a href= {% url 'info-process1' process1.pk %}><i class="fa fa-info-circle"></i></a></h5>
+              <a href="{% url 'create-process1' %}" class="btn btn-success" style="width: 40%" disabled>Start</a>
+              <a href="{% url 'update-process1' process1.pk %}" class="btn btn-warning" style="width: 40%" disabled>Update</a> <br>
+              <a href="{% url 'create-process1_2' %}" class="btn btn-primary" style="width: 40%" disabled>Finish</a>
+              <a href="" style="width: 40%" class="btn btn-danger" disabled>Delete</a>
+              {% endif %}
+
             </div>
-          </div>
-          <div class="col-lg-3 col-xs-6">          
-            <div class="card" style="width: 18rem;">
-              <img class="card-img-top" width="140" height="110" src="{% static 'dist/img/2.png' %}" alt="Card image cap">
-              <div class="card-body">
-                <h5 class="card-title"><strong>Ön Montaj</strong></h5>
-                <p class="card-text">Ürün Durumu: <br>Oluşturulma Tarihi:</p>
-                <!-- süreç var ise -->
-                {% if deger_2 == 1 %} 
-                <a href="" class="btn btn-primary" style="width: 49%" disabled>Başlat</a> 
-                <a href="" class="btn btn-warning" style="width: 49%" >Güncelle</a> <br>
-                <a href="{% url 'update-process2' process2.pk %}" class="btn btn-primary" style="width: 49%" >Tamamla</a> 
-                <a href="{% url 'detail-process2' process2.pk %}" style="width: 49%" class="btn btn-danger">Sil</a>
-                <!-- süreç yok ise -->
-                {% else %}
-                <a href="{% url 'create-process2' %}" class="btn btn-primary" style="width: 49%" >Başlat</a> 
-                <a href="" class="btn btn-warning" style="width: 49%" disabled>Güncelle</a> <br>
-                <a href="" class="btn btn-primary" style="width: 49%" disabled>Tamamla</a> 
-                <a href="" style="width: 49%" class="btn btn-danger" disabled>Sil</a>
-                {% endif %}
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-xs-6">          
-            <div class="card" style="width: 18rem;">
-              <img class="card-img-top" width="140" height="110" src="{% static 'dist/img/3.png' %}" alt="Card image cap">
-              <div class="card-body">
-                <h5 class="card-title"><strong>Borulama</strong></h5>
-                <p class="card-text">Ürün Durumu: <br>Oluşturulma Tarihi:</p>
-                {% if deger_3 == 1 %}
-                <a href="" class="btn btn-primary" style="width: 49%" disabled>Başlat</a> 
-                <a href="" class="btn btn-warning" style="width: 49%" >Güncelle</a> <br>
-                <a href="{% url 'update-process3' process3.pk %}" class="btn btn-primary" style="width: 49%" >Tamamla</a> 
-                <a href="{% url 'detail-process3' process3.pk %}" style="width: 49%" class="btn btn-danger">Sil</a>
-                <!-- süreç yok ise -->
-                {% else %}
-                <a href="{% url 'create-process3' %}" class="btn btn-primary" style="width: 49%" >Başlat</a> 
-                <a href="" class="btn btn-warning" style="width: 49%" disabled>Güncelle</a> <br>
-                <a href="" class="btn btn-primary" style="width: 49%" disabled>Tamamla</a> 
-                <a href="" style="width: 49%" class="btn btn-danger" disabled>Sil</a>
-                {% endif %}
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-xs-6">          
-            <div class="card" style="width: 18rem;">
-              <img class="card-img-top" width="140" height="110" src="{% static 'dist/img/4.png' %}" alt="Card image cap">
-              <div class="card-body">
-                <h5 class="card-title"><strong>Kaynak</strong></h5>
-                <p class="card-text">Ürün Durumu: <br>Oluşturulma Tarihi:</p>
-                {% if deger_4 == 1 %}
-                <a href="" class="btn btn-primary" style="width: 49%" disabled>Başlat</a> 
-                <a href="" class="btn btn-warning" style="width: 49%" >Güncelle</a> <br>
-                <a href="{% url 'update-process4' process4.pk %}" class="btn btn-primary" style="width: 49%" >Tamamla</a> 
-                <a href="{% url 'detail-process4' process4.pk %}" style="width: 49%" class="btn btn-danger">Sil</a>
-                <!-- süreç yok ise -->
-                {% else %}
-                <a href="" class="btn btn-primary" style="width: 49%" >Başlat</a> 
-                <a href="" class="btn btn-warning" style="width: 49%" disabled>Güncelle</a> <br>
-                <a href="" class="btn btn-primary" style="width: 49%" disabled>Tamamla</a> 
-                <a href="" style="width: 49%" class="btn btn-danger" disabled>Sil</a>
-                {% endif %}
-              </div>
-            </div>
-          </div>
+          </center>
         </div>
-        <br>
-        <div class="row">
-          <div class="col-lg-3 col-xs-6">          
-            <div class="card" style="width: 18rem;">
-              <img class="card-img-top" width="140" height="110" src="{% static 'dist/img/5.png' %}" alt="Card image cap">
-              <div class="card-body">
-                <h5 class="card-title"><strong>Boya</strong></h5>
-                <p class="card-text">Ürün Durumu: <br>Oluşturulma Tarihi:</p>
-                {% if deger_5 == 1 %}
-                <a href="" class="btn btn-primary" style="width: 49%" disabled>Başlat</a> 
-                <a href="" class="btn btn-warning" style="width: 49%" >Güncelle</a> <br>
-                <a href="{% url 'update-process5' process5.pk %}" class="btn btn-primary" style="width: 49%" >Tamamla</a> 
-                <a href="{% url 'detail-process5' process5.pk %}" style="width: 49%" class="btn btn-danger">Sil</a>
-                <!-- süreç yok ise -->
-                {% else %}
-                <a href="" class="btn btn-primary" style="width: 49%" >Başlat</a> 
-                <a href="" class="btn btn-warning" style="width: 49%" disabled>Güncelle</a> <br>
-                <a href="" class="btn btn-primary" style="width: 49%" disabled>Tamamla</a> 
-                <a href="" style="width: 49%" class="btn btn-danger" disabled>Sil</a>
-                {% endif %}
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-xs-6">          
-            <div class="card" style="width: 18rem;">
-              <img class="card-img-top" width="140" height="110" src="{% static 'dist/img/6.png' %}" alt="Card image cap">
-              <div class="card-body">
-                <h5 class="card-title"><strong>Son Montaj</strong></h5>
-                <p class="card-text">Ürün Durumu: <br>Oluşturulma Tarihi:</p>
-                {% if deger_6 == 1 %}
-                <a href="" class="btn btn-primary" style="width: 49%" disabled>Başlat</a> 
-                <a href="" class="btn btn-warning" style="width: 49%" >Güncelle</a> <br>
-                <a href="{% url 'update-process6' process6.pk %}" class="btn btn-primary" style="width: 49%" >Tamamla</a> 
-                <a href="{% url 'detail-process6' process6.pk %}" style="width: 49%" class="btn btn-danger">Sil</a>
-                <!-- süreç yok ise -->
-                {% else %}
-                <a href="" class="btn btn-primary" style="width: 49%" >Başlat</a> 
-                <a href="" class="btn btn-warning" style="width: 49%" disabled>Güncelle</a> <br>
-                <a href="" class="btn btn-primary" style="width: 49%" disabled>Tamamla</a> 
-                <a href="" style="width: 49%" class="btn btn-danger" disabled>Sil</a>
-                {% endif %}
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-xs-6">          
-            <div class="card" style="width: 18rem;">
-              <img class="card-img-top" width="140" height="110" src="{% static 'dist/img/7.png' %}" alt="Card image cap">
-              <div class="card-body">
-                <h5 class="card-title"><strong>Unite Test Raporu</strong></h5>
-                <p class="card-text">Ürün Durumu: <br>Oluşturulma Tarihi:</p>
-                {% if deger_7 == 1 %}
-                <a href="" class="btn btn-primary" style="width: 49%" disabled>Başlat</a> 
-                <a href="" class="btn btn-warning" style="width: 49%" >Güncelle</a> <br>
-                <a href="{% url 'update-process7' process7.pk %}" class="btn btn-primary" style="width: 49%" >Tamamla</a> 
-                <a href="{% url 'detail-process7' process7.pk %}" style="width: 49%" class="btn btn-danger">Sil</a>
-                <!-- süreç yok ise -->
-                {% else %}
-                <a href="" class="btn btn-primary" style="width: 49%" >Başlat</a> 
-                <a href="" class="btn btn-warning" style="width: 49%" disabled>Güncelle</a> <br>
-                <a href="" class="btn btn-primary" style="width: 49%" disabled>Tamamla</a> 
-                <a href="" style="width: 49%" class="btn btn-danger" disabled>Sil</a>
-                {% endif %}
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-xs-6">          
-            <div class="card" style="width: 18rem;">
-              <img class="card-img-top" width="140" height="110" src="{% static 'dist/img/8.png' %}" alt="Card image cap">
-              <div class="card-body">
-                <h5 class="card-title"><strong>Son Kontrol</strong></h5>
-                <p class="card-text">Ürün Durumu: <br>Oluşturulma Tarihi:</p>
-                {% if deger_8 == 1 %}
-                <a href="" class="btn btn-primary" style="width: 49%" disabled>Başlat</a> 
-                <a href="" class="btn btn-warning" style="width: 49%" >Güncelle</a> <br>
-                <a href="{% url 'update-process8' process8.pk %}" class="btn btn-primary" style="width: 49%" >Tamamla</a> 
-                <a href="{% url 'detail-process8' process8.pk %}" style="width: 49%" class="btn btn-danger">Sil</a>
-                <!-- süreç yok ise -->
-                {% else %}
-                <a href="" class="btn btn-primary" style="width: 49%" >Başlat</a> 
-                <a href="" class="btn btn-warning" style="width: 49%" disabled>Güncelle</a> <br>
-                <a href="" class="btn btn-primary" style="width: 49%" disabled>Tamamla</a> 
-                <a href="" style="width: 49%" class="btn btn-danger" disabled>Sil</a>
-                {% endif %}
-              </div>
-            </div>
-          </div>
-        </div>
+      </div>
+      <!--2.process  -->
+
+      <div class="col-lg-3 col-xs-6 " style="margin-top:3%">
+        <div class="card" style="width: %20;">
+          <center><img class="img-thumbnail" width="210px" height="140px" style="width:100%; height:auto" src="{% static 'dist/img/2.JPG' %}"
+              alt="Card image cap"></center>
+          <center>
+            <div class="card-body">
+              {% if deger_2 == 1 and p2 != 1 %}
+              <h5 class="card-title"><strong>Pre Assembly </strong><a><i class="fa fa-info-circle"></i></a></h5>
+              <!-- süreç var ise -->
+              <a href="{% url 'create-process2' %}" class="btn btn-success" style="width: 40%" disabled>Start</a>
+              <a href="{% url 'update-process2' process2.pk %}" class="btn btn-warning" style="width: 40%">Update</a>
+              <br>
+              <a href="{% url 'create-process2_2' %}" class="btn btn-primary" style="width: 40%">Finish</a>
+              <a href="{% url 'detail-process2' process2.pk %}" style="width: 40%" class="btn btn-danger">Delete</a>
+
+              {% elif deger_2 == 1 and p2 == 1 %}
+              <h5 class="card-title"><strong>Pre Assembly </strong><a><i class="fa fa-info-circle"></i></a></h5>
+              <!-- süreç var ise -->
+              <a href="{% url 'create-process2' %}" class="btn btn-success" style="width: 40%" disabled>Start</a>
+              <a href="{% url 'update-process2' process2.pk %}" class="btn btn-warning" style="width: 40%">Update</a>
+              <br>
+              <a href="{% url 'create-process2_2' %}" class="btn btn-primary" style="width: 40%" disabled>Finish</a>
+              <a href="{% url 'detail-process2' process2.pk %}" style="width: 40%" class="btn btn-danger">Delete</a>
 
 
-    </section>
+
+              <!-- süreç yok ise -->
+              {% elif deger_2 == 0 %}
+              <h5 class="card-title"><strong>Pre Assembly </strong><a><i class="fa fa-info-circle"></i></a></h5>
+
+              <a href="{% url 'create-process2' %}" class="btn btn-success" style="width: 40%">Start</a>
+              <a href="" class="btn btn-warning" style="width: 40%" disabled>Update</a> <br>
+              <a href="{% url 'create-process2_2' %}" class="btn btn-primary" style="width: 40%" disabled>Finish</a>
+              <a href="" style="width: 40%" class="btn btn-danger" disabled>Delete</a>
+              {% else %}
+              <h5 class="card-title"><strong>Pre Assembly </strong><a href= {% url 'info-process2' process2.pk %} ><i class="fa fa-info-circle"></i></a></h5>
+
+              <a href="{% url 'create-process2' %}" class="btn btn-success" style="width: 40%" disabled>Start</a>
+              <a href="{% url 'update-process2' process2.pk %}" class="btn btn-warning" style="width: 40%"
+                disabled>Update</a> <br>
+              <a href="{% url 'create-process2_2' %}" class="btn btn-primary" style="width: 40%" disabled>Finish</a>
+              <a href="" style="width: 40%" class="btn btn-danger" disabled>Delete</a>
+              {% endif %}
+            </div>
+          </center>
+        </div>
+      </div>
+
+
+      <!--3.process  -->
+      <div class="col-lg-3 col-xs-6 " style="margin-top:3%">
+        <div class="card" style="width: %20;">
+          <center><img class="img-thumbnail" width="210px" height="140px" style="width:100%; height:auto" src="{% static 'dist/img/33.JPG' %}"
+              alt="Card image cap"></center>
+          <center>
+            <div class="card-body">
+              {% if deger_3 == 1 and p3 != 1%}
+              <h5 class="card-title"><strong>Piping </strong><a ><i class="fa fa-info-circle"></i></a></h5>
+
+              <a href="{% url 'create-process3' %}" class="btn btn-success" style="width: 40%" disabled>Start</a>
+              <a href="{% url 'update-process3' process3.pk %}" class="btn btn-warning" style="width: 40%">Update</a>
+              <br>
+              <a href="{% url 'create-process3_2' %}" class="btn btn-primary" style="width: 40%">Finish</a>
+              <a href="{% url 'detail-process3' process3.pk %}" style="width: 40%" class="btn btn-danger">Delete</a>
+
+              {% elif deger_3 == 1 and p3 == 1%}
+              <h5 class="card-title"><strong>Piping </strong><a ><i class="fa fa-info-circle"></i></a></h5>
+
+              <a href="{% url 'create-process3' %}" class="btn btn-success" style="width: 40%" disabled>Start</a>
+              <a href="{% url 'update-process3' process3.pk %}" class="btn btn-warning" style="width: 40%">Update</a>
+              <br>
+              <a href="{% url 'create-process3_2' %}" class="btn btn-primary" style="width: 40%" disabled>Finish</a>
+              <a href="{% url 'detail-process3' process3.pk %}" style="width: 40%" class="btn btn-danger">Delete</a>
+
+              <!-- süreç yok ise -->
+              {% elif deger_3 == 0 %}
+              <h5 class="card-title"><strong>Piping </strong><a ><i class="fa fa-info-circle"></i></a></h5>
+
+              <a href="{% url 'create-process3' %}" class="btn btn-success" style="width: 40%">Start</a>
+              <a href="" class="btn btn-warning" style="width: 40%" disabled>Update</a> <br>
+              <a href="{% url 'create-process3_2' %}" class="btn btn-primary" style="width: 40%" disabled>Finish</a>
+              <a href="" style="width: 40%" class="btn btn-danger" disabled>Delete</a>
+              {% else %}
+              <h5 class="card-title"><strong>Piping </strong><a href={% url 'info-process3' process3.pk %} ><i class="fa fa-info-circle"></i></a></h5>
+              <a href="{% url 'create-process3' %}" class="btn btn-success" style="width: 40%" disabled>Start</a>
+              <a href="{% url 'update-process3' process3.pk %}" class="btn btn-warning" style="width: 40%"
+                disabled>Update</a> <br>
+              <a href="{% url 'create-process3_2' %}" class="btn btn-primary" style="width: 40%" disabled>Finish</a>
+              <a href="" style="width: 40%" class="btn btn-danger" disabled>Delete</a>
+              {% endif %}
+            </div>
+          </center>
+        </div>
+      </div>
+      <!--4.process  -->
+      <div class="col-lg-3 col-xs-6 " style="margin-top:3%">
+        <div class="card" style="width: %20;">
+          <center><img class="img-thumbnail" width="210px" height="140px" style="width:100%; height:auto" src="{% static 'dist/img/4.JPG' %}"
+              alt="Card image cap"></center>
+          <center>
+            <div class="card-body">
+              
+              {% if deger_4 == 1 and p4 != 1 %}
+              <h5 class="card-title"><strong>Welding </strong><a ><i class="fa fa-info-circle"></i></a></h5>
+              <a href="{% url 'create-process4' %}" class="btn btn-success" style="width: 40%" disabled>Start</a>
+              <a href="{% url 'update-process4' process4.pk %}" class="btn btn-warning" style="width: 40%">Update</a>
+              <br>
+              <a href="{% url 'create-process4_2' %}" class="btn btn-primary" style="width: 40%">Finish</a>
+              <a href="{% url 'detail-process4' process4.pk %}" style="width: 40%" class="btn btn-danger">Delete</a>
+
+              {% elif deger_4 == 1 and p4 == 1 %}
+              <h5 class="card-title"><strong>Welding </strong><a ><i class="fa fa-info-circle"></i></a></h5>
+              <a href="{% url 'create-process4' %}" class="btn btn-success" style="width: 40%" disabled>Start</a>
+              <a href="{% url 'update-process4' process4.pk %}" class="btn btn-warning" style="width: 40%">Update</a>
+              <br>
+              <a href="{% url 'create-process4_2' %}" class="btn btn-primary" style="width: 40%" disabled>Finish</a>
+              <a href="{% url 'detail-process4' process4.pk %}" style="width: 40%" class="btn btn-danger">Delete</a>
+
+              <!-- süreç yok ise -->
+              {% elif deger_4 == 0 %}
+              <h5 class="card-title"><strong>Welding </strong><a ><i class="fa fa-info-circle"></i></a></h5>
+              <a href="{% url 'create-process4' %}" class="btn btn-success" style="width: 40%">Start</a>
+              <a href="" class="btn btn-warning" style="width: 40%" disabled>Update</a> <br>
+              <a href="{% url 'create-process4_2' %}" class="btn btn-primary" style="width: 40%" disabled>Finish</a>
+              <a href="" style="width: 40%" class="btn btn-danger" disabled>Delete</a>
+              {% else %}
+              <h5 class="card-title"><strong>Welding </strong><a href={% url 'info-process4' process4.pk %}><i class="fa fa-info-circle"></i></a></h5>
+              <a href="{% url 'create-process4' %}" class="btn btn-success" style="width: 40%" disabled>Start</a>
+              <a href="{% url 'update-process4' process4.pk %}" class="btn btn-warning" style="width: 40%"
+                disabled>Update</a> <br>
+              <a href="{% url 'create-process4_2' %}" class="btn btn-primary" style="width: 40%" disabled>Finish</a>
+              <a href="" style="width: 40%" class="btn btn-danger" disabled>Delete</a>
+              {% endif %}
+            </div>
+          </center>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <!--5.process  -->
+      <div class="col-lg-3 col-xs-6 " style="margin-top:3%">
+        <div class="card" style="width: %20;">
+          <center><img class="img-thumbnail" width="210px" height="140px" style="width:100%; height:auto" src="{% static 'dist/img/5.JPG' %}"
+              alt="Card image cap"></center>
+          <center>
+            <div class="card-body">
+              {% if deger_5 == 1 and p5 != 1 %}
+              <h5 class="card-title"><strong>Painting </strong> <a ><i class="fa fa-info-circle"></i></a></h5>
+              <a href="{% url 'create-process5' %}" class="btn btn-success" style="width: 40%" disabled>Start</a>
+              <a href="{% url 'update-process5' process5.pk %}" class="btn btn-warning" style="width: 40%">Update</a>
+              <br>
+              <a href="{% url 'create-process5_2' %}" class="btn btn-primary" style="width: 40%">Finish</a>
+              <a href="{% url 'detail-process5' process5.pk %}" style="width: 40%" class="btn btn-danger">Delete</a>
+              
+              {% elif deger_5 == 1 and p5 == 1%}
+              <h5 class="card-title"><strong>Painting </strong> <a ><i class="fa fa-info-circle"></i></a></h5>
+              <a href="{% url 'create-process5' %}" class="btn btn-success" style="width: 40%" disabled>Start</a>
+              <a href="{% url 'update-process5' process5.pk %}" class="btn btn-warning" style="width: 40%">Update</a>
+              <br>
+              <a href="{% url 'create-process5_2' %}" class="btn btn-primary" style="width: 40%" disabled>Finish</a>
+              <a href="{% url 'detail-process5' process5.pk %}" style="width: 40%" class="btn btn-danger">Delete</a>              
+              
+              <!-- süreç yok ise -->
+              {% elif deger_5 == 0 %}
+              <h5 class="card-title"><strong>Painting </strong> <a ><i class="fa fa-info-circle"></i></a></h5>
+              <a href="{% url 'create-process5' %}" class="btn btn-success" style="width: 40%">Start</a>
+              <a href="" class="btn btn-warning" style="width: 40%" disabled>Update</a> <br>
+              <a href="{% url 'create-process5_2' %}" class="btn btn-primary" style="width: 40%" disabled>Finish</a>
+              <a href="" style="width: 40%" class="btn btn-danger" disabled>Delete</a>
+              {% else %}
+              <h5 class="card-title"><strong>Painting </strong> <a href={% url 'info-process5' process5.pk %} ><i class="fa fa-info-circle"></i></a></h5>
+              <a href="{% url 'create-process5' %}" class="btn btn-success" style="width: 40%" disabled>Start</a>
+              <a href="{% url 'update-process5' process5.pk %}" class="btn btn-warning" style="width: 40%"
+                disabled>Update</a> <br>
+              <a href="{% url 'create-process5_2' %}" class="btn btn-primary" style="width: 40%" disabled>Finish</a>
+              <a href="" style="width: 40%" class="btn btn-danger" disabled>Delete</a>
+              {% endif %}
+            </div>
+          </center>
+        </div>
+      </div>
+
+      <!--6.process  -->
+      <div class="col-lg-3 col-xs-6 " style="margin-top:3%">
+        <div class="card" style="width: %20;">
+          <center><img class="img-thumbnail" width="210px" height="140px" style="width:100%; height:auto" src="{% static 'dist/img/6.JPG' %}"
+              alt="Card image cap"></center>
+          <center>
+            <div class="card-body">
+              {% if deger_6 == 1  and p6 != 1 %}
+              <h5 class="card-title"><strong>Final Assembly </strong><a ><i class="fa fa-info-circle"></i></a></h5>
+              <a href="{% url 'create-process6' %}" class="btn btn-success" style="width: 40%" disabled>Start</a>
+              <a href="{% url 'update-process6' process6.pk %}" class="btn btn-warning" style="width: 40%">Update</a>
+              <br>
+              <a href="{% url 'create-process6_2' %}" class="btn btn-primary" style="width: 40%">Finish</a>
+              <a href="{% url 'detail-process6' process6.pk %}" style="width: 40%" class="btn btn-danger">Delete</a>
+
+              {% elif deger_6 == 1  and p6 == 1 %}
+              <h5 class="card-title"><strong>Final Assembly </strong><a ><i class="fa fa-info-circle"></i></a></h5>
+              <a href="{% url 'create-process6' %}" class="btn btn-success" style="width: 40%" disabled>Start</a>
+              <a href="{% url 'update-process6' process6.pk %}" class="btn btn-warning" style="width: 40%">Update</a>
+              <br>
+              <a href="{% url 'create-process6_2' %}" class="btn btn-primary" style="width: 40%" disabled>Finish</a>
+              <a href="{% url 'detail-process6' process6.pk %}" style="width: 40%" class="btn btn-danger">Delete</a>
+
+              <!-- süreç yok ise -->
+              {% elif deger_6 == 0 %}
+              <h5 class="card-title"><strong>Final Assembly </strong><a ><i class="fa fa-info-circle"></i></a></h5>
+              <a href="{% url 'create-process6' %}" class="btn btn-success" style="width: 40%">Start</a>
+              <a href="" class="btn btn-warning" style="width: 40%" disabled>Update</a> <br>
+              <a href="{% url 'create-process6_2' %}" class="btn btn-primary" style="width: 40%" disabled>Finish</a>
+              <a href="" style="width: 40%" class="btn btn-danger" disabled>Delete</a>
+              {% else %}
+              <h5 class="card-title"><strong>Final Assembly </strong><a href= {% url 'info-process6' process6.pk %}><i class="fa fa-info-circle"></i></a></h5>
+              <a href="{% url 'create-process6' %}" class="btn btn-success" style="width: 40%" disabled>Start</a>
+              <a href="{% url 'update-process6' process6.pk %}" class="btn btn-warning" style="width: 40%"
+                disabled>Update</a> <br>
+              <a href="{% url 'create-process6_2' %}" class="btn btn-primary" style="width: 40%" disabled>Finish</a>
+              <a href="" style="width: 40%" class="btn btn-danger" disabled>Delete</a>
+              {% endif %}
+            </div>
+          </center>
+        </div>
+      </div>
+
+      <!--7.process  -->
+      <div class="col-lg-3 col-xs-6 " style="margin-top:3%">
+        <div class="card" style="width: %20;">
+          <center><img class="img-thumbnail" width="210px" height="140px" style="width:100%; height:auto" src="{% static 'dist/img/7.JPG' %}"
+              alt="Card image cap"></center>
+          <center>
+            <div class="card-body">
+              {% if deger_7 == 1 and p7 != 1%}
+              <h5 class="card-title"><strong>Test(QG4) </strong><a ><i class="fa fa-info-circle"></i></a></h5>
+              <a href="{% url 'create-process7' %}" class="btn btn-success" style="width: 40%" disabled>Start</a>
+              <a href="{% url 'update-process7' process7.pk %}" class="btn btn-warning" style="width: 40%">Update</a>
+              <br>
+              <a href="{% url 'create-process7_2' %}" class="btn btn-primary" style="width: 40%">Finish</a>
+              <a href="{% url 'detail-process7' process7.pk %}" style="width: 40%" class="btn btn-danger">Delete</a>
+
+              {% elif deger_7 == 1 and p7 == 1%}
+              <h5 class="card-title"><strong>Test(QG4) </strong><a ><i class="fa fa-info-circle"></i></a></h5>
+              <a href="{% url 'create-process7' %}" class="btn btn-success" style="width: 40%" disabled>Start</a>
+              <a href="{% url 'update-process7' process7.pk %}" class="btn btn-warning" style="width: 40%">Update</a>
+              <br>
+              <a href="{% url 'create-process7_2' %}" class="btn btn-primary" style="width: 40%" disabled>Finish</a>
+              <a href="{% url 'detail-process7' process7.pk %}" style="width: 40%" class="btn btn-danger">Delete</a>
+
+              <!-- süreç yok ise -->
+              {% elif deger_7 == 0 %}
+              <h5 class="card-title"><strong>Test(QG4) </strong><a ><i class="fa fa-info-circle"></i></a></h5>
+              <a href="{% url 'create-process7' %}" class="btn btn-success" style="width: 40%">Start</a>
+              <a href="" class="btn btn-warning" style="width: 40%" disabled>Update</a> <br>
+              <a href="{% url 'create-process7_2' %}" class="btn btn-primary" style="width: 40%" disabled>Finish</a>
+              <a href="" style="width: 40%" class="btn btn-danger" disabled>Delete</a>
+              {% else %}
+              <h5 class="card-title"><strong>Test(QG4) </strong><a href= {% url 'info-process7' process7.pk %} ><i class="fa fa-info-circle"></i></a></h5>
+              <a href="{% url 'create-process7' %}" class="btn btn-success" style="width: 40%" disabled>Start</a>
+              <a href="{% url 'update-process7' process7.pk %}" class="btn btn-warning" style="width: 40%"
+                disabled>Update</a> <br>
+              <a href="{% url 'create-process7_2' %}" class="btn btn-primary" style="width: 40%" disabled>Finish</a>
+              <a href="" style="width: 40%" class="btn btn-danger" disabled>Delete</a>
+              {% endif %}
+            </div>
+          </center>
+        </div>
+      </div>
+
+      <!--8.process  -->
+      <div class="col-lg-3 col-xs-6 " style="margin-top:3%">
+        <div class="card" style="width: %20;">
+          <center><img class="img-thumbnail" width="210px" height="140px" style="width:100%; height:auto" src="{% static 'dist/img/8.JPG' %}"
+              alt="Card image cap"></center>
+          <center>
+            <div class="card-body">
+              {% if deger_8 == 1 and p8 != 1%}
+              <h5 class="card-title"><strong>Final Control (QG5) </strong><a ><i class="fa fa-info-circle"></i></a></h5>
+              <a href="{% url 'create-process8' %}" class="btn btn-success" style="width: 40%" disabled>Start</a>
+              <a href="{% url 'update-process8' process8.pk %}" class="btn btn-warning" style="width: 40%">Update</a>
+              <br>
+              <a href="{% url 'create-process8_2' %}" class="btn btn-primary" style="width: 40%">Finish</a>
+              <a href="{% url 'detail-process8' process8.pk %}" style="width: 40%" class="btn btn-danger">Delete</a>
+
+              {% elif deger_8 == 1 and p8 == 1%}
+              <h5 class="card-title"><strong>Final Control (QG5) </strong><a ><i class="fa fa-info-circle"></i></a></h5>
+              <a href="{% url 'create-process8' %}" class="btn btn-success" style="width: 40%" disabled>Start</a>
+              <a href="{% url 'update-process8' process8.pk %}" class="btn btn-warning" style="width: 40%">Update</a>
+              <br>
+              <a href="{% url 'create-process8_2' %}" class="btn btn-primary" style="width: 40%" disabled>Finish</a>
+              <a href="{% url 'detail-process8' process8.pk %}" style="width: 40%" class="btn btn-danger">Delete</a>
+
+              <!-- süreç yok ise -->
+              {% elif deger_8 == 0 %}
+              <h5 class="card-title"><strong>Final Control (QG5) </strong><a ><i class="fa fa-info-circle"></i></a></h5>
+              <a href="{% url 'create-process8' %}" class="btn btn-success" style="width: 40%">Start</a>
+              <a href="" class="btn btn-warning" style="width: 40%" disabled>Update</a> <br>
+              <a href="{% url 'create-process8_2' %}" class="btn btn-primary" style="width: 40%" disabled>Finish</a>
+              <a href="" style="width: 40%" class="btn btn-danger" disabled>Delete</a>
+              {% else %}
+              <h5 class="card-title"><strong>Final Control (QG5) </strong><a href= {% url 'info-process8' process8.pk %} ><i class="fa fa-info-circle"></i></a></h5>
+              <a href="{% url 'create-process8' %}" class="btn btn-success" style="width: 40%" disabled>Start</a>
+              <a href="{% url 'update-process8' process8.pk %}" class="btn btn-warning" style="width: 40%"
+                disabled>Update</a> <br>
+              <a href="{% url 'create-process8_2' %}" class="btn btn-primary" style="width: 40%" disabled>Finish</a>
+              <a href="" style="width: 40%" class="btn btn-danger" disabled>Delete</a>
+              {% endif %}
+            </div>
+          </center>
+        </div>
+      </div>
+    </div>
+  </section>
 </div>
-    
-{% endblock %} 
+
+{% endblock %}

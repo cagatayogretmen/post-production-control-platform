@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+
+<body>
+{%load static%}
+
+    <div class="content" style="border=1">
+        
+
+            <h1 style="text-align: center;">Incoming Inspection Form - Oil Tank
+                <img src="..\rexroth_v1\media\rexothlogo.png" width="150px"
+                    height="50px" align="right"></h1>
+            <font size="2" face="Microsoft Yahei Mono;">
+            <table border=1>
+                <tr>
+                    <td style="padding:2px; text-align:right; background-color: rgb(102, 99, 99); color: rgb(247, 243, 236);">Date</td>
+                    <td style="padding: 2px;">
+                        <center><b>{{ tarih|date:"d.m.Y" }}</b></center>
+                    </td>
+                    <td rowspan="5" style="text-align: center;"><img
+                            src= "../media/{{resim1}}"
+                            width="250px" height="130px" alt=""></td>
+                    <td rowspan="5" style="text-align: center;"><img
+                            src="..\media\{{resim2}}"
+                            width="250px" height="130px" alt=""></td>
+                </tr>
+
+                <tr>
+                    <td style="padding:2px; text-align:right; background-color: rgb(102, 99, 99); color: rgb(247, 243, 236);">Supplier</td>
+                    <td style="padding: 2px;">
+                        <center><b>{{ yansanayi }}</b></center>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td style="padding:2px; text-align:right; background-color: rgb(102, 99, 99); color: rgb(247, 243, 236);">P.O No:</td>
+                    <td style="padding: 2px; ">
+                        <center><b>{{ ssiparis }}</b></center>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td style="padding:2px; text-align:right; background-color: rgb(102, 99, 99); color: rgb(247, 243, 236);">Production Order No:
+                    </td>
+                    <td style="padding: 2px;">
+                        <center><b>{{ usiparis }}</b></center>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td style="padding:2px; text-align:right; background-color: rgb(102, 99, 99); color: rgb(247, 243, 236);">Ident No:</td>
+                    <td style="padding: 2px;">
+                        <center><b>{{ ident }}</b></center>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td style="padding:2px; text-align:right; background-color: rgb(102, 99, 99); color: rgb(247, 243, 236);">Drawing No:</td>
+                    <td style="padding: 2px;">
+                        <center><b>{{ resimno }}</b></center>
+                    </td>
+                    <td rowspan="5" style="text-align: center;"><img
+                            src="..\media\{{resim3}}"
+                            width="250px" height="130px" alt=""></td>
+                    <td rowspan="5" style="text-align: center;"><img
+                            src="..\media\{{resim4}}"
+                            width="250px" height="130px" alt=""></td>
+                </tr>
+
+                <tr>
+                    <td style="padding:2px; text-align:right; background-color: rgb(48, 213, 200); color: rgb(247, 243, 236);">Tank Material:</td>
+                    <td style="padding: 2px;">
+                        <center><b>{{ tankturu }}</b></center>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td
+                        style="padding: 2px; background-color: rgb(48, 213, 200); color: rgb(247, 243, 236); text-align:right ;">
+                        Kontrol Kriterleri</td>
+                    <td style="padding:2px; text-align: center; background-color: rgb(48, 213, 200); color: rgb(247, 243, 236);">
+                        <b>OUT OF SCOPE |OK |RED </b></td>
+                </tr>
+
+                <tr>
+                    <td style="padding:2px; text-align:right; background-color: rgb(102, 99, 99); color: rgb(247, 243, 236);">Axial Dev:</td>
+                    <td style="padding: 2px;">
+                        <center><b>{{ eksen }}</b></center>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td style="padding:2px; text-align:right; background-color: rgb(102, 99, 99); color: rgb(247, 243, 236);">Deformation:</td>
+                    <td style="padding: 2px;">
+                        <center><b>{{ deformasyon }}</b></center>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td style=" padding:2px; text-align:right; background-color: rgb(102, 99, 99); color: rgb(247, 243, 236);">Grinding, Paste:</td>
+                    <td style="padding: 2px;">
+                        <center><b>{{ taslama }}</b></center>
+                    </td>
+                    <td rowspan="5" style="text-align: center;"><img
+                            src="..\media\{{resim5}}"
+                            width="250px" height="130px" alt=""></td>
+                    <td rowspan="5" style="text-align: center;"><img
+                            src="..\media\{{resim6}}"
+                            width="250px" height="130px" alt=""></td>
+                </tr>
+
+                <tr>
+                    <td style="padding:2px; text-align:right; background-color: rgb(102, 99, 99); color: rgb(247, 243, 236);">Cleanliness:</td>
+                    <td style="padding: 2px;">
+                        <center><b>{{ yuzey }}</b></center>
+                    </td>
+
+                </tr>
+
+                <tr>
+                    <td style="padding:2px; text-align:right; background-color: rgb(102, 99, 99); color: rgb(247, 243, 236);">Pri. Coa. Thck. (Max 80):</td>
+                    <td style="padding: 2px; ">
+                        <center><b>{{ astar }}</b></center>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td style="padding:2px; text-align:right; background-color: rgb(102, 99, 99); color: rgb(247, 243, 236);">Missing Operation:</td>
+                    <td style="padding: 2px;">
+                        <center><b>{{ operasyon }}</b></center>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td style="padding:2px; text-align:right; background-color: rgb(102, 99, 99); color: rgb(247, 243, 236);">Welding Quality:</td>
+                    <td style="padding: 2px;">
+                        <center><b>{{ kaynak }}</b></center>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td style="padding:2px; text-align:right; background-color: rgb(102, 99, 99); color: rgb(247, 243, 236);">Start-Finish Pot. Check:</td>
+                    <td style="padding: 2px;">
+                        <center><b>{{ manson }}</b></center>
+                    </td>
+                    <td rowspan="4" style="text-align: center;"><img
+                            src="..\media\{{resim7}}"
+                            width="250px" height="130px" alt=""></td>
+                    <td rowspan="4" style="text-align: center;"><img
+                            src="..\media\{{resim8}}"
+                            width="250px" height="130px" alt=""></td>
+
+                </tr>
+
+                <tr>
+                    <td style="padding: 2px; text-align:right; background-color: rgb(102, 99, 99); color: rgb(247, 243, 236);">Stainless Tank <br> Passi. Chck</td>
+                    <td style="padding: 2px;"><center><b>{{ kaynakdikis }}</b></center> </td>
+
+                </tr>
+
+                <tr>
+                    <td style=" padding: 2px;text-align:right; background-color: rgb(102, 99, 99); color: rgb(247, 243, 236);">Alü.Tank Drain Hole Crack Chck.</td>
+                    <td style="padding: 2px;">
+                        <center><b>{{ tanktahliye }}</b></center>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td style=" padding: 2px;text-align:right; background-color: rgb(102, 99, 99); color: rgb(247, 243, 236);">Packaging:</td>
+                    <td style="padding: 2px;">
+                        <center><b>{{ paketleme }}</b></center>
+                    </td>
+                </tr>
+            </table>
+            <table border=1>
+                <td style="padding: 2px; text-align: center; background-color: rgb(48, 213, 200); color: rgb(247, 243, 236);"
+                    colspan=12>TOLERANCES</td>
+                <tr>
+                    <td
+                        style="padding: 2px; text-align: center; background-color: rgb(48, 213, 200); color: rgb(247, 243, 236);">
+                        Type</td>
+                    <td
+                        style="padding: 2px; text-align: center; background-color: rgb(48, 213, 200); color: rgb(247, 243, 236);">
+                        Tol. Group</td>
+                    <td
+                        style="padding: 2px; text-align: center; background-color: rgb(48, 213, 200); color: rgb(247, 243, 236);">
+                        0.5 <br>3</td>
+                    <td
+                        style="padding: 2px; text-align: center; background-color: rgb(48, 213, 200); color: rgb(247, 243, 236);">
+                        3 <br> 6</td>
+                    <td
+                        style="padding: 2px; text-align: center; background-color: rgb(48, 213, 200); color: rgb(247, 243, 236);">
+                        6 <br> 30</td>
+                    <td
+                        style="padding: 2px; text-align: center; background-color: rgb(48, 213, 200); color: rgb(247, 243, 236);">
+                        30 <br> 120</td>
+                    <td
+                        style="padding: 2px; text-align: center; background-color: rgb(48, 213, 200); color: rgb(247, 243, 236);">
+                        120 <br> 400</td>
+                    <td
+                        style="padding: 2px; text-align: center; background-color: rgb(48, 213, 200); color: rgb(247, 243, 236);">
+                        400 <br> 1000</td>
+                    <td
+                        style="padding: 2px; text-align: center; background-color: rgb(48, 213, 200); color: rgb(247, 243, 236);">
+                        1000 <br> 2000</td>
+                    <td
+                        style="padding: 2px; text-align: center; background-color: rgb(48, 213, 200); color: rgb(247, 243, 236);">
+                        2000 <br> 4000</td>
+                    <td rowspan="5" colspan="2"
+                        style="background-color: rgb(102, 99, 99); color: rgb(247, 243, 236); padding: 2px; text-align: center;">
+                        Uzunluk ölçüleri için izin verilebilir ölçü sapmalari (köse kirmalar hariç). Araliklar mm olarak
+                        verilmistir.</td>
+
+                </tr>
+                <tr>
+                    <td
+                        style="padding: 2px; text-align: center; background-color: rgb(48, 213, 200); color: rgb(247, 243, 236);">
+                        F</td>
+                    <td
+                        style="padding: 2px; text-align: center; background-color: rgb(48, 213, 200); color: rgb(247, 243, 236);">
+                        Fine</td>
+                    <td style="padding: 2px; text-align: center;">±0,06</td>
+                    <td style="padding: 2px; text-align: center;">±0,05</td>
+                    <td style="padding: 2px; text-align: center;">±0,1</td>
+                    <td style="padding: 2px; text-align: center;">±0,15</td>
+                    <td style="padding: 2px; text-align: center;">±0,2</td>
+                    <td style="padding: 2px; text-align: center;">±0,3</td>
+                    <td style="padding: 2px; text-align: center;">±0,5</td>
+                    <td style="padding: 2px; text-align: center;">-</td>
+
+                </tr>
+                <tr>
+                    <td
+                        style="padding: 2px; text-align: center; background-color: rgb(48, 213, 200); color: rgb(247, 243, 236);">
+                        M</td>
+                    <td
+                        style="padding: 2px; text-align: center; background-color: rgb(48, 213, 200); color: rgb(247, 243, 236);">
+                        Medium</td>
+                    <td style="padding: 2px; text-align: center;">±0,1</td>
+                    <td style="padding: 2px; text-align: center;">±0,1</td>
+                    <td style="padding: 2px; text-align: center;">±0,2</td>
+                    <td style="padding: 2px; text-align: center;">±0,3</td>
+                    <td style="padding: 2px; text-align: center;">±0,5</td>
+                    <td style="padding: 2px; text-align: center;">±0,8</td>
+                    <td style="padding: 2px; text-align: center;">±1,2</td>
+                    <td style="padding: 2px; text-align: center;">±2</td>
+
+                </tr>
+                <tr>
+                    <td
+                        style="padding: 2px; text-align: center; background-color: rgb(48, 213, 200); color: rgb(247, 243, 236);">
+                        C</td>
+                    <td
+                        style="padding: 2px; text-align: center; background-color: rgb(48, 213, 200); color: rgb(247, 243, 236);">
+                        Kaba</td>
+                    <td style="padding: 2px; text-align: center;">±0,2</td>
+                    <td style="padding: 2px; text-align: center;">±0,3</td>
+                    <td style="padding: 2px; text-align: center;">±0,5</td>
+                    <td style="padding: 2px; text-align: center;">±0,8</td>
+                    <td style="padding: 2px; text-align: center;">±1,2</td>
+                    <td style="padding: 2px; text-align: center;">±2</td>
+                    <td style="padding: 2px; text-align: center;">±3</td>
+                    <td style="padding: 2px; text-align: center;">±4</td>
+
+                </tr>
+                <tr>
+                    <td
+                        style="padding: 2px; text-align: center; background-color: rgb(48, 213, 200); color: rgb(247, 243, 236);">
+                        V</td>
+                    <td
+                        style="padding: 2px; text-align: center; background-color: rgb(48, 213, 200); color: rgb(247, 243, 236);">
+                        Çok Kaba</td>
+                    <td style="padding: 2px; text-align: center;">-</td>
+                    <td style="padding: 2px; text-align: center;">±0,5</td>
+                    <td style="padding: 2px; text-align: center;">±1</td>
+                    <td style="padding: 2px; text-align: center;">±1,5</td>
+                    <td style="padding: 2px; text-align: center;">±2,5</td>
+                    <td style="padding: 2px; text-align: center;">±4</td>
+                    <td style="padding: 2px; text-align: center;">±6</td>
+                    <td style="padding: 2px; text-align: center;">±8</td>
+                </tr>
+            </table>
+
+            <table border=1>
+                <th style="padding: 2px; text-align: center; background-color: rgb(102, 99, 99); color: rgb(247, 243, 236);"
+                    colspan=24> Dimen. with out of tolerance </th>
+
+                <tr>
+                    <th style="padding: 2px; text-align: center; background-color: rgb(102, 99, 99); color: rgb(247, 243, 236);"> Dim. No</th>
+                    <th style="padding: 2px; text-align: center; background-color: rgb(102, 99, 99); color: rgb(247, 243, 236);"> Measure</th>
+                    <th style="padding: 2px; text-align: center; background-color: rgb(102, 99, 99); color: rgb(247, 243, 236);"> Part 1</th>
+                    <th style="padding: 2px; text-align: center; background-color: rgb(102, 99, 99); color: rgb(247, 243, 236);"> Part 2</th>
+                    <th style="padding: 2px; text-align: center; background-color: rgb(102, 99, 99); color: rgb(247, 243, 236);"> Part 3</Th>
+                    <th style="padding: 2px; text-align: center; background-color: rgb(102, 99, 99); color: rgb(247, 243, 236);"> Part 4</th>
+                    <th style="padding: 2px; text-align: center; background-color: rgb(102, 99, 99); color: rgb(247, 243, 236);"> Part 5</th>
+                    <th style="padding: 2px; text-align: center; background-color: rgb(102, 99, 99); color: rgb(247, 243, 236);"> Part 6</th>
+                    <th style="padding: 2px; text-align: center; background-color: rgb(102, 99, 99); color: rgb(247, 243, 236);"> Part 7</th>
+                    <th style="padding: 2px; text-align: center; background-color: rgb(102, 99, 99); color: rgb(247, 243, 236);"> Part 8</th>
+                    <th style="padding: 2px; text-align: center; background-color: rgb(102, 99, 99); color: rgb(247, 243, 236);"> Part 9</th>
+                    <th style="padding: 2px; text-align: center; background-color: rgb(102, 99, 99); color: rgb(247, 243, 236);"> Part 10</th>
+                    <th style="padding: 2px; text-align: center; background-color: rgb(102, 99, 99); color: rgb(247, 243, 236);"> Dim. No</th>
+                    <th style="padding: 2px; text-align: center; background-color: rgb(102, 99, 99); color: rgb(247, 243, 236);"> Measure</th>
+                    <th style="padding: 2px; text-align: center; background-color: rgb(102, 99, 99); color: rgb(247, 243, 236);"> Part 1</th>
+                    <th style="padding: 2px; text-align: center; background-color: rgb(102, 99, 99); color: rgb(247, 243, 236);"> Part 2</th>
+                    <th style="padding: 2px; text-align: center; background-color: rgb(102, 99, 99); color: rgb(247, 243, 236);"> Part 3</Th>
+                    <th style="padding: 2px; text-align: center; background-color: rgb(102, 99, 99); color: rgb(247, 243, 236);"> Part 4</th>
+                    <th style="padding: 2px; text-align: center; background-color: rgb(102, 99, 99); color: rgb(247, 243, 236);"> Part 5</th>
+                    <th style="padding: 2px; text-align: center; background-color: rgb(102, 99, 99); color: rgb(247, 243, 236);"> Part 6</th>
+                    <th style="padding: 2px; text-align: center; background-color: rgb(102, 99, 99); color: rgb(247, 243, 236);"> Part 7</Th>
+                    <th style="padding: 2px; text-align: center; background-color: rgb(102, 99, 99); color: rgb(247, 243, 236);"> Part 8</th>
+                    <th style="padding: 2px; text-align: center; background-color: rgb(102, 99, 99); color: rgb(247, 243, 236);"> Part 9</th>
+                    <th style="padding: 2px; text-align: center; background-color: rgb(102, 99, 99); color: rgb(247, 243, 236);"> Part 10</th>
+                </tr>
+
+                <tr>
+                    <td style="padding: 2px; text-align: center; width:40px;">1</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{1M}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{1P1}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{1P2}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{1P3}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{1P4}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{1P5}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{1P6}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{1P7}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{1P8}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{1P9}}</td>  
+                    <td style="padding: 2px; text-align: center; width:40px;">{{1P10}}</td>   
+                    <td style="padding: 2px; text-align: center; width:40px;">11</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{11M}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{11P1}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{11P2}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{11P3}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{11P4}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{11P5}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{11P6}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{11P7}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{11P8}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{11P9}}</td>  
+                    <td style="padding: 2px; text-align: center; width:40px;">{{11P10}}</td>                                    
+                </tr>
+
+                <tr>
+                    <td style="padding: 2px; text-align: center; width:40px;">2</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{2M}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{2P1}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{2P2}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{2P3}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{2P4}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{2P5}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{2P6}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{2P7}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{2P8}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{2P9}}</td>  
+                    <td style="padding: 2px; text-align: center; width:40px;">{{2P10}}</td>  
+                    <td style="padding: 2px; text-align: center; width:40px;">12</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{12M}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{12P1}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{12P2}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{12P3}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{12P4}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{12P5}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{12P6}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{12P7}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{12P8}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{12P9}}</td>  
+                    <td style="padding: 2px; text-align: center; width:40px;">{{12P10}}</td>                                       
+                </tr>
+
+                <tr>
+                    <td style="padding: 2px; text-align: center; width:40px;">3</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{3M}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{3P1}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{3P2}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{3P3}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{3P4}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{3P5}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{3P6}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{3P7}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{3P8}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{3P9}}</td>  
+                    <td style="padding: 2px; text-align: center; width:40px;">{{3P10}}</td>   
+                    <td style="padding: 2px; text-align: center; width:40px;">13</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{13M}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{13P1}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{13P2}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{13P3}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{13P4}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{13P5}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{13P6}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{13P7}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{13P8}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{13P9}}</td>  
+                    <td style="padding: 2px; text-align: center; width:40px;">{{13P10}}</td>                                     
+                </tr>
+
+                <tr>
+                    <td style="padding: 2px; text-align: center; width:40px;">4</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{4M}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{4P1}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{4P2}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{4P3}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{4P4}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{4P5}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{4P6}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{4P7}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{4P8}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{4P9}}</td>  
+                    <td style="padding: 2px; text-align: center; width:40px;">{{4P10}}</td>   
+                    <td style="padding: 2px; text-align: center; width:40px;">14</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{14M}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{14P1}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{14P2}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{14P3}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{14P4}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{14P5}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{14P6}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{14P7}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{14P8}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{14P9}}</td>  
+                    <td style="padding: 2px; text-align: center; width:40px;">{{14P10}}</td>                                        
+                </tr>
+
+                <tr>
+                    <td style="padding: 2px; text-align: center; width:40px;">5</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{5M}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{5P1}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{5P2}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{5P3}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{5P4}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{5P5}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{5P6}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{5P7}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{5P8}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{5P9}}</td>  
+                    <td style="padding: 2px; text-align: center; width:40px;">{{5P10}}</td>       
+                    <td style="padding: 2px; text-align: center; width:40px;">15</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{15M}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{15P1}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{15P2}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{15P3}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{15P4}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{15P5}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{15P6}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{15P7}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{15P8}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{15P9}}</td>  
+                    <td style="padding: 2px; text-align: center; width:40px;">{{15P10}}</td>                                    
+                </tr>
+
+                <tr>
+                    <td style="padding: 2px; text-align: center; width:40px;">6</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{6M}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{6P1}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{6P2}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{6P3}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{6P4}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{6P5}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{6P6}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{6P7}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{6P8}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{6P9}}</td>  
+                    <td style="padding: 2px; text-align: center; width:40px;">{{6P10}}</td>    
+                    <td style="padding: 2px; text-align: center; width:40px;">16</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{16M}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{16P1}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{16P2}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{16P3}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{16P4}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{16P5}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{16P6}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{16P7}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{16P8}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{16P9}}</td>  
+                    <td style="padding: 2px; text-align: center; width:40px;">{{16P10}}</td>                       
+                </tr>
+
+                <tr>
+                    <td style="padding: 2px; text-align: center; width:40px;">7</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{7M}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{7P1}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{7P2}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{7P3}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{7P4}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{7P5}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{7P6}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{7P7}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{7P8}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{7P9}}</td>  
+                    <td style="padding: 2px; text-align: center; width:40px;">{{7P10}}</td>   
+                    <td style="padding: 2px; text-align: center; width:40px;">17</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{17M}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{17P1}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{17P2}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{17P3}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{17P4}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{17P5}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{17P6}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{17P7}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{17P8}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{17P9}}</td>  
+                    <td style="padding: 2px; text-align: center; width:40px;">{{17P10}}</td>                                        
+                </tr>
+
+                <tr>
+                    <td style="padding: 2px; text-align: center; width:40px;">8</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{8M}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{8P1}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{8P2}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{8P3}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{8P4}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{8P5}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{8P6}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{8P7}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{8P8}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{8P9}}</td>  
+                    <td style="padding: 2px; text-align: center; width:40px;">{{8P10}}</td>                    
+                    <td style="padding: 2px; text-align: center; width:40px;">18</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{18M}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{18P1}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{18P2}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{18P3}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{18P4}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{18P5}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{18P6}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{18P7}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{18P8}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{18P9}}</td>  
+                    <td style="padding: 2px; text-align: center; width:40px;">{{18P10}}</td>                   
+                </tr>
+
+                <tr>
+                    <td style="padding: 2px; text-align: center; width:40px;">9</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{9M}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{9P1}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{9P2}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{9P3}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{9P4}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{9P5}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{9P6}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{9P7}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{9P8}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{9P9}}</td>  
+                    <td style="padding: 2px; text-align: center; width:40px;">{{9P10}}</td>                  
+                    <td style="padding: 2px; text-align: center; width:40px;">19</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{19M}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{19P1}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{19P2}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{19P3}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{19P4}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{19P5}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{19P6}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{19P7}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{19P8}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{19P9}}</td>  
+                    <td style="padding: 2px; text-align: center; width:40px;">{{19P10}}</td>                   
+                </tr>
+
+                <tr>
+                    <td style="padding: 2px; text-align: center; width:40px;">10</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{10M}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{10P1}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{10P2}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{10P3}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{10P4}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{10P5}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{10P6}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{10P7}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{10P8}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{10P9}}</td>  
+                    <td style="padding: 2px; text-align: center; width:40px;">{{10P10}}</td>                    
+                    <td style="padding: 2px; text-align: center; width:40px;">20</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{20M}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{20P1}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{20P2}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{20P3}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{20P4}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{20P5}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{20P6}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{20P7}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{20P8}}</td>
+                    <td style="padding: 2px; text-align: center; width:40px;">{{20P9}}</td>  
+                    <td style="padding: 2px; text-align: center; width:40px;">{{20P10}}</td>                   
+                </tr>
+
+
+            </table>
+
+            <table border=1 style="font-size=3">
+                <tr>
+                    <td style="padding: 2px; background-color: rgb(102, 99, 99); color: rgb(247, 243, 236); font-size:3;" ><b> Remarks</b></td>
+                </tr>
+                <tr>
+                <td style="padding: 2px; height:110;">{{remarks|linebreaks }}&nbsp;</td>
+                </tr>
+            </table>
+
+            <table font=2, cellspacing=0, border=1 style="margin-left: 3%;  width:90%">
+                <tr>
+                    <th style="padding:2px; text-align: center; background-color: rgb(48, 213, 200); color: rgb(247, 243, 236);">
+                        Decision</th>
+                    <th style="padding:2px; text-align: center; background-color: rgb(102, 99, 99); color: rgb(247, 243, 236);">{{karar}}
+                    </th>
+                    <th style="padding:2px; text-align: center; background-color: rgb(102, 99, 99); color: rgb(247, 243, 236);"
+                        colspan="2">Rework by {{ekislem}}</th>
+                </tr>
+
+                <tr>
+                    <td style="text-align: center; padding:2px">Cont. by</td>
+                    <td style="text-align: center;">{{kontrol}}</td>
+                    <td style="text-align: center;">Apporeved by</td>
+                    <td style="text-align: center;">{{onaylayan}}</td>
+                </tr>
+                <tr>
+                    <td style= "padding:2px">Bosch Rexroth Gebze <br> SK. No: 10 41420, Çayirova/Kocaeli</td>
+                    <td style= "padding:2px">FR 77109-106 <br> Yayinlayan</td>
+                    <td style= "padding:2px">Revizyon:4 <br> DCTRJOMM</td>
+                    <td style= "padding:2px">Tarih: ######## <br> Sayfa 1/1</td>
+                </tr>
+            </table>
+    </div>

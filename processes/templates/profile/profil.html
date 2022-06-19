@@ -1,0 +1,39 @@
+{% extends 'base1.html' %}
+{% load static %}
+{% block content %}
+
+      <div class="content-wrapper">
+        <section class="content-header">
+          <h1>
+            User Profile
+            
+          </h1>
+        </section>
+
+        <section class="content">
+            <br>
+        <div class="row">
+                <div class="col-md-4">
+                    <div class="box-header">
+                        {% if user.userprofile.profile_photo.url is not None %}
+                        <img class="img-rounded img-responsive" src="{{ user.userprofile.profile_photo.url }}" alt="" width="200px">
+                        {% else %}
+                        <img class="img-rounded img-responsive" src="{% static 'default.png' %}" alt="" width="200px">
+                        {% endif %}
+                        <br>
+                        
+                        <h4><b>Name & Surname:</b> {{ user.get_full_name }}</h4>
+                        <h4><b>Department:</b>  {{ request.user.userprofile.dep }}</h4>
+                        <!--buraya ünvan gelecek(ilk modelde oluşturulacak) -->
+                        <h4><b>Title:</b> {{ request.user.userprofile.position }}</h4>
+                        <!-- epostaya view'da if condition'u verilecek-->
+                        <h4><b>Email:</b>  {{ request.user.email }}</h4>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+      </div>
+
+
+{% endblock %} 

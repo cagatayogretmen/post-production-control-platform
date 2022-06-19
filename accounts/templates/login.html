@@ -1,5 +1,5 @@
 {% extends 'base_accounts.html' %}
-{% load staticfiles %}
+{% load static %}
 
 {% block title %}Sisteme Giriş | RexrothAPP{% endblock %}
 
@@ -11,7 +11,7 @@
         <a href=""><b>Rexroth</b>APP</a>
       </div><!-- /.login-logo -->
       <div class="login-box-body">
-        <p class="login-box-msg">Bosch Rexroth Kalite Kontrol Uygulaması</p>
+        <p class="login-box-msg">Bosch Rexroth Quality Control Application</p>
 
         {% if form.non_field_errors %}
           {% for error in form.non_field_errors %}
@@ -36,9 +36,13 @@
               {% endif %}
             </div>
             {% endfor %}
-            <button type="submit" class="btn btn-primary btn-block btn-flat">Giriş Yap</button>
-          </form> <br>
-        <span>Şifrenizi unuttuysanız OMM ile iletişime geçiniz.</span>    
+            <button type="submit" class="btn btn-primary btn-block btn-flat">Log in</button>
+          </form>
+          <br>
+          <button  onclick="window.location.href='{% url 'admin:index' %}' " class="btn btn-primary btn-block btn-flat">Admin Panel</button>
+          <!-- <button  onclick="window.location.href='{% url 'password_reset' %}' " class="btn btn-primary btn-block btn-flat">Reset Password</button>-->
+<br>
+        <span>If you have forgotten your password, contact OMM.</span>    
       </div><!-- /.login-box-body -->
     </div><!-- /.login-box -->
 {% endblock %}

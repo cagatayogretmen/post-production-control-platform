@@ -1,6 +1,5 @@
 {% extends 'base1.html' %}
-{%load staticfiles%}
-
+{% load static %}
 {% block content %}
 
 
@@ -8,20 +7,18 @@
   <!-- Content Header (Page header) -->
   <section class="content-header">
     <h1>
-      {{ process.product }} Ürünü
+      {{ process.product }} - Update Final Assembly
     </h1>
-    <ol class="breadcrumb">
-      <li><a href="#"><i class="fa fa-dashboard"></i> Anasayfa</a></li>
-      <li><a href="#">Ürün Güncelle</a></li>
-    </ol>
   </section>
   <section class="content">
       <div class="row">
         <div class="col-md-12">
           <!-- general form elements disabled -->
-          <div class="box box-warning">
+          <div class="box ">
+            <div style="background:url('/static/rexroth_images/6.JPG'); background-size: contain;background-color: rgba(255,255,255,0.8); background-blend-mode: lighten;">
+
             <div class="box-body">
-              <form action="{% url 'update-process3' process.pk %}" method="post">
+              <form action="{% url 'update-process6' process.pk %}" method="post">
                   {% csrf_token %}
                     <!-- text input -->
                 {% for field in form %}
@@ -30,13 +27,14 @@
                   {{ field }}
                 </div>
                 {% endfor %}
-                <button class="btn btn-block btn-danger btn-lg">Ürünü Güncelle</button>  
+                <button class="btn btn-block btn-danger btn-lg">Update Process</button>  
               </form>
             </div><!-- /.box-body -->
           </div><!-- /.box -->
         </div><!--/.col (right) -->
       </div>   <!-- /.row -->
+      </div>
     </section><!-- /.content -->
-
+</div>
     
 {% endblock %} 

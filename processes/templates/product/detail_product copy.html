@@ -1,6 +1,5 @@
 {% extends 'base1.html' %}
-{%load staticfiles%}
-
+{% load static %}
 {% block content %}
 
 <div class="content-wrapper">
@@ -9,10 +8,6 @@
       <h1>
         {{ product.product_name }} Ürünü
       </h1>
-      <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Anasayfa</a></li>
-        <li><a href="#">Ürün oluştur</a></li>
-      </ol>
     </section>
 
     <section class="content">
@@ -38,7 +33,7 @@
             {% endif %}
 
             {% if deger_4 == 1 %}
-              <button class="btn btn-block btn-default btn-lg"><a href="{% url 'detail-process4' process4.pk %}">Kaynak raporu tamamla</a></button>
+              <button class="btn btn-block btn-default btn-lg"><a href="{% url 'detail-process4' process4.pk %}">Kaynak Complete Report</a></button>
             {% else %}
               <button class="btn btn-block btn-default btn-lg"><a href="{% url 'create-process4' %}">Kaynak raporunu oluştur</a></button>
             {% endif %}

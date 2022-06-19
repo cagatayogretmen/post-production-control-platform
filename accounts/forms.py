@@ -5,8 +5,8 @@ from .models import UserProfile
 
 
 class LoginForm(forms.Form):
-    username = forms.CharField(required=True, max_length=50, label = 'Kullanıcı Adı', widget = forms.TextInput(attrs={'class': 'form-control'}))
-    password = forms.CharField(required=True, max_length=50, label = 'Parola', widget = forms.PasswordInput(attrs={'class': 'form-control'}))
+    username = forms.CharField(required=True, max_length=50, label = 'Username', widget = forms.TextInput(attrs={'class': 'form-control'}))
+    password = forms.CharField(required=True, max_length=50, label = 'Password', widget = forms.PasswordInput(attrs={'class': 'form-control'}))
  
 
     def clean(self):
@@ -15,4 +15,4 @@ class LoginForm(forms.Form):
 
         user = authenticate(username = username, password = password)
         if not user:
-            raise forms.ValidationError('Hatalı giriş yapıldı, lütfen tekrar deneyiniz.')
+            raise forms.ValidationError('Incorrect login, please try again.')

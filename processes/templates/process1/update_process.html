@@ -1,42 +1,397 @@
 {% extends 'base1.html' %}
-{%load staticfiles%}
-
+{% load static %}
 {% block content %}
 
 
 <div class="content-wrapper">
-  <!-- Content Header (Page header) -->
-  <section class="content-header">
-    <h1>
-      {{ process.product }} Ürünü
-    </h1>
-    <ol class="breadcrumb">
-      <li><a href="#"><i class="fa fa-dashboard"></i> Anasayfa</a></li>
-      <li><a href="#">Ürün Güncelle</a></li>
-    </ol>
-  </section>
-  <section class="content">
-      <div class="row">
-        <div class="col-md-12">
-          <!-- general form elements disabled -->
-          <div class="box box-warning">
-            <div class="box-body">
-              <form action="{% url 'update-process1' process.pk %}" method="post">
-                  {% csrf_token %}
-                    <!-- text input -->
-                {% for field in form %}
-                <div class="form-group">
-                  <label>{{ field.label }}</label></br>
-                  {{ field }}
-                </div>
-                {% endfor %}
-                <button class="btn btn-block btn-danger btn-lg">Raporu Tamamla</button>  
-              </form>
-            </div><!-- /.box-body -->
-          </div><!-- /.box -->
-        </div><!--/.col (right) -->
-      </div>   <!-- /.row -->
-    </section><!-- /.content -->
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            {{ process.product }} - Update Incoming Inspection
+        </h1>
+    </section>
+    <section class="content">
 
-    
-{% endblock %} 
+        <div class="row">
+
+            <div class="col-md-12">
+                <!-- general form elements disabled -->
+                <div class="box ">
+                    <div
+                        style="background:url('/static/rexroth_images/1.png'); background-size: contain;background-color: rgba(255,255,255,0.8); background-blend-mode: lighten;">
+
+                        <div class="box-body">
+                            <form role="form" method="POST" , enctype="multipart/form-data">
+                                {% csrf_token %}
+                                {{form.media}}
+                                {{for.as_p}}
+                                <!-- text input -->
+                                <div class="form-group">
+
+                                    <label>{{form.product.label}}</label><br>{{form.product}}<br><br>
+                                    <label>{{form.q0.label}}</label><br>{{form.q0}}<br><br>
+                                    <label>{{form.q1.label}}</label><br>{{form.q1}}<br><br>
+                                    <label>{{form.q2.label}}</label><br>{{form.q2}}<br><br>
+                                    <label>{{form.q7.label}}</label><br>{{form.q7}}<br><br>
+                                    <label>{{form.q8.label}}</label><br>{{form.q8}}<br><br>
+                                    <label>{{form.q9.label}}</label><br>{{form.q9}}<br><br>
+                                    <label>{{form.q10.label}}</label><br>{{form.q10}}<br><br>
+                                    <label>{{form.q11.label}}</label><br>{{form.q11}}<br><br>
+                                    <label>{{form.q12.label}}</label><br>{{form.q12}}<br><br>
+                                    <label>{{form.q13.label}}</label><br>{{form.q13}}<br><br>
+                                    <label>{{form.q14.label}}</label><br>{{form.q14}}<br><br>
+                                    <label>{{form.q15.label}}</label><br>{{form.q15}}<br><br>
+                                    <label>{{form.q16.label}}</label><br>{{form.q16}}<br><br>
+                                    <label>{{form.q17.label}}</label><br>{{form.q17}}<br><br>
+                                    <label>{{form.q18.label}}</label><br>{{form.q18}}<br><br>
+                                    <label>{{form.q19.label}}</label><br>{{form.q19}}<br><br>
+
+                                    <label>{{form.picture1.label}}</label><br>{{form.picture1}}<br><br>
+                                    <label>{{form.picture2.label}}</label><br>{{form.picture2}}<br><br>
+                                    <label>{{form.picture3.label}}</label><br>{{form.picture3}}<br><br>
+                                    <label>{{form.picture4.label}}</label><br>{{form.picture4}}<br><br>
+                                    <label>{{form.picture5.label}}</label><br>{{form.picture5}}<br><br>
+                                    <label>{{form.picture6.label}}</label><br>{{form.picture6}}<br><br>
+                                    <label>{{form.picture7.label}}</label><br>{{form.picture7}}<br><br>
+                                    <label>{{form.picture8.label}}</label><br>{{form.picture8}}<br><br>
+
+
+                                    <div style="width:100%;" class="table-responsive">
+                                        <table border=1>
+                                            <th style="padding: 2px; text-align: center; " colspan=12> Dimen. with out
+                                                of tolerance </th>
+                                            <tr>
+                                                <th style="padding: 1px; text-align: center; ">Dimension No</TH>
+                                                <th style="padding: 1px; text-align: center; ">Measure</th>
+                                                <th style="padding: 1px; text-align: center; ">Part 1</th>
+                                                <th style="padding: 1px; text-align: center; ">Part 2</th>
+                                                <th style="padding: 1px; text-align: center; ">Part 3</th>
+                                                <th style="padding: 1px; text-align: center; ">Part 4</th>
+                                                <th style="padding: 1px; text-align: center; ">Part 5</th>
+                                                <th style="padding: 1px; text-align: center; ">Part 6</th>
+                                                <th style="padding: 1px; text-align: center; ">Part 7</th>
+                                                <th style="padding: 1px; text-align: center; ">Part 8</th>
+                                                <th style="padding: 1px; text-align: center; ">Part 9</th>
+                                                <th style="padding: 1px; text-align: center; ">Part 10</th>
+
+                                            </tr>
+                                            <tr>
+                                                <td style="padding: 1px; text-align: center;">1</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q20}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q21}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q22}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q23}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q24}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q25}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q26}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q27}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q28}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q29}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q30}}</td>
+                                            </tr>
+
+                                            <tr>
+                                                <td style="padding: 1px; text-align: center;">2</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q31}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q32}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q33}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q34}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q35}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q36}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q37}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q38}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q39}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q40}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q41}}</td>
+                                            </tr>
+
+
+                                            <tr>
+                                                <td style="padding: 1px; text-align: center;">3</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q42}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q43}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q44}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q45}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q46}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q47}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q48}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q49}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q50}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q51}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q52}}</td>
+                                            </tr>
+
+                                            <tr>
+                                                <td style="padding: 1px; text-align: center;">4</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q53}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q54}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q55}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q56}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q57}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q58}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q59}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q60}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q61}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q62}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q63}}</td>
+                                            </tr>
+
+                                            <tr>
+                                                <td style="padding: 1px; text-align: center;">5</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q64}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q65}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q66}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q67}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q68}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q69}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q70}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q71}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q72}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q73}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q74}}</td>
+                                            </tr>
+
+                                            <tr>
+                                                <td style="padding: 1px; text-align: center;">6</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q75}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q76}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q77}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q78}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q79}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q80}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q81}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q83}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q83}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q84}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q85}}</td>
+                                            </tr>
+
+                                            <tr>
+                                                <td style="padding: 1px; text-align: center;">7</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q86}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q87}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q88}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q89}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q90}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q91}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q92}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q93}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q94}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q95}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q96}}</td>
+                                            </tr>
+
+                                            <tr>
+                                                <td style="padding: 1px; text-align: center;">8</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q97}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q98}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q99}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q100}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q101}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q102}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q103}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q104}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q105}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q106}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q107}}</td>
+                                            </tr>
+
+                                            <tr>
+                                                <td style="padding: 1px; text-align: center;">9</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q108}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q109}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q110}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q111}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q112}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q113}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q114}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q115}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q116}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q117}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q118}}</td>
+                                            </tr>
+
+                                            <tr>
+                                                <td style="padding: 1px; text-align: center;">10</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q119}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q120}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q121}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q122}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q123}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q124}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q125}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q126}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q127}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q128}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q129}}</td>
+                                            </tr>
+
+                                            <tr>
+                                                <td style="padding: 1px; text-align: center;">11</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q130}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q131}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q132}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q133}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q134}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q135}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q136}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q137}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q138}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q139}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q140}}</td>
+                                            </tr>
+
+                                            <tr>
+                                                <td style="padding: 1px; text-align: center;">12</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q141}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q142}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q143}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q144}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q145}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q146}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q147}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q148}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q149}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q150}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q151}}</td>
+                                            </tr>
+
+                                            <tr>
+                                                <td style="padding: 1px; text-align: center;">13</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q152}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q153}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q153}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q155}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q156}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q157}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q158}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q159}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q160}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q161}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q162}}</td>
+                                            </tr>
+
+                                            <tr>
+                                                <td style="padding: 1px; text-align: center;">14</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q163}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q164}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q165}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q166}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q167}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q168}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q169}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q170}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q171}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q172}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q173}}</td>
+                                            </tr>
+
+                                            <tr>
+                                                <td style="padding: 1px; text-align: center;">15</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q174}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q175}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q176}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q177}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q178}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q179}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q180}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q181}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q182}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q183}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q184}}</td>
+                                            </tr>
+
+                                            <tr>
+                                                <td style="padding: 1px; text-align: center;">16</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q185}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q186}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q187}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q188}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q189}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q190}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q191}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q192}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q193}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q194}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q195}}</td>
+                                            </tr>
+
+                                            <tr>
+                                                <td style="padding: 1px; text-align: center;">17</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q196}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q197}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q198}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q199}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q200}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q201}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q202}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q203}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q204}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q205}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q206}}</td>
+                                            </tr>
+
+                                            <tr>
+                                                <td style="padding: 1px; text-align: center;">18</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q207}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q208}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q209}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q210}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q211}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q212}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q213}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q214}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q215}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q216}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q217}}</td>
+                                            </tr>
+
+                                            <tr>
+                                                <td style="padding: 1px; text-align: center;">19</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q218}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q219}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q220}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q221}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q222}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q223}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q224}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q225}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q226}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q227}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q228}}</td>
+                                            </tr>
+
+                                            <tr>
+                                                <td style="padding: 1px; text-align: center;">20</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q229}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q230}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q231}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q232}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q233}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q234}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q235}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q236}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q237}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q238}}</td>
+                                                <td style="padding: 1px; text-align: center;  ">{{form.q239}}</td>
+                                            </tr>
+
+                                        </table>
+                                    </div>
+                                    <br>
+                                    <label>{{form.q1111.label}}</label><br>{{form.q1111}}<br><br>
+                                    <label>{{form.q2222.label}}</label><br>{{form.q2222}}<br><br>
+                                    <label>{{form.q3333.label}}</label><br>{{form.q3333}}<br><br>
+                                    <label>{{form.q4444.label}}</label><br>{{form.q4444}}<br><br>
+                                </div>
+                                <button class="btn btn-block btn-danger btn-lg">Update Process</button>
+                            </form>
+                        </div><!-- /.box-body -->
+                    </div>
+                </div>
+            </div><!-- /.box -->
+        </div>
+        <!--/.col (right) -->
+      </section><!-- /.content -->
+      </div>
+{% endblock %}

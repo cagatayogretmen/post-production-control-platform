@@ -1,0 +1,175 @@
+{% load static %}
+{% load pdf_filters %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+
+    </style>
+</head>
+
+<body>
+    <div class="content" style="border:ridge">
+        <b>
+            <u>Son Kalite Kontrol Formu - ÜNİTE (QG5)</u>
+        </b>
+        <div class="row">
+            <div class="column1">
+                <table cellspacing=0, border=1 style="padding:5½;">
+                    <tr>
+                        <td style="padding:5½;">Tarih : </td>
+                        <td style="padding:½;">{{tarih}}</td>
+                    </tr>
+
+                    <tr>
+                        <td style="padding:5½;" > Müşteri Sipariş No : </td>
+                        <td>{{müsteri_siparis_no}}</td>
+                    </tr>
+                    <tr>
+                        <td>Üretim Sipariş No : </td>
+                        <td>{{üretim_siparis_no}}</td>
+                    </tr>
+
+                    <tr>
+                        <td>İdent No :</td>
+                        <td>{{ident_no}}</td>
+                    </tr>
+
+                    <tr>
+                        <td>Resim No :</td>
+                        <td></td>
+                    </tr>
+
+                    <tr>
+                        <td>Adet : </td>
+                        <td></td>
+                    </tr>
+
+                    <tr>
+                        <td>Montajı Yapan:</td>
+                        <td></td>
+                    </tr>
+
+                    <tr>
+                        <td>Testi Yapan:</td>
+                        <td></td>
+                    </tr>
+
+                    <tr>
+                        <td>Kontrol Kriterleri</td>
+                        <td>Kapsam Dışı |OK |RED </td>
+                    </tr>
+
+                    <tr>
+                        <td>Temizlik, Boya Dökülmesi <br> Çapak, Yağ tavasında <br> ve tanık yüzeyinde yağ</td>
+                        <td></td>
+                    </tr>
+
+                    <tr>
+                        <td>Darbe, Pas</td>
+                        <td></td>
+                    </tr>
+
+                    <tr>
+                        <td>Açık hatlar uygun <br> kapaklarla kapatılmıştır</td>
+                        <td></td>
+                    </tr>
+
+                    <tr>
+                        <td>Eksik Malzeme</td>
+                        <td></td>
+                    </tr>
+
+                    <tr>
+                        <td>Hortum Basınç Değeri <be> ve Hortum Kelepçesi</td>
+                        <td></td>
+                    </tr>
+
+                    <tr>
+                        <td>Boya Kalınlığı </td>
+                        <td></td>
+                    </tr>
+
+                    <tr>
+                        <td>UYARI Etiketleri <br> (Elektrik motoru dönüş yönü, <br> Akü çalışma basıncı)</td>
+                        <td></td>
+                    </tr>
+
+                    <tr>
+                        <td>Basınç Filtresi</td>
+                        <td></td>
+                    </tr>
+
+                    <tr>
+                        <td>Yağ Kaçağı <br> (Kör tapa kullanımı)</td>
+                        <td></td>
+                    </tr>
+
+                    <tr>
+                        <td>Dokümantasyon</td>
+                        <td></td>
+                    </tr>
+
+                    <tr>
+                        <td>Kaldırma Kulakları</td>
+                        <td></td>
+                    </tr>
+
+                    <tr>
+                        <td>Ünite Etiketi</td>
+                        <td></td>
+                    </tr>
+
+                    <tr>
+                        <td>Etikete Numaratör <br> Vurulmuş mu?</td>
+                        <td></td>
+                    </tr>
+
+                    <tr>
+                        <td>Tank yanında gidecek <br>malzemelerin paketlenmesi</td>
+                        <td></td>
+                    </tr>
+                </table>
+            </div class="column1">
+
+        </div>
+        <br><br><br><br><br><br><br><br><br><br><br>
+        <a>Açıklama: </a>
+        <br>
+        <textarea name="message" rows="10" cols="105" "></textarea>
+        <br><br>
+
+        <table style="width:100%" , cellspacing=0, border=1>
+            <tr>
+                <th>Karar</th>
+                <th>OK</th>
+                <th colspan="2">EK İŞLEM (REXROTH)</th>
+            </tr>
+            <tr>
+                <td>Kontrol Eden:</td>
+                <td></td>
+                <td>Onaylayan: </td>
+                <td></td>
+
+            </tr>
+            <tr>
+                <td>Bosch Rexroth Gebze</td>
+                <td></td>
+                <td>Revizyon:</td>
+                <td>Tarih:</td>
+            </tr>
+            <tr>
+                <td>SK. No: 10 41420, <br>Çayırova/Kocaeli</td>
+                <td>Yayınlayan</td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+
+</body>
+
+</html>

@@ -1,46 +1,49 @@
 {% extends 'base1.html' %}
-{%load staticfiles%}
-
+{% load static %}
 
 {% block content %}
 
-      <!-- Right side column. Contains the navbar and content of the page -->
-      <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
-        <section class="content-header">
-          <h1>
-            Yeni süreç oluştur
-          </h1>
-          <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i> Anasayfa</a></li>
-            <li><a href="#">Süreç oluştur</a></li>
-          </ol>
-        </section>
+<!-- Right side column. Contains the navbar and content of the page -->
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <h1>
+      Start Test(QG4) Process
+    </h1>
+  </section>
 
-      </section>
-      <section class="content">
-          <div class="row">
-            <div class="col-md-12">
-              <!-- general form elements disabled -->
-              <div class="box box-warning">
+  </section>
+  <section class="content">
+    <div class="row">
+      <div class="col-md-12">
+        <!-- general form elements disabled -->
+        <div class="box">
+          <div
+            style="background:url('/static/rexroth_images/7.JPG'); background-size: contain;background-color: rgba(255,255,255,0.8); background-blend-mode: lighten;">
+
                 <div class="box-body">
-                  <form role="form" method="post">
+                  <form role="form" method="post" enctype="multipart/form-data">
                     {% csrf_token %}
+                    {{form.media}}
+                    {{for.as_p}}                    
                         <!-- text input -->
                     {% for field in form %}
                     <div class="form-group">
-                      <label>{{ field.label }}</label></br>
+                      
+                      <label> {{ field.label }}</label></br>
                       {{ field }}
                     </div>
                     {% endfor %}
-                    <button class="btn btn-block btn-danger btn-lg">Süreci oluştur</button>  
+                    <button class="btn btn-block btn-danger btn-lg">Start Process</button>  
                   </form>
-                </div><!-- /.box-body -->
-              </div><!-- /.box -->
-            </div><!--/.col (right) -->
-          </div>   <!-- /.row -->
-        </section><!-- /.content -->
+            </div>
+          </div><!-- /.box-body -->
+        </div><!-- /.box -->
       </div>
+      <!--/.col (right) -->
+    </div> <!-- /.row -->
+  </section><!-- /.content -->
+</div>
 
 
-{% endblock %} 
+{% endblock %}

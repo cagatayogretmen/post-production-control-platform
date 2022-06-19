@@ -1,6 +1,5 @@
 {% extends 'base1.html' %}
-{%load staticfiles%}
-
+{% load static %}
 <title>{% block title %} {{ text }} {% endblock %}</title>
 
 {% block content %}
@@ -12,10 +11,6 @@
           <h1>
             {{ text }}
           </h1>
-          <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i> Anasayfa</a></li>
-            <li><a href="#">{{ text }}</a></li>
-          </ol>
         </section>
 
       </section>
@@ -34,7 +29,7 @@
                       {{ field }}
                     </div>
                     {% endfor %}
-                    <button class="btn btn-block btn-danger btn-lg">Süreci oluştur</button>  
+                    <button class="btn btn-block btn-danger btn-lg">Build Process</button>  
                   </form>
                 </div><!-- /.box-body -->
               </div><!-- /.box -->

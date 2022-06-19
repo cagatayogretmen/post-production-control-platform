@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="latin-1">
+    <title></title>
+</head>
+
+<body>
+        <b>
+            <h3 style="text-align: center;">Son Kalite Kontrol Formu - ÜNİTE (QG5)</h3>
+        </b>
+        <table cellspacing=0, border=1 style=" margin-left:3%; margin-right:7%; width:90%">
+            <tr>
+                <td>Tarih : </td>
+                <td><center><b>{{tarih}}</b></center></td>
+                <td rowspan="4" style="text-align: center;">Resim 1</td>
+                <td rowspan="4" style="text-align: center;">Resim 2</td>
+
+            </tr>
+
+            <tr>
+                <td> Müşteri Sipariş No : </td>
+                <td><center><b>{{musteri}}</b></center></td>
+            </tr>
+            <tr>
+                <td>Üretim Sipariş No : </td>
+                <td><center><b>{{üretim_siparis_no}}</b></td>
+            </tr>
+
+            <tr>
+                <td>İdent No :</td>
+                <td><center><b>{{ident}}</b></center></td>
+            </tr>
+
+            <tr>
+                <td>Resim No :</td>
+                <td></td>
+                <td rowspan="4" style="text-align: center;">Resim 3</td>
+                <td rowspan="4" style="text-align: center;">Resim 4</td>
+            </tr>
+
+            <tr>
+                <td>Adet : </td>
+                <td> <center><b>{{adet}}</b></center></td>
+            </tr>
+
+            <tr>
+                <td>Montajı Yapan:</td>
+                <td><center><b>{{montajyapan}}</b></center></td>
+            </tr>
+
+            <tr>
+                <td>Testi Yapan:</td>
+                <td><center><b>{{testiyapan}}</b></center></td>
+            </tr>
+
+            <tr>
+                <td>Kontrol Kriterleri</td>
+                <td style="text-align: center;"><b>Kapsam Dışı |OK |RED </b></td>
+                <td rowspan="5" style="text-align: center;">Resim 5</td>
+                <td rowspan="5" style="text-align: center;">Resim 6</td>
+
+            </tr>
+
+            <tr>
+                <td>Temizlik, Boya Dökülmesi Çapak, <br>Yağ tavasında ve tanık yüzeyinde yağ</td>
+                <td><center><b>{{temizlik}}</b></center></td>
+            </tr>
+
+            <tr>
+                <td>Darbe, Pas</td>
+                <td><center><b>{{darbe}}</b></center></td>
+            </tr>
+
+            <tr>
+                <td>Açık hatlar uygun kapaklarla kapatılmıştır</td>
+                <td><center><b>{{acik}}</b></center></td>
+            </tr>
+
+            <tr>
+                <td>Eksik Malzeme</td>
+                <td><center><b>{{eksik}}</b></center></td>
+            </tr>
+
+            <tr>
+                <td>Hortum Basınç Değeri ve Hortum Kelepçesi</td>
+                <td><center><b>{{hortum}}</b></center></td>
+                <td rowspan="5" style="text-align: center;">Resim 7</td>
+                <td rowspan="5" style="text-align: center;">Resim 8</td>
+            </tr>
+
+            <tr>
+                <td>Boya Kalınlığı </td>
+                <td><center><b>{{boya}}</b></center></td>
+            </tr>
+
+            <tr>
+                <td>UYARI Etiketleri <br> (Elektrik motoru dönüş yönü, Akü çalışma basıncı)</td>
+                <td><center><b>{{uyari}}</b></center></td>
+            </tr>
+
+            <tr>
+                <td>Basınç Filtresi</td>
+                <td><center><b>{{basinc}}</b></center></td>
+            </tr>
+
+            <tr>
+                <td>Yağ Kaçağı (Kör tapa kullanımı)</td>
+                <td><center><b>{{yag}}</b></center></td>
+            </tr>
+
+            <tr>
+                <td>Dokümantasyon</td>
+                <td><center><b>{{dokumantasyon}}</b></center></td>
+                <td rowspan="5" style="text-align: center;">Resim 9</td>
+                <td rowspan="5" style="text-align: center;">Resim 10</td>
+
+            </tr>
+
+            <tr>
+                <td>Kaldırma Kulakları</td>
+                <td><center><b>{{kaldirma}}</b></center></td>
+            </tr>
+
+            <tr>
+                <td>Ünite Etiketi</td>
+                <td><center><b>{{unite}}</b></center></td>
+            </tr>
+
+            <tr>
+                <td>Etikete Numaratör Vurulmuş mu?</td>
+                <td><center><b>{{etiket}}</b></center></td>
+            </tr>
+
+            <tr>
+                <td style="width:25%">Tank yanında gidecek malzemelerin paketlenmesi</td>
+                <td style="width:25%"><center><b>{{tank}}</b></center></td>
+            </tr>
+        </table>
+        <a style=" margin-left:3%; margin-right:7%"><b>Açıklama:</b> </a>
+        <br>
+        <textarea style="margin-left: 3%; margin-right: 3%;" name="message" rows="10" cols="98"></textarea>
+
+        <table cellspacing=0, border=1 style="margin-left: 3%;  width:90%">
+            <tr>
+                <th style="text-align: center;">Karar</th>
+                <th style="text-align: center;" </th> <th style="text-align: center;" colspan="2">EK İŞLEM
+                    (REXROTH)</th>
+            </tr>
+
+            <tr>
+                <td style="text-align: center;">Kontrol Eden:</td>
+                <td style="text-align: center;">{{testiyapan}}</td>
+                <td style="text-align: center;">Onaylayan:</td>
+                <td style="text-align: center;"></td>
+            </tr>
+            <tr>
+                <td>Bosch Rexroth Gebze <br> SK. No: 10 41420, Çayırova/Kocaeli</td>
+                <td>FR 77109-106 <br> Yayınlayan</td>
+                <td>Revizyon:4 <br> DCTRJOMM</td>
+                <td>Tarih: ######## <br> Sayfa 1/1</td>
+            </tr>
+        </table>
+
+    </div>
+    </div>
+</body>
+
+</html>

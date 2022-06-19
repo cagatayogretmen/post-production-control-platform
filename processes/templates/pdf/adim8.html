@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+</head>
+
+<body>
+    <font size="4">
+
+        <h1 style="text-align: center; font-size:5;">Final Inspection Report 
+            <img src="..\rexroth_v1\media\rexothlogo.png" width="150px" height="50px"
+                align="right"></h1>
+        <table cellspacing=0, border=1>
+            <tr>
+                <td
+                    style="padding: 2px; background-color: rgb(102, 99, 99); color: rgb(247, 243, 236); text-align:right ;">
+                    Date : </td> {{produck.pk}}
+                <td>
+                    <center><b>{{tarih|date:"d.m.Y"}}</b></center>
+                </td>
+                <td rowspan="5" style="text-align: center;"><img
+                        src="..\media\{{resim1}}" width="250px" height="160px" alt="">
+                </td>
+                <td rowspan="5" style="text-align: center;"><img
+                        src="..\media\{{resim2}}" width="250px" height="160px" alt="">
+                </td>
+            </tr>
+
+            <tr>
+                <td
+                    style="padding: 2px; background-color: rgb(102, 99, 99); color: rgb(247, 243, 236); text-align:right ;">
+                    Customer Order No : </td>
+                <td>
+                    <center><b>{{musteri}}</b></center>
+                </td>
+            </tr>
+            <tr>
+                <td
+                    style="padding: 2px; background-color: rgb(102, 99, 99); color: rgb(247, 243, 236); text-align:right ;">
+                    Production Order No : </td>
+                <td>
+                    <center><b>{{uretim_siparis_no}}</b></center>
+                </td>
+            </tr>
+
+            <tr>
+                <td
+                    style="padding: 2px; background-color: rgb(102, 99, 99); color: rgb(247, 243, 236); text-align:right ;">
+                    Ident No :</td>
+                <td>
+                    <center><b>{{ident}}</b></center>
+                </td>
+            </tr>
+
+            <tr>
+                <td
+                    style="padding: 2px; background-color: rgb(102, 99, 99); color: rgb(247, 243, 236); text-align:right ;">
+                    Drawing No :</td>
+                <td>
+                    <center><b>{{rno}}</b></center>
+                </td>
+
+            </tr>
+
+
+
+            <tr>
+                <td
+                    style="padding: 2px; background-color: rgb(102, 99, 99); color: rgb(247, 243, 236); text-align:right ;">
+                    Quantity : </td>
+                <td>
+                    <center><b>{{adet}}</b></center>
+                </td>
+                <td rowspan="5" style="text-align: center;"><img
+                        src="..\media\{{resim3}}" width="250px" height="160px" alt="">
+                </td>
+                <td rowspan="5" style="text-align: center;"><img
+                        src="..\media\{{resim4}}" width="250px" height="160px" alt="">
+                </td>
+
+            </tr>
+
+            <tr>
+                <td
+                    style="padding: 2px; background-color: rgb(102, 99, 99); color: rgb(247, 243, 236); text-align:right ;">
+                    Assemblied by:</td>
+                <td>
+                    <center><b>{{montajyapan}} </b></center>
+                </td>
+            </tr>
+
+            <tr>
+                <td
+                    style="padding: 2px; background-color: rgb(102, 99, 99); color: rgb(247, 243, 236); text-align:right ;">
+                    Tested by:</td>
+                <td>
+                    <center><b>{{testiyapan}}</b></center>
+                </td>
+            </tr>
+
+            <tr>
+                <td
+                    style="padding: 2px; background-color: rgb(48, 213, 200); color: rgb(247, 243, 236); text-align:right ;">
+                    Control Criteries</td>
+                <td style="text-align: center; background-color: rgb(48, 213, 200); color: rgb(247, 243, 236);">
+                    <b>OUT OF SCOPE | OK | RED </b></td>
+
+            </tr>
+
+            <tr>
+                <td
+                    style="padding: 2px; background-color: rgb(102, 99, 99); color: rgb(247, 243, 236); text-align:right ;">
+                    Cleanliness, Oil, Paint Failure</td>
+                <td>
+                    <center><b>{{temizlik}}</b></center>
+                </td>
+
+            </tr>
+
+            <tr>
+                <td
+                    style="padding: 2px; background-color: rgb(102, 99, 99); color: rgb(247, 243, 236); text-align:right ;">
+                    Deformation, Rust</td>
+                <td>
+                    <center><b>{{darbe}}</b></center>
+                </td>
+                <td rowspan="5" style="text-align: center;"><img
+                        src="..\media\{{resim5}}" width="250px" height="160px" alt="">
+                </td>
+                <td rowspan="5" style="text-align: center;"><img
+                        src="..\media\{{resim6}}" width="250px" height="160px" alt="">
+                </td>
+            </tr>
+
+            <tr>
+                <td
+                    style="padding: 2px; background-color: rgb(102, 99, 99); color: rgb(247, 243, 236); text-align:right ;">
+                    Open holes closed</td>
+                <td>
+                    <center><b>{{acik}}</b></center>
+                </td>
+            </tr>
+
+            <tr>
+                <td
+                    style="padding: 2px; background-color: rgb(102, 99, 99); color: rgb(247, 243, 236); text-align:right ;">
+                    Missing Component</td>
+                <td>
+                    <center><b>{{eksik}}</b></center>
+                </td>
+            </tr>
+
+            <tr>
+                <td
+                    style="padding: 2px; background-color: rgb(102, 99, 99); color: rgb(247, 243, 236); text-align:right ;">
+                    Hose Press Lim/Security Rope</td>
+                <td>
+                    <center><b>{{hortum}}</b></center>
+                </td>
+
+            </tr>
+
+            <tr>
+                <td
+                    style="padding: 2px; background-color: rgb(102, 99, 99); color: rgb(247, 243, 236); text-align:right ;">
+                    Paint Thickness </td>
+                <td>
+                    <center><b>{{boya}}</b></center>
+                </td>
+            </tr>
+
+            <tr>
+                <td
+                    style="padding: 2px; background-color: rgb(102, 99, 99); color: rgb(247, 243, 236); text-align:right ;">
+                    Warning Labels</td>
+                <td>
+                    <center><b>{{uyari}}</b></center>
+                </td>
+                <td rowspan="4" style="text-align: center;"><img
+                        src="..\media\{{resim7}}" width="250px" height="150px" alt="">
+                </td>
+                <td rowspan="4" style="text-align: center;"><img
+                        src="..\media\{{resim8}}" width="250px" height="150px" alt="">
+                </td>
+            </tr>
+
+            <tr>
+                <td
+                    style="padding: 2px; background-color: rgb(102, 99, 99); color: rgb(247, 243, 236); text-align:right ;">
+                    Press. Filter <br>Flow Direction</td>
+                <td>
+                    <center><b>{{basinc}}</b></center>
+                </td>
+            </tr>
+
+            <tr>
+                <td
+                    style="padding: 2px; background-color: rgb(102, 99, 99); color: rgb(247, 243, 236); text-align:right ;">
+                    Oil leakage</td>
+                <td>
+                    <center><b>{{yag}}</b></center>
+                </td>
+            </tr>
+
+            <tr>
+                <td
+                    style="padding: 2px; background-color: rgb(102, 99, 99); color: rgb(247, 243, 236); text-align:right ;">
+                    Documentation</td>
+                <td>
+                    <center><b>{{dokumantasyon}}</b></center>
+                </td>
+
+            </tr>
+
+            <tr>
+                <td
+                    style="padding: 2px; background-color: rgb(102, 99, 99); color: rgb(247, 243, 236); text-align:right ;">
+                    Lifting Eyes</td>
+                <td>
+                    <center><b>{{kaldirma}}</b></center>
+                </td>
+                <td rowspan="4" style="text-align: center;"><img
+                        src="..\media\{{resim9}}" width="250px" height="150px" alt="">
+                </td>
+                <td rowspan="4" style="text-align: center;"><img
+                        src="..\media\{{resim10}}" width="250px" height="150px" alt="">
+                </td>
+            </tr>
+
+            <tr>
+                <td
+                    style="padding: 2px; background-color: rgb(102, 99, 99); color: rgb(247, 243, 236); text-align:right ;">
+                    Traceability Label</td>
+                <td>
+                    <center><b>{{unite}}</b></center>
+                </td>
+            </tr>
+
+            <tr>
+                <td
+                    style="padding: 2px; background-color: rgb(102, 99, 99); color: rgb(247, 243, 236); text-align:right ;">
+                    Marked of Prod. Employee</td>
+                <td>
+                    <center><b>{{etiket}}</b></center>
+                </td>
+            </tr>
+
+            <tr>
+                <td
+                    style="padding: 2px; background-color: rgb(102, 99, 99); color: rgb(247, 243, 236); text-align:right ;">
+                    Other Ass. <br> Part Package</td>
+                <td>
+                    <center><b>{{tank}}</b></center>
+                </td>
+            </tr>
+        </table>
+        
+        <br>
+        <table border=1 style="font-size=4">
+            <tr>
+                <td style="width:100%; padding: 2px; background-color: rgb(102, 99, 99); color: rgb(247, 243, 236); font-size:3;"><b> Remarks</b></td>
+            </tr>
+            <tr>
+            <td style="padding: 2px; height:120">{{aciklama|linebreaks}}&nbsp;</td>
+            </tr>
+        </table>
+        <br>
+
+        <table style="width:100%; font-size:4;" , cellspacing=0, border=1>
+            <tr>
+                <th style="padding: 2px; background-color: rgb(48, 213, 200); color: rgb(247, 243, 236);">Decision</th>
+                <th style="background-color: rgb(102, 99, 99); color: rgb(247, 243, 236);">{{karar}}</th>
+                <th style="background-color: rgb(102, 99, 99); color: rgb(247, 243, 236);" colspan="2">
+                    <center><b>
+                            {{ekislem}} </center></b>
+                </th>
+            </tr>
+            <tr>
+                <td style="padding: 2px;">
+                    <center><b>Controlled by:</center></b>
+                </td>
+                <td>
+                    <center><b>{{kontrol}}</b></center>
+                </td>
+                <td style="padding: 2px;">
+                    <center><b>Apporeved by: </center></b>
+                </td>
+                <td>
+                    <center><b>{{onaylayan}}</b></center>
+                </td>
+
+            </tr>
+            <table style="font-size:3;" border=0>
+                <tr>
+                    <td style="padding: 2px;">Bosch Rexroth DCTR/Geb <br> TOSB 1. Cad. 14.Sok. No:10 Çayirove <br>
+                        Kocaeli / Turkiye </td>
+                    <td style="padding: 2px; text-align:center;"><b>FR-77142-010</b> Revizyon:4 <br> Yayinlayan:
+                        DCTR/EPU </td>
+                    <td style="padding: 2px; text-align:right;">Tarih: {{tarih1|date:"d.m.Y"}} <br> Sayfa 1/1 </td>
+                </tr>
+            </table>
+        </table>
+        </div>
+
+
+</body>
+
+</html>

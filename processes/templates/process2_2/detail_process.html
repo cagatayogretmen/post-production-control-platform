@@ -1,0 +1,52 @@
+{% extends 'base1.html' %}
+{% load static %}
+{% block content %}
+
+
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <h1>
+      Delete process 2 of {{ process.product }}
+    </h1>
+  </section>
+
+  <section class="content">
+                  <div style="background:url('/static/rexroth_images/2.JPG'); background-size: contain;background-color: rgba(255,255,255,0.8); background-blend-mode: lighten;">
+
+    <div class="row">
+      <div class="col-md-3">
+        <button class="btn btn-block btn-default btn-lg"><a href="{% url 'update-process2' process.pk %}">Update Process</a></button>
+        <button class="btn btn-block btn-default btn-lg"><a href="{% url 'delete-process2' process.pk %}">Delete Process</a></button><br>
+        <button class="btn btn-block btn-default btn-lg"><a href="{% url 'detail-product' product.pk %}">Return to Process Page</a></button>
+
+      </div>
+      <div class="col-md-3">
+        <div class="box-body">
+          <dl>
+            <dt>Oluşturan Kişi</dt>
+            <dd>{{ process.created_by }}</dd>
+            <dt>Ürün Durumu</dt>
+            <dd>{{ process.status }}</dd>
+            <dt>Sipariş Poziyon Numarası</dd>
+            <dd>{{ process.order_position_no }}</dt>
+            <dt>Miktar</dd>
+            <dd>{{ process.quantity }}</dt>
+            <dt>Oluşturan Kişi</dt>
+            <dd>{{ process.created_by }}</dd>
+            <dt>Ürün Durumu</dt>
+            <dd>{{ process.status }}</dd>
+            <dt>Sipariş Poziyon Numarası</dd>
+            <dd>{{ process.order_position_no }}</dt>
+            <dt>Miktar</dd>
+            <dd>{{ process.quantity }}</dt>                  
+          </dl>
+        </div><!-- /.box-body -->
+      </div>
+      </div>
+
+</section>
+
+</div>
+    
+{% endblock %} 

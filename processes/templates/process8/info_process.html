@@ -1,0 +1,142 @@
+{% extends 'base1.html' %}
+{% load static %}
+{% block content %}
+
+
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <h1>
+      {{ process.product }} - Final Control (QG5) Information
+    </h1>
+  </section>
+  <section class="content">
+      <div class="row">
+        <div class="col-md-12">
+          <!-- general form elements disabled -->
+          <div class="box">
+            <div style="background:url('/static/rexroth_images/8.JPG'); background-size: contain;background-color: rgba(255,255,255,0.8); background-blend-mode: lighten;">
+
+            <div class="box-body">
+              {% csrf_token %}
+              <!-- text input -->
+              <table id="example1" class="table table-bordered " style="font-weight:bold">
+                <thead>
+                  <tr>
+                    <th style="text-align:center">Questions</th>
+                    <th style="text-align:center">Answers</th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  {% for field in form %}
+                  <tr>
+                    <td>{{ field.label }}</td>
+
+                    {% if field.label == "Upload Image 1"%}
+                    <td style="text-align:center"><a href="..\media\{{field.value}}">Picture 1</a></td>
+                    {% endif %}
+
+                    {% if field.label == "Upload Image 2"%}
+                    <td style="text-align:center"><a href="..\media\{{field.value}}">Picture 2</a></td>
+                    {% endif %}
+
+                    {% if field.label == "Upload Image 3"%}
+                    <td style="text-align:center"><a href="..\media\{{field.value}}">Picture 3</a></td>
+                    {% endif %}                
+
+                    {% if field.label == "Upload Image 4"%}
+                    <td style="text-align:center"><a href="..\media\{{field.value}}">Picture 4</a></td>
+                    {% endif %}
+
+                    {% if field.label == "Upload Image 5"%}
+                    <td style="text-align:center"><a href="..\media\{{field.value}}">Picture 5</a></td>
+                    {% endif %}
+
+                    {% if field.label == "Upload Image 6"%}
+                    <td style="text-align:center"><a href="..\media\{{field.value}}">Picture 6</a></td>
+                    {% endif %}
+
+                    {% if field.label == "Upload Image 7"%}
+                    <td style="text-align:center"><a href="..\media\{{field.value}}">Picture 7</a></td>
+                    {% endif %}
+
+                    {% if field.label == "Upload Image 8"%}
+                    <td style="text-align:center"><a href="..\media\{{field.value}}">Picture 8</a></td>
+                    {% endif %}
+
+                    {% if field.label == "Upload Image 9"%}
+                    <td style="text-align:center"><a href="..\media\{{field.value}}">Picture 9</a></td>
+                    {% endif %}
+
+                    {% if field.label == "Upload Image 10"%}
+                    <td style="text-align:center"><a href="..\media\{{field.value}}">Picture 10</a></td>
+                    {% endif %}
+
+                    {% if field.label == "Remarks"%}
+                    <td style="text-align:center">{{field.value|linebreaks}}&nbsp;</td>
+                    {% endif %}
+
+                    {% if field.label == "Product"%}
+                    <td style="text-align:center">{{field}}</td>
+                    {% endif %}
+                    {% if field.value == 0  and field.label != "Product" and field.label != "Rework" and field.label != "Controller" and field.label != "Approving Person" and field.label != "Result"%}
+                    <td style="text-align:center">OK</td>
+                    {% endif %}
+                    {% if field.value == 1  and field.label != "Product" and field.label != "Rework" and field.label != "Controller" and field.label != "Approving Person" and field.label != "Result"%}
+                    <td style="text-align:center">RED</td>
+                    {% endif %}
+                    {% if field.value == 2  and field.label != "Product" and field.label != "Rework" and field.label != "Controller" and field.label != "Approving Person" and field.label != "Result"%}
+                    <td style="text-align:center">OUT OF SCOPE</td>
+                    {% endif %}
+
+
+
+                    {% if field.value == 0  and field.label == "Rework"%}
+                    <td style="text-align:center">Rework</td>
+                    {% endif %}
+                    {% if field.value == 1  and field.label == "Rework"%}
+                    <td style="text-align:center">Not Tested</td>
+                    {% endif %}
+
+                    {% if field.value == 0  and field.label == "Controller"%}
+                    <td style="text-align:center">Aydın Kongel</td>
+                    {% endif %}
+                    {% if field.value == 1  and field.label == "Controller"%}
+                    <td style="text-align:center">Ferdi Akdemir</td>
+                    {% endif %}
+
+
+                    {% if field.value == 0  and field.label == "Approving Person"%}
+                    <td style="text-align:center">Aydın Kongel</td>
+                    {% endif %}
+                    {% if field.value == 1  and field.label == "Approving Person"%}
+                    <td style="text-align:center">Ferdi Akdemir</td>
+                    {% endif %}
+
+                    {% if field.value == 0  and field.label == "Result"%}
+                    <td style="text-align:center">OK</td>
+                    {% endif %}
+                    {% if field.value == 1  and field.label == "Result"%}
+                    <td style="text-align:center">CONDITIONAL ADMISSION</td>
+                    {% endif %}
+                    {% if field.value == 2  and field.label == "Result"%}
+                    <td style="text-align:center">RED</td>
+                    {% endif %}
+
+
+                  </tr>
+                  {% endfor %}
+
+                </tbody>
+              </table>
+        <a class="btn btn-block btn-danger btn-lg"href="{% url 'list-product' %}">Return to Product List</a>
+            </div><!-- /.box-body -->
+            </div>
+          </div><!-- /.box -->
+        </div><!--/.col (right) -->
+      </div>   <!-- /.row -->
+    </section><!-- /.content -->
+</div>
+    
+{% endblock %} 
